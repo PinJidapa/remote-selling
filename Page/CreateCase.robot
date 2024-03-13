@@ -35,16 +35,17 @@ Validate Create Case Response
     ${backIdCardRequired}=    Get From Dictionary    ${responseDictCases["proprietors"][0]["verificationCache"]["backIdCardConfig"]}    required
     Should Be True   ${backIdCardAttempt}
 
-    ${idFaceRecognitionAttempt}=    Get From Dictionary    ${responseDictCases["proprietors"][0]["verificationCache"]["idFaceRecognition"]}    attempts
+    ${idFaceRecognitionAttempt}=    Get From Dictionary    ${responseDictCases["proprietors"][0]["verificationCache"]["idFaceRecognitionConfig"]}    attempts
     Should Be Equal As Integers    ${idFaceRecognitionAttempt}    3
 
-    ${idFaceRecognitionRequired}=    Get From Dictionary    ${responseDictCases["proprietors"][0]["verificationCache"]["idFaceRecognition"]}    required
+    ${idFaceRecognitionRequired}=    Get From Dictionary    ${responseDictCases["proprietors"][0]["verificationCache"]["idFaceRecognitionConfig"]}    required
     Should Be True   ${idFaceRecognitionAttempt}
-
-
-
-
-    # Should Be True   ${frontIdCardRequiredConfig}
     # Should Not Be True
 
-    # ["verificationCache"][0]["frontIdCardConfig"][0]
+Validate Invite Type As SMS
+    ${inviteType}=    Get From Dictionary       ${responseDictCases["proprietors"][0]}    inviteType
+    Should Be Equal As Strings    ${inviteType}      sms
+
+Validate Invite Type As Email
+    ${inviteType}=    Get From Dictionary       ${responseDictCases["proprietors"][0]}    inviteType
+    Should Be Equal As Strings    ${inviteType}      email

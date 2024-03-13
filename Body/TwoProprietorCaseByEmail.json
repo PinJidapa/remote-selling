@@ -19,8 +19,8 @@
             "firstName": "xxx",
             "middleName": null,
             "lastName": "โอบกิจกาจพล",
-            "inviteType": "sms",
-            "phoneNumber": "0619926554",
+            "inviteType": "email",
+            "email": "jidapa.o@appman.co.th",
             "title": {
                 "key": "005",
                 "code": "005",

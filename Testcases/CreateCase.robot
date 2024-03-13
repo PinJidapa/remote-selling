@@ -6,7 +6,7 @@ Resource        ../Resourse/Env/${env}/Credential.robot
 Resource        ../Resourse/Env/${env}/Url.robot
 
 *** Test Cases ***
-Post Create Case
+Post Create Case By Email
     ${accessToken}=     Get Token
     ...    ${clientId}    
     ...    ${clientSecret}    
@@ -16,4 +16,5 @@ Post Create Case
     ...    ${baseUrl}
     ...    TwoProprietorCaseByEmail
     Validate Create Case Response
+    Validate Invite Type As Email
 
