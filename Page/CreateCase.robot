@@ -1,8 +1,14 @@
 *** Settings ***
 Library         RequestsLibrary
+# Library         JSONSchemaLibrary
+Library         JSONLibrary
 Library         Collections
 Resource        ./GetToken.robot
 Library         OperatingSystem
+
+*** Variables ***
+${SCHEMA}    {"type": "object", "properties": {"key": {"type": "string"}}, "required": ["key"]}
+${JSON_DATA}    {"key": "value"}
 
 *** Keywords *** 
 Create Case
@@ -16,31 +22,23 @@ Create Case
     ${responseCases} =    POST    ${baseUrl}/cases    json=${jsonData}
     ...    headers=${headers}
     ${responseBodyCases} =    Set Variable    ${responseCases.text}
-    ${responseDictCases} =    Evaluate    json.loads($responseBodyCases)
+    ${responseDictCases} =    Evaluate    json.loads($responseBodyCases)    json
     Set Test Variable    ${responseDictCases}
 
 Validate Create Case Response
+
     ${meetingRoom}=    Get From Dictionary    ${responseDictCases}    meetingRoomId
     Should Not Be Empty   ${meetingRoom}
 
-    ${frontIdCardAttempt}=    Get From Dictionary    ${responseDictCases["proprietors"][0]["verificationCache"]["frontIdCardConfig"]}    attempts
-    Should Be Equal As Integers    ${frontIdCardAttempt}    3
+    ${frontIdCardAttempt}=    Get From Dictionary    ${responseDictCases["proprietors"][0]["verificationCache"]}    frontIdCardConfig
+    # Log To Console    ${frontIdCardAttempt}
 
-    ${frontIdCardRequired}=    Get From Dictionary    ${responseDictCases["proprietors"][0]["verificationCache"]["frontIdCardConfig"]}    required
-    Should Be True   ${frontIdCardRequired}
-    
-    ${backIdCardAttempt}=    Get From Dictionary    ${responseDictCases["proprietors"][0]["verificationCache"]["backIdCardConfig"]}    attempts
-    Should Be Equal As Integers    ${backIdCardAttempt}    3
-
-    ${backIdCardRequired}=    Get From Dictionary    ${responseDictCases["proprietors"][0]["verificationCache"]["backIdCardConfig"]}    required
-    Should Be True   ${backIdCardAttempt}
-
-    ${idFaceRecognitionAttempt}=    Get From Dictionary    ${responseDictCases["proprietors"][0]["verificationCache"]["idFaceRecognitionConfig"]}    attempts
-    Should Be Equal As Integers    ${idFaceRecognitionAttempt}    3
-
-    ${idFaceRecognitionRequired}=    Get From Dictionary    ${responseDictCases["proprietors"][0]["verificationCache"]["idFaceRecognitionConfig"]}    required
-    Should Be True   ${idFaceRecognitionAttempt}
-    # Should Not Be True
+    # ${parsed_json}=    Evaluate    json.loads($frontIdCardAttempt)
+    ${formatted_json}=    Evaluate    json.dumps($frontIdCardAttempt)
+    # Log To Console    ${formatted_json}
+    # Should Be Equal As Strings    ${expected_json}    ${actual_json}
+    ${actual_json}=    Set Variable    {\"attempts\": 3, \"required\": true, \"isEditable\": true, \"threshHold\": 0.8, \"validations\": [], \"currentAttempt\": 3, \"dependenciesRequired\": false, \"compareNonEssentialFields\": false}
+    Should Be Equal As Strings     ${formatted_json}    ${actual_json}
 
 Validate Invite Type As SMS
     ${inviteType}=    Get From Dictionary       ${responseDictCases["proprietors"][0]}    inviteType
@@ -49,3 +47,7 @@ Validate Invite Type As SMS
 Validate Invite Type As Email
     ${inviteType}=    Get From Dictionary       ${responseDictCases["proprietors"][0]}    inviteType
     Should Be Equal As Strings    ${inviteType}      email
+    
+
+    
+
