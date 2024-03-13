@@ -1,12 +1,19 @@
 *** Settings ***
 Library           SeleniumLibrary
+Resource        ../Page/GetToken.robot
+Resource        ../Page/CreateCase.robot
+Resource        ../Resourse/Env/${env}/Credential.robot
+Resource        ../Resourse/Env/${env}/Url.robot
 
 *** Test Cases ***
-Open Browser
-    Open Browser    https://www.google.com    chrome
-    Maximize Browser Window
-    Set Selenium Speed    0.5s
-    Input Text    name=q    Hello World
-    Click Button    name=btnK
-    Capture Page Screenshot
-    Close Browser
+Post Create Case
+    ${accessToken}=     Get Token
+    ...    ${clientId}    
+    ...    ${clientSecret}    
+    ...    ${authUrl}
+    Create Case
+    ...    ${accessToken}
+    ...    ${baseUrl}
+    ...    TwoProprietorCaseByEmail
+    Validate Create Case Response
+

@@ -6,7 +6,7 @@ For example, to create a new test instance for the login page, create a new file
 ```bash
     python -m robot -d Log -r ${REPORT NAME} -o ${OUTPUT NAME} -l ${LOG NAME} --variable env:${ENV Testcases/NAME OF FILE}.robot
 ```
-
+ 
 ### Suggested directory structure
 
 The directory structure given by the template:

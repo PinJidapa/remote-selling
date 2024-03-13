@@ -1,2 +1,16 @@
+certifi
+chardet
+idna
+numpy
+pandas
+python-dateutil
+pytz
+requests
+requests-toolbelt
 robotframework
+robotframework-pythonlibcore
+robotframework-requests
 robotframework-seleniumlibrary
+selenium
+six
+urllib3
