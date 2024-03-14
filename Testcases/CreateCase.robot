@@ -13,12 +13,14 @@ Post Create Case By Email
     ...    ${clientId}    
     ...    ${clientSecret}    
     ...    ${authUrl}
-    Create Case
+    ${responseDictCases}=    Create Case
     ...    ${accessToken}
     ...    ${baseUrl}
     ...    TwoProprietorCaseByEmail
-    Validate Create Case Response
+    Validate Verification Response
+    ...    ${responseDictCases}
     Validate Invite Type As Email
+    ...    ${responseDictCases}
 
 # Validate frontIdCardConfig JSON
 #     ${expected_json}=    Set Variable    "{ \"attempts\": 3, \"required\": true, \"isEditable\": true, \"threshHold\": 0.8, \"validations\": [], \"currentAttempt\": 3, \"dependenciesRequired\": false, \"compareNonEssentialFields\": false }"

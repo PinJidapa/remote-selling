@@ -1,7 +1,7 @@
 *** Settings ***
 Library         RequestsLibrary
 # Library         JSONSchemaLibrary
-Library         JSONLibrary
+# Library         JSONLibrary
 Library         Collections
 Resource        ./GetToken.robot
 Library         OperatingSystem
@@ -23,28 +23,39 @@ Create Case
     ...    headers=${headers}
     ${responseBodyCases} =    Set Variable    ${responseCases.text}
     ${responseDictCases} =    Evaluate    json.loads($responseBodyCases)    json
-    Set Test Variable    ${responseDictCases}
+    Return From Keyword    ${responseDictCases}
 
-Validate Create Case Response
-
+Validate Verification Response
+    [Arguments]    ${responseDictCases}
     ${meetingRoom}=    Get From Dictionary    ${responseDictCases}    meetingRoomId
     Should Not Be Empty   ${meetingRoom}
 
-    ${frontIdCardAttempt}=    Get From Dictionary    ${responseDictCases["proprietors"][0]["verificationCache"]}    frontIdCardConfig
-    # Log To Console    ${frontIdCardAttempt}
+    ${frontIdCardConfig}=    Get From Dictionary    ${responseDictCases["proprietors"][0]["verificationCache"]}    frontIdCardConfig
+    ${formattedActualFrontIdCardConfig}=    Evaluate    json.dumps($frontIdCardConfig)
+   
+    ${filePath} =    Get File    ${EXECDIR}/Resourse/TestData/CreateCase/verificationResponse.json
+    ${verificationsConfig} =    Evaluate    json.loads('''${filePath}''') 
+    ${expectedFrontIdCardConfig}=    Get From Dictionary    ${verificationsConfig}    frontIdCardConfig  
+    ${formattedExpectedFrontIdCardConfig}=    Evaluate    json.dumps($expectedFrontIdCardConfig)
+    
+    Should Be Equal As Strings     ${formattedExpectedFrontIdCardConfig}    ${formattedActualFrontIdCardConfig}
 
-    # ${parsed_json}=    Evaluate    json.loads($frontIdCardAttempt)
-    ${formatted_json}=    Evaluate    json.dumps($frontIdCardAttempt)
-    # Log To Console    ${formatted_json}
-    # Should Be Equal As Strings    ${expected_json}    ${actual_json}
-    ${actual_json}=    Set Variable    {\"attempts\": 3, \"required\": true, \"isEditable\": true, \"threshHold\": 0.8, \"validations\": [], \"currentAttempt\": 3, \"dependenciesRequired\": false, \"compareNonEssentialFields\": false}
-    Should Be Equal As Strings     ${formatted_json}    ${actual_json}
+    ${backIdCardConfig}=    Get From Dictionary    ${responseDictCases["proprietors"][0]["verificationCache"]}    backIdCardConfig
+    ${formattedActualBackIdCardConfig}=    Evaluate    json.dumps($backIdCardConfig)
+
+    ${expectBackIdCardConfig}=    Get From Dictionary    ${verificationsConfig}    backIdCardConfig
+    ${formattedExpectedBackIdCardConfig}=    Evaluate    json.dumps($expectBackIdCardConfig)
+
+     Should Be Equal As Strings     ${formattedActualBackIdCardConfig}    ${formattedExpectedBackIdCardConfig}
+    
 
 Validate Invite Type As SMS
+    [Arguments]    ${responseDictCases}
     ${inviteType}=    Get From Dictionary       ${responseDictCases["proprietors"][0]}    inviteType
     Should Be Equal As Strings    ${inviteType}      sms
 
 Validate Invite Type As Email
+    [Arguments]    ${responseDictCases}
     ${inviteType}=    Get From Dictionary       ${responseDictCases["proprietors"][0]}    inviteType
     Should Be Equal As Strings    ${inviteType}      email
     
