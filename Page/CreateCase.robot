@@ -1,8 +1,14 @@
 *** Settings ***
 Library         RequestsLibrary
+# Library         JSONSchemaLibrary
+# Library         JSONLibrary
 Library         Collections
 Resource        ./GetToken.robot
 Library         OperatingSystem
+
+*** Variables ***
+${SCHEMA}    {"type": "object", "properties": {"key": {"type": "string"}}, "required": ["key"]}
+${JSON_DATA}    {"key": "value"}
 
 *** Keywords *** 
 Create Case
@@ -16,36 +22,52 @@ Create Case
     ${responseCases} =    POST    ${baseUrl}/cases    json=${jsonData}
     ...    headers=${headers}
     ${responseBodyCases} =    Set Variable    ${responseCases.text}
-    ${responseDictCases} =    Evaluate    json.loads($responseBodyCases)
-    Set Test Variable    ${responseDictCases}
+    ${responseDictCases} =    Evaluate    json.loads($responseBodyCases)    json
+    Return From Keyword    ${responseDictCases}
 
-Validate Create Case Response
+Validate Verification Response
+    [Arguments]    ${responseDictCases}
     ${meetingRoom}=    Get From Dictionary    ${responseDictCases}    meetingRoomId
     Should Not Be Empty   ${meetingRoom}
 
-    ${frontIdCardAttempt}=    Get From Dictionary    ${responseDictCases["proprietors"][0]["verificationCache"]["frontIdCardConfig"]}    attempts
-    Should Be Equal As Integers    ${frontIdCardAttempt}    3
-
-    ${frontIdCardRequired}=    Get From Dictionary    ${responseDictCases["proprietors"][0]["verificationCache"]["frontIdCardConfig"]}    required
-    Should Be True   ${frontIdCardRequired}
+    ${frontIdCardConfig}=    Get From Dictionary    ${responseDictCases["proprietors"][0]["verifications"][0]}    frontIdCardConfig
+    ${formattedActualFrontIdCardConfig}=    Evaluate    json.dumps($frontIdCardConfig)
+   
+    ${filePath} =    Get File    ${EXECDIR}/Resourse/TestData/CreateCase/verificationResponse.json
+    ${verificationsConfig} =    Evaluate    json.loads('''${filePath}''') 
+    ${expectedFrontIdCardConfig}=    Get From Dictionary    ${verificationsConfig}    frontIdCardConfig  
+    ${formattedExpectedFrontIdCardConfig}=    Evaluate    json.dumps($expectedFrontIdCardConfig)
     
-    ${backIdCardAttempt}=    Get From Dictionary    ${responseDictCases["proprietors"][0]["verificationCache"]["backIdCardConfig"]}    attempts
-    Should Be Equal As Integers    ${backIdCardAttempt}    3
+    Should Be Equal As Strings     ${formattedExpectedFrontIdCardConfig}    ${formattedActualFrontIdCardConfig}
 
-    ${backIdCardRequired}=    Get From Dictionary    ${responseDictCases["proprietors"][0]["verificationCache"]["backIdCardConfig"]}    required
-    Should Be True   ${backIdCardAttempt}
+    ${backIdCardConfig}=    Get From Dictionary    ${responseDictCases["proprietors"][0]["verifications"][0]}    backIdCardConfig
+    ${formattedActualBackIdCardConfig}=    Evaluate    json.dumps($backIdCardConfig)
 
-    ${idFaceRecognitionAttempt}=    Get From Dictionary    ${responseDictCases["proprietors"][0]["verificationCache"]["idFaceRecognitionConfig"]}    attempts
-    Should Be Equal As Integers    ${idFaceRecognitionAttempt}    3
+    ${expectedBackIdCardConfig}=    Get From Dictionary    ${verificationsConfig}    backIdCardConfig
+    ${formattedExpectedBackIdCardConfig}=    Evaluate    json.dumps($expectedBackIdCardConfig)
 
-    ${idFaceRecognitionRequired}=    Get From Dictionary    ${responseDictCases["proprietors"][0]["verificationCache"]["idFaceRecognitionConfig"]}    required
-    Should Be True   ${idFaceRecognitionAttempt}
-    # Should Not Be True
+     Should Be Equal As Strings     ${formattedActualBackIdCardConfig}    ${formattedExpectedBackIdCardConfig}
+    
+    ${idFaceRecognitionConfig}=    Get From Dictionary    ${responseDictCases["proprietors"][0]["verifications"][0]}    idFaceRecognitionConfig
+    ${formattedActualIdFaceRecognitionConfig}=    Evaluate    json.dumps($idFaceRecognitionConfig)
+
+    ${expectedIdFaceRecognitionConfig}=    Get From Dictionary    ${verificationsConfig}    idFaceRecognitionConfig
+    ${formattedExpectedIdFaceRecognitionConfig}=    Evaluate    json.dumps($expectedIdFaceRecognitionConfig)
+
+     Should Be Equal As Strings     ${formattedActualIdFaceRecognitionConfig}    ${formattedExpectedIdFaceRecognitionConfig}
+    
+
 
 Validate Invite Type As SMS
+    [Arguments]    ${responseDictCases}
     ${inviteType}=    Get From Dictionary       ${responseDictCases["proprietors"][0]}    inviteType
     Should Be Equal As Strings    ${inviteType}      sms
 
 Validate Invite Type As Email
+    [Arguments]    ${responseDictCases}
     ${inviteType}=    Get From Dictionary       ${responseDictCases["proprietors"][0]}    inviteType
     Should Be Equal As Strings    ${inviteType}      email
+    
+
+    
+

@@ -1,0 +1,28 @@
+{
+    "frontIdCardConfig":{
+        "attempts": 3,
+        "required": true,
+        "isEditable": true,
+        "threshHold": 0.8,
+        "validations": [],
+        "currentAttempt": 3,
+        "dependenciesRequired": false,
+        "compareNonEssentialFields": false
+    },
+    "backIdCardConfig": {
+        "attempts": 3,
+        "required": true,
+        "isEditable": true,
+        "threshHold": 0.8,
+        "currentAttempt": 3,
+        "dependenciesRequired": false
+    },
+    "idFaceRecognitionConfig": {
+        "attempts": 3,
+        "required": true,
+        "threshHold": 0.8,
+        "currentAttempt": 3,
+        "livenessProvider": "facetecXAWS",
+        "dependenciesRequired": false
+    }
+}
