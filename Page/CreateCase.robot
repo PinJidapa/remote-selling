@@ -1,10 +1,9 @@
 *** Settings ***
 Library         RequestsLibrary
-# Library         JSONSchemaLibrary
-# Library         JSONLibrary
+Library         ../Scripts/validate.py
 Library         Collections
-Resource        ./GetToken.robot
 Library         OperatingSystem
+Resource        ./GetToken.robot
 
 *** Variables ***
 ${SCHEMA}    {"type": "object", "properties": {"key": {"type": "string"}}, "required": ["key"]}
@@ -27,36 +26,8 @@ Create Case
 
 Validate Verification Response
     [Arguments]    ${responseDictCases}
-    ${meetingRoom}=    Get From Dictionary    ${responseDictCases}    meetingRoomId
-    Should Not Be Empty   ${meetingRoom}
-
-    ${frontIdCardConfig}=    Get From Dictionary    ${responseDictCases["proprietors"][0]["verifications"][0]}    frontIdCardConfig
-    ${formattedActualFrontIdCardConfig}=    Evaluate    json.dumps($frontIdCardConfig)
-   
-    ${filePath} =    Get File    ${EXECDIR}/Resourse/TestData/CreateCase/verificationResponse.json
-    ${verificationsConfig} =    Evaluate    json.loads('''${filePath}''') 
-    ${expectedFrontIdCardConfig}=    Get From Dictionary    ${verificationsConfig}    frontIdCardConfig  
-    ${formattedExpectedFrontIdCardConfig}=    Evaluate    json.dumps($expectedFrontIdCardConfig)
+    Validate Json Schema    ${responseDictCases}     ${EXECDIR}/Schema/verificationResponseSchema.json
     
-    Should Be Equal As Strings     ${formattedExpectedFrontIdCardConfig}    ${formattedActualFrontIdCardConfig}
-
-    ${backIdCardConfig}=    Get From Dictionary    ${responseDictCases["proprietors"][0]["verifications"][0]}    backIdCardConfig
-    ${formattedActualBackIdCardConfig}=    Evaluate    json.dumps($backIdCardConfig)
-
-    ${expectedBackIdCardConfig}=    Get From Dictionary    ${verificationsConfig}    backIdCardConfig
-    ${formattedExpectedBackIdCardConfig}=    Evaluate    json.dumps($expectedBackIdCardConfig)
-
-     Should Be Equal As Strings     ${formattedActualBackIdCardConfig}    ${formattedExpectedBackIdCardConfig}
-    
-    ${idFaceRecognitionConfig}=    Get From Dictionary    ${responseDictCases["proprietors"][0]["verifications"][0]}    idFaceRecognitionConfig
-    ${formattedActualIdFaceRecognitionConfig}=    Evaluate    json.dumps($idFaceRecognitionConfig)
-
-    ${expectedIdFaceRecognitionConfig}=    Get From Dictionary    ${verificationsConfig}    idFaceRecognitionConfig
-    ${formattedExpectedIdFaceRecognitionConfig}=    Evaluate    json.dumps($expectedIdFaceRecognitionConfig)
-
-     Should Be Equal As Strings     ${formattedActualIdFaceRecognitionConfig}    ${formattedExpectedIdFaceRecognitionConfig}
-    
-
 
 Validate Invite Type As SMS
     [Arguments]    ${responseDictCases}
