@@ -1,0 +1,212 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "caseType": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string"
+                },
+                "code": {
+                    "type": "string"
+                },
+                "translations": {
+                    "type": "object",
+                    "properties": {
+                        "en": {
+                            "type": "object",
+                            "properties": {
+                                "label": {
+                                    "type": "string"
+                                }
+                            }
+                        },
+                        "th": {
+                            "type": "object",
+                            "properties": {
+                                "label": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "required": [
+                        "en",
+                        "th"
+                    ]
+                }
+            },
+            "required": [
+                "key",
+                "code",
+                "translations"
+            ]
+        },
+        "proprietors": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "expiryDuration": {
+                        "type": "string"
+                    },
+                    "proprietorType": {
+                        "type": "string"
+                    },
+                    "citizenId": {
+                        "type": "string"
+                    },
+                    "firstName": {
+                        "type": "string"
+                    },
+                    "middleName": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "lastName": {
+                        "type": "string"
+                    },
+                    "inviteType": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "dateOfBirth": {
+                        "type": "string"
+                    },
+                    "verifications": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "frontIdCardConfig": {
+                                    "$ref": "#/definitions/idCardConfig"
+                                },
+                                "backIdCardConfig": {
+                                    "$ref": "#/definitions/idCardConfig"
+                                },
+                                "dopaConfig": {
+                                    "$ref": "#/definitions/dopaConfig"
+                                },
+                                "idFaceRecognitionConfig": {
+                                    "$ref": "#/definitions/faceRecognitionConfig"
+                                }
+                            },
+                            "required": [
+                                "frontIdCardConfig",
+                                "backIdCardConfig",
+                                "idFaceRecognitionConfig"
+                            ]
+                        }
+                    }
+                },
+                "required": [
+                    "expiryDuration",
+                    "proprietorType",
+                    "citizenId",
+                    "firstName",
+                    "lastName",
+                    "title",
+                    "dateOfBirth",
+                    "meta",
+                    "verifications"
+                ]
+            }
+        },
+        "attachMeetingRoom": {
+            "type": "boolean"
+        }
+    },
+    "required": [
+        "caseType",
+        "proprietors",
+        "attachMeetingRoom"
+    ],
+    "definitions": {
+        "idCardConfig": {
+            "type": "object",
+            "properties": {
+                "required": {
+                    "type": "boolean"
+                },
+                "isEditable": {
+                    "type": "boolean"
+                },
+                "dependenciesRequired": {
+                    "type": "boolean"
+                },
+                "threshHold": {
+                    "type": "number"
+                },
+                "attempts": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "required",
+                "isEditable",
+                "dependenciesRequired",
+                "attempts"
+            ],
+            "additionalProperties": false
+        },
+        "dopaConfig": {
+            "type": "object",
+            "properties": {
+                "required": {
+                    "type": "boolean"
+                },
+                "isEditable": {
+                    "type": "boolean"
+                },
+                "dependenciesRequired": {
+                    "type": "boolean"
+                },
+                "attempts": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "required",
+                "isEditable",
+                "dependenciesRequired",
+                "attempts"
+            ],
+            "additionalProperties": false
+        },
+        "faceRecognitionConfig": {
+            "type": "object",
+            "properties": {
+                "required": {
+                    "type": "boolean"
+                },
+                "isEditable": {
+                    "type": "boolean"
+                },
+                "dependenciesRequired": {
+                    "type": "boolean"
+                },
+                "threshHold": {
+                    "type": "number"
+                },
+                "attempts": {
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "required",
+                "isEditable",
+                "dependenciesRequired",
+                "attempts"
+            ],
+            "additionalProperties": false
+        }
+    }
+}

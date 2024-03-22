@@ -6,6 +6,7 @@ pandas
 python-dateutil
 pytz
 requests
+jsonschema
 requests-toolbelt
 robotframework
 robotframework-pythonlibcore
