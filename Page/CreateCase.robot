@@ -13,7 +13,6 @@ ${JSON_DATA}    {"key": "value"}
 Create Case
     [Arguments]    ${accessToken}    ${baseUrl}    ${caseType}
     ${headers} =    Create Dictionary
-    ${data} =    Create Dictionary
     Set To Dictionary    ${headers}    Content-Type    application/json
     Set To Dictionary    ${headers}    Authorization    Bearer ${accessToken}
     ${filePath} =    Get File    ${EXECDIR}/Body/${caseType}.json

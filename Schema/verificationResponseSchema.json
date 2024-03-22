@@ -92,10 +92,7 @@
                                 "backIdCardConfig": {
                                     "$ref": "#/definitions/idCardConfig"
                                 },
-                                "dopaConfig": {
-                                    "$ref": "#/definitions/dopaConfig"
-                                },
-                                "idFaceRecognitionConfig": {
+                                "FaceRecognitionConidfig": {
                                     "$ref": "#/definitions/faceRecognitionConfig"
                                 }
                             },
@@ -154,40 +151,12 @@
                 "isEditable",
                 "dependenciesRequired",
                 "attempts"
-            ],
-            "additionalProperties": false
-        },
-        "dopaConfig": {
-            "type": "object",
-            "properties": {
-                "required": {
-                    "type": "boolean"
-                },
-                "isEditable": {
-                    "type": "boolean"
-                },
-                "dependenciesRequired": {
-                    "type": "boolean"
-                },
-                "attempts": {
-                    "type": "integer"
-                }
-            },
-            "required": [
-                "required",
-                "isEditable",
-                "dependenciesRequired",
-                "attempts"
-            ],
-            "additionalProperties": false
+            ]
         },
         "faceRecognitionConfig": {
             "type": "object",
             "properties": {
                 "required": {
-                    "type": "boolean"
-                },
-                "isEditable": {
                     "type": "boolean"
                 },
                 "dependenciesRequired": {
@@ -202,11 +171,9 @@
             },
             "required": [
                 "required",
-                "isEditable",
                 "dependenciesRequired",
                 "attempts"
-            ],
-            "additionalProperties": false
+            ]
         }
     }
 }
