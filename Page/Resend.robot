@@ -18,9 +18,3 @@ Resend Link
     ${responseCases} =    POST    ${baseUrl}/proprietors/${proprietorId}/${invite}${inviteType}    
     ...    expected_status=${expectedStatus}
     ...    headers=${headers}
-    
-    # ${data}     Convert To String       ${responseCases.json()}
-
-    # Status Should Be    ${responseCases}    204
-
-
