@@ -29,14 +29,3 @@ Create Case
 Validate Verification Response
     [Arguments]    ${responseDictCases}
     Validate Json Schema    ${responseDictCases}     ${EXECDIR}/Schema/verificationResponseSchema.json
-    
-
-# Validate Invite Type As SMS
-#     [Arguments]    ${responseDictCases}
-#     ${inviteType}=    Get From Dictionary       ${responseDictCases["proprietors"][0]}    inviteType
-#     Should Be Equal As Strings    ${inviteType}      sms
-
-# Validate Invite Type As Email
-#     [Arguments]    ${responseDictCases}
-#     ${inviteType}=    Get From Dictionary       ${responseDictCases["proprietors"][0]}    inviteType
-#     Should Be Equal As Strings    ${inviteType}      email
