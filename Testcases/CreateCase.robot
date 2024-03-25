@@ -5,10 +5,11 @@ Resource        ../Page/GetToken.robot
 Resource        ../Page/CreateCase.robot
 Resource        ../Resourse/Env/${env}/Credential.robot
 Resource        ../Resourse/Env/${env}/Url.robot
+Resource        ../Page/GetCaseById.robot
 
 *** Test Cases ***
+*** Test Cases ***
 Post Create Case By Email
-
     ${accessToken}=     Get Token
     ...    ${clientId}    
     ...    ${clientSecret}    
@@ -16,13 +17,16 @@ Post Create Case By Email
     ${responseDictCases}=    Create Case
     ...    ${accessToken}
     ...    ${baseUrl}
-    ...    TwoProprietorCaseByEmail
-    Validate Verification Response
-    ...    ${responseDictCases}
-    Validate Invite Type As Email
-    ...    ${responseDictCases}
+    ...    OneProprietorCaseBySms
+    ...    201
+    ${insuredProprietorId} =    Get From Dictionary    ${responseDictCases["proprietors"][0]}    id
+    ${caseId} =    Get From Dictionary    ${responseDictCases}    id
+    Log To Console    ${caseId}  
 
-# Validate frontIdCardConfig JSON
-#     ${expected_json}=    Set Variable    "{ \"attempts\": 3, \"required\": true, \"isEditable\": true, \"threshHold\": 0.8, \"validations\": [], \"currentAttempt\": 3, \"dependenciesRequired\": false, \"compareNonEssentialFields\": false }"
-#     ${actual_json}=    Set Variable    "{ \"attempts\": 3, \"required\": true, \"isEditable\": true, \"threshHold\": 0.8, \"validations\": [], \"currentAttempt\": 3, \"dependenciesRequired\": false, \"compareNonEssentialFields\": false }"
-#     Should Be Equal As Strings    ${expected_json}    ${actual_json}
+    Get Case By Id
+    ...    ${accessToken}
+    ...    ${baseUrl}
+    ...    ${caseId}
+    ...    200
+
+    
