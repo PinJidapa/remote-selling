@@ -7,7 +7,6 @@ Resource        ./GetToken.robot
 
 *** Variables ***
 ${invite}    invite?inviteType=
-${Response}    Response [204]
 
 *** Keywords *** 
 Resend Link
