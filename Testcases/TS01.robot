@@ -1,11 +1,11 @@
 *** Settings ***
 Library         SeleniumLibrary
 Library         JSONLibrary
-Resource        ../Page/GetToken.robot
-Resource        ../Page/CreateCase.robot
-Resource        ../Page/Resend.robot
-Resource        ../Page/GetCaseById.robot
-Resource        ../Page/Kyc.robot
+Resource        ../Page/GetTokenPage.robot
+Resource        ../Page/CreateCasePage.robot
+Resource        ../Page/ResendPage.robot
+Resource        ../Page/GetCaseByIdPage.robot
+Resource        ../Keywords/KycKeyword.robot
 Resource        ../Resourse/Env/${env}/Credential.robot
 Resource        ../Resourse/Env/${env}/Url.robot
 
@@ -42,42 +42,11 @@ Post Create Case By Email
     ...    ${baseUrl}
     ...    ${caseId}
     ...    204
-    Patch Consent
-    ...    ${kycPrivateKey}    
-    ...    ${baseKycUrl}  
-    ...    ${insuredVerificationId}
-    ...    200
-    Post Front ID Card
-    ...    ${kycPrivateKey} 
+    Client Pass Front ID Card, Back ID Card, Not Pass Face Recognition
+    ...    ${kycPrivateKey}
     ...    ${baseKycUrl}
     ...    ${insuredVerificationId}
-    ...    /Resourse/TestData/IdCard/FrontIdCard.JPG
-    ...    image/JPG
-    Patch Front ID Card
-    ...    ${kycPrivateKey} 
-    ...    ${baseKycUrl}
-    ...    ${insuredVerificationId}
-    Post Back ID Card
-    ...    ${kycPrivateKey} 
-    ...    ${baseKycUrl}
-    ...    ${insuredVerificationId}
-    ...    /Resourse/TestData/IdCard/BackIdCard.jpeg
+    ...    /Resourse/TestData/IdCard/FrontIdCard01.jpeg 
+    ...    /Resourse/TestData/IdCard/BackIdCard01.jpeg
     ...    image/jpeg
-    Patch Back ID Card
-    ...    ${kycPrivateKey}
-    ...    ${baseKycUrl}
-    ...    ${insuredVerificationId}
-    Get FaceTec Token Session  
-    ...    ${kycPrivateKey}
-    ...    ${baseKycUrl}
-    ...    ${insuredVerificationId}
-    Patch Remark
-    ...    ${kycPrivateKey}    
-    ...    ${baseKycUrl}    
-    ...    ${insuredVerificationId}
-    Patch Confirm Verification
-    ...    ${kycPrivateKey}    
-    ...    ${baseKycUrl}    
-    ...    ${insuredVerificationId}
-
-
+    ...    200

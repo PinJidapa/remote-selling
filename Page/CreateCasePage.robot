@@ -3,7 +3,7 @@ Library         RequestsLibrary
 Library         ../Scripts/validate.py
 Library         Collections
 Library         OperatingSystem
-Resource        ./GetToken.robot
+Resource        ./GetTokenPage.robot
 
 *** Variables ***
 ${SCHEMA}    {"type": "object", "properties": {"key": {"type": "string"}}, "required": ["key"]}
