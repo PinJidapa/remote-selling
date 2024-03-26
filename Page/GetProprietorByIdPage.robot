@@ -6,11 +6,11 @@ Library         OperatingSystem
 Resource        ./GetTokenPage.robot
 
 *** Keywords *** 
-Get Case By Id
-    [Arguments]    ${accessToken}    ${baseUrl}    ${caseId}    ${expectedStatus}
+Get Proprietors By ID
+    [Arguments]    ${accessToken}    ${baseUrl}    ${proprietorId}    ${expectedStatus}
     ${headers} =    Create Dictionary
     ${data} =    Create Dictionary
     Set To Dictionary    ${headers}    Authorization    Bearer ${accessToken}
-    ${responseCases} =    GET    ${baseUrl}/cases/${caseId}
+    ${responseCases} =    GET    ${baseUrl}/proprietors/${proprietorId}
     ...    expected_status=${expectedStatus}
     ...    headers=${headers}

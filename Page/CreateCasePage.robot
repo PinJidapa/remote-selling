@@ -26,6 +26,8 @@ Create Case
 
     Return From Keyword   ${responseDictCases}
 
+
+
 Validate Verification Response
     [Arguments]    ${responseDictCases}
     Validate Json Schema    ${responseDictCases}     ${EXECDIR}/Schema/VerificationResponseSchema.json

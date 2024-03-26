@@ -6,11 +6,11 @@ Library         OperatingSystem
 Resource        ./GetTokenPage.robot
 
 *** Keywords *** 
-Get Case By Id
+Patch Expired Case
     [Arguments]    ${accessToken}    ${baseUrl}    ${caseId}    ${expectedStatus}
     ${headers} =    Create Dictionary
     ${data} =    Create Dictionary
     Set To Dictionary    ${headers}    Authorization    Bearer ${accessToken}
-    ${responseCases} =    GET    ${baseUrl}/cases/${caseId}
+    ${responseCases} =    PATCH    ${baseUrl}/cases/${caseId}/close
     ...    expected_status=${expectedStatus}
     ...    headers=${headers}
