@@ -4,6 +4,7 @@ Library         JSONLibrary
 Resource        ../Page/GetToken.robot
 Resource        ../Page/CreateCase.robot
 Resource        ../Page/Resend.robot
+Resource        ../Page/GetCaseById.robot
 Resource        ../Resourse/Env/${env}/Credential.robot
 Resource        ../Resourse/Env/${env}/Url.robot
 
@@ -32,4 +33,9 @@ Post Create Case By Email
     ...    ${baseUrl}
     ...    ${insuredProprietorId}
     ...    ${emailInviteType}
+    ...    204
+    Get Case By Id
+    ...    ${accessToken}
+    ...    ${baseUrl}
+    ...    ${caseId}
     ...    204
