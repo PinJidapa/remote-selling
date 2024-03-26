@@ -1,94 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.11.4 on darwin)" generated="2024-03-25T22:05:38.597378" rpa="false" schemaversion="5">
+<robot generator="Robot 7.0 (Python 3.11.4 on darwin)" generated="2024-03-26T12:15:50.956646" rpa="false" schemaversion="5">
 <suite id="s1" name="TS03" source="/Users/pinpinn/remote-selling/Testcases/TS03.robot">
-<test id="s1-t1" name="Post Create Case By Email" line="16">
+<test id="s1-t1" name="Post Create Case By Email" line="18">
 <kw name="Get Token" owner="GetToken">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2024-03-25T22:05:38.754901" level="INFO">${data} = {'client_id': 'ktaxa-case-keeper-service-account', 'client_secret': 'lbmymr0w3KLBgPkclQeBAdcmC58ab7Ca', 'grant_type': 'client_credentials'}</msg>
+<msg time="2024-03-26T12:15:51.137100" level="INFO">${data} = {'client_id': 'ktaxa-case-keeper-service-account', 'client_secret': 'lbmymr0w3KLBgPkclQeBAdcmC58ab7Ca', 'grant_type': 'client_credentials'}</msg>
 <var>${data}</var>
 <arg>client_id=${clientId}</arg>
 <arg>client_secret=${clientSecret}</arg>
 <arg>grant_type=client_credentials</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2024-03-25T22:05:38.754756" elapsed="0.000159"/>
+<status status="PASS" start="2024-03-26T12:15:51.136950" elapsed="0.000166"/>
 </kw>
 <kw name="POST" owner="RequestsLibrary">
-<msg time="2024-03-25T22:05:40.201973" level="INFO">POST Request : url=https://portal-uat.mac-non-prod.appmanteam.com/auth/realms/mac-portal/protocol/openid-connect/token 
+<msg time="2024-03-26T12:15:51.522249" level="INFO">POST Request : url=https://portal-uat.mac-non-prod.appmanteam.com/auth/realms/mac-portal/protocol/openid-connect/token 
  path_url=/auth/realms/mac-portal/protocol/openid-connect/token 
  headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '120', 'Content-Type': 'application/x-www-form-urlencoded'} 
  body=client_id=ktaxa-case-keeper-service-account&amp;client_secret=lbmymr0w3KLBgPkclQeBAdcmC58ab7Ca&amp;grant_type=client_credentials 
  </msg>
-<msg time="2024-03-25T22:05:40.202111" level="INFO">POST Response : url=https://portal-uat.mac-non-prod.appmanteam.com/auth/realms/mac-portal/protocol/openid-connect/token 
+<msg time="2024-03-26T12:15:51.522492" level="INFO">POST Response : url=https://portal-uat.mac-non-prod.appmanteam.com/auth/realms/mac-portal/protocol/openid-connect/token 
  status=200, reason=OK 
- headers={'Date': 'Mon, 25 Mar 2024 15:05:40 GMT', 'Content-Type': 'application/json', 'Content-Length': '1696', 'Connection': 'keep-alive', 'Cache-Control': 'no-store', 'Pragma': 'no-cache', 'Referrer-Policy': 'no-referrer', 'Set-Cookie': 'KC_RESTART=; Version=1; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Max-Age=0; Path=/auth/realms/mac-portal/; Secure; HttpOnly', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'SAMEORIGIN', 'X-Xss-Protection': '1; mode=block'} 
- body={"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJod214aVRfaDlEQ0RyQ0dJT2lnOU5qU09xb2lpZzFSSFAxUUNubTBSaC1NIn0.eyJleHAiOjE3MTEzOTM1NDAsImlhdCI6MTcxMTM3OTE0MCwianRpIjoiZjIxMDZmODItZGM5OC00ZjRhLWI0OTgtYjEwOTBmYWFhZGYzIiwiaXNzIjoiaHR0cHM6Ly9wb3J0YWwtdWF0Lm1hYy1ub24tcHJvZC5hcHBtYW50ZWFtLmNvbS9hdXRoL3JlYWxtcy9tYWMtcG9ydGFsIiwiYXVkIjpbIm1hYy1tYW5zaW9uIiwibWFjLW1hbnNpb25fd2ViIl0sInN1YiI6IjNjMjRiZDI1LWQwNDUtNGMxNi05NzBkLTFiM2MzOTBiY2ZiYiIsInR5cCI6IkJlYXJlciIsImF6cCI6Imt0YXhhLWNhc2Uta2VlcGVyLXNlcnZpY2UtYWNjb3VudCIsImFjciI6IjEiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiYWdlbnQiLCJkZWZhdWx0LXJvbGVzLW1hYy1wb3J0YWwiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsibWFjLW1hbnNpb24iOnsicm9sZXMiOlsiYWdlbnQiXX0sIm1hYy1tYW5zaW9uX3dlYiI6eyJyb2xlcyI6WyJhZ2VudCJdfX0sInNjb3BlIjoiZ3JvdXBzIGFnZW50X2NvZGUgbGljZW5zZV9ubyBwcm9maWxlIHVzZXJfYXR0cmlidXRlIGVtYWlsIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJjbGllbnRIb3N0IjoiMTcxLjEwMS4xMDQuMTA4IiwicHJvdmlkZXIiOiJrdGF4YS1iMmUiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzZXJ2aWNlLWFjY291bnQta3RheGEtY2FzZS1rZWVwZXItc2VydmljZS1hY2NvdW50IiwiY2xpZW50QWRkcmVzcyI6IjE3MS4xMDEuMTA0LjEwOCIsImNsaWVudF9pZCI6Imt0YXhhLWNhc2Uta2VlcGVyLXNlcnZpY2UtYWNjb3VudCJ9.R2OhW_w8BMchejYXyVxc8ZmEvifneVtZfNwrG_CXqnbanSIU7MN_G4shdw8Fv4xh2z82oGOJ_SuAPoGf0trzOvp6rAZa9wBuxmNzWqoi-OKv4otg8C5Y1B3LcWxNr_LkvsNw7ma62caf-vNlp7tSF6zaDVYl6mLT_TzmyetBNpO_TECKVhAssebRSqTToPWTy2em7ZauX2j48apVfE5psafJiCMheovfGRvdAA_bdEKcjfCVxAmszOJd2dP0Eh4fGWQx3q1cVChJWoXebbIcyacetdLLbparsxmvwxKwloxCe4fLSaV_u6qxoJRycA1MtupAzUggc7Zyk4ImBmYDYA","expires_in":14400,"refresh_expires_in":0,"token_type":"Bearer","not-before-policy":0,"scope":"groups agent_code license_no profile user_attribute email"} 
+ headers={'Date': 'Tue, 26 Mar 2024 05:15:51 GMT', 'Content-Type': 'application/json', 'Content-Length': '1694', 'Connection': 'keep-alive', 'Cache-Control': 'no-store', 'Pragma': 'no-cache', 'Referrer-Policy': 'no-referrer', 'Set-Cookie': 'KC_RESTART=; Version=1; Expires=Thu, 01-Jan-1970 00:00:10 GMT; Max-Age=0; Path=/auth/realms/mac-portal/; Secure; HttpOnly', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'SAMEORIGIN', 'X-Xss-Protection': '1; mode=block'} 
+ body={"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJod214aVRfaDlEQ0RyQ0dJT2lnOU5qU09xb2lpZzFSSFAxUUNubTBSaC1NIn0.eyJleHAiOjE3MTE0NDQ1NTEsImlhdCI6MTcxMTQzMDE1MSwianRpIjoiNzFhYjY3NWItYjUyMC00YTRmLWI2ZGItNGM0YjBiNWZiMDQxIiwiaXNzIjoiaHR0cHM6Ly9wb3J0YWwtdWF0Lm1hYy1ub24tcHJvZC5hcHBtYW50ZWFtLmNvbS9hdXRoL3JlYWxtcy9tYWMtcG9ydGFsIiwiYXVkIjpbIm1hYy1tYW5zaW9uIiwibWFjLW1hbnNpb25fd2ViIl0sInN1YiI6IjNjMjRiZDI1LWQwNDUtNGMxNi05NzBkLTFiM2MzOTBiY2ZiYiIsInR5cCI6IkJlYXJlciIsImF6cCI6Imt0YXhhLWNhc2Uta2VlcGVyLXNlcnZpY2UtYWNjb3VudCIsImFjciI6IjEiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiYWdlbnQiLCJkZWZhdWx0LXJvbGVzLW1hYy1wb3J0YWwiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsibWFjLW1hbnNpb24iOnsicm9sZXMiOlsiYWdlbnQiXX0sIm1hYy1tYW5zaW9uX3dlYiI6eyJyb2xlcyI6WyJhZ2VudCJdfX0sInNjb3BlIjoiZ3JvdXBzIGFnZW50X2NvZGUgbGljZW5zZV9ubyBwcm9maWxlIHVzZXJfYXR0cmlidXRlIGVtYWlsIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJjbGllbnRIb3N0IjoiMTYxLjgyLjE2MC4xOTQiLCJwcm92aWRlciI6Imt0YXhhLWIyZSIsInByZWZlcnJlZF91c2VybmFtZSI6InNlcnZpY2UtYWNjb3VudC1rdGF4YS1jYXNlLWtlZXBlci1zZXJ2aWNlLWFjY291bnQiLCJjbGllbnRBZGRyZXNzIjoiMTYxLjgyLjE2MC4xOTQiLCJjbGllbnRfaWQiOiJrdGF4YS1jYXNlLWtlZXBlci1zZXJ2aWNlLWFjY291bnQifQ.QZrrbW0LhceS3-0v8pc6J4n6uKFPezIUKKfPS8C8ydxNF9tFFVKW2ej_dyYeaChznV7fhBNUKHRO-pzRwjNp6dRw3FbnKAwSh4LBTzOpgHx7HmUzmcvG5QzM-cl5rqAopwVwuWqoGX8GjlQa9XYSVkSItlLJyXrNYkKXSuLDfU5OGDeqPYcNwpv1yn9HEQgP4bAQCL6YntQeVAuJtJymPFLbS9WwjQNnmmUJeWfokxOC7-xeyjHXUCe-qe7y5q8CgsV87PSv7p1qVuS6YdXaFl2JR_fit2WFFi2YUWYSwa825Lg_ErzP3UcBke7NIftXL4wXANW4x84lavOXkayHsQ","expires_in":14400,"refresh_expires_in":0,"token_type":"Bearer","not-before-policy":0,"scope":"groups agent_code license_no profile user_attribute email"} 
  </msg>
-<msg time="2024-03-25T22:05:40.202567" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<msg time="2024-03-26T12:15:51.522833" level="INFO">${response} = &lt;Response [200]&gt;</msg>
 <var>${response}</var>
 <arg>${authUrl}</arg>
 <arg>data=${data}</arg>
 <doc>Sends a POST request.</doc>
-<status status="PASS" start="2024-03-25T22:05:38.754985" elapsed="1.447611"/>
+<status status="PASS" start="2024-03-26T12:15:51.137188" elapsed="0.385689"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-03-25T22:05:40.203401" level="INFO">${responseBody} = {"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJod214aVRfaDlEQ0RyQ0dJT2lnOU5qU09xb2lpZzFSSFAxUUNubTBSaC1NIn0.eyJleHAiOjE3MTEzOTM1NDAsImlhdCI6MTcxMTM3OTE0MCwianRpIjoiZjIxMDZmODItZGM...</msg>
+<msg time="2024-03-26T12:15:51.524708" level="INFO">${responseBody} = {"access_token":"eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJod214aVRfaDlEQ0RyQ0dJT2lnOU5qU09xb2lpZzFSSFAxUUNubTBSaC1NIn0.eyJleHAiOjE3MTE0NDQ1NTEsImlhdCI6MTcxMTQzMDE1MSwianRpIjoiNzFhYjY3NWItYjU...</msg>
 <var>${responseBody}</var>
 <arg>${response.text}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-03-25T22:05:40.202849" elapsed="0.000578"/>
+<status status="PASS" start="2024-03-26T12:15:51.523477" elapsed="0.001267"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-03-25T22:05:40.203816" level="INFO">${responseDict} = {'access_token': 'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJod214aVRfaDlEQ0RyQ0dJT2lnOU5qU09xb2lpZzFSSFAxUUNubTBSaC1NIn0.eyJleHAiOjE3MTEzOTM1NDAsImlhdCI6MTcxMTM3OTE0MCwianRpIjoiZjIxMDZmODItZG...</msg>
+<msg time="2024-03-26T12:15:51.525397" level="INFO">${responseDict} = {'access_token': 'eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJod214aVRfaDlEQ0RyQ0dJT2lnOU5qU09xb2lpZzFSSFAxUUNubTBSaC1NIn0.eyJleHAiOjE3MTE0NDQ1NTEsImlhdCI6MTcxMTQzMDE1MSwianRpIjoiNzFhYjY3NWItYj...</msg>
 <var>${responseDict}</var>
 <arg>json.loads($responseBody)</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-03-25T22:05:40.203552" elapsed="0.000287"/>
+<status status="PASS" start="2024-03-26T12:15:51.524954" elapsed="0.000470"/>
 </kw>
 <kw name="Get From Dictionary" owner="Collections">
-<msg time="2024-03-25T22:05:40.204092" level="INFO">${accessToken} = eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJod214aVRfaDlEQ0RyQ0dJT2lnOU5qU09xb2lpZzFSSFAxUUNubTBSaC1NIn0.eyJleHAiOjE3MTEzOTM1NDAsImlhdCI6MTcxMTM3OTE0MCwianRpIjoiZjIxMDZmODItZGM5OC00ZjRhLWI0OTgt...</msg>
+<msg time="2024-03-26T12:15:51.525943" level="INFO">${accessToken} = eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJod214aVRfaDlEQ0RyQ0dJT2lnOU5qU09xb2lpZzFSSFAxUUNubTBSaC1NIn0.eyJleHAiOjE3MTE0NDQ1NTEsImlhdCI6MTcxMTQzMDE1MSwianRpIjoiNzFhYjY3NWItYjUyMC00YTRmLWI2ZGIt...</msg>
 <var>${accessToken}</var>
 <arg>${responseDict}</arg>
 <arg>access_token</arg>
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<status status="PASS" start="2024-03-25T22:05:40.203958" elapsed="0.000154"/>
+<status status="PASS" start="2024-03-26T12:15:51.525579" elapsed="0.000429"/>
 </kw>
 <kw name="Return From Keyword" owner="BuiltIn">
-<msg time="2024-03-25T22:05:40.204290" level="INFO">Returning from the enclosing user keyword.</msg>
+<msg time="2024-03-26T12:15:51.526441" level="INFO">Returning from the enclosing user keyword.</msg>
 <arg>${accessToken}</arg>
 <doc>Returns from the enclosing user keyword.</doc>
-<status status="PASS" start="2024-03-25T22:05:40.204227" elapsed="0.000124"/>
+<status status="PASS" start="2024-03-26T12:15:51.526295" elapsed="0.000252"/>
 </kw>
-<msg time="2024-03-25T22:05:40.204468" level="INFO">${accessToken} = eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJod214aVRfaDlEQ0RyQ0dJT2lnOU5qU09xb2lpZzFSSFAxUUNubTBSaC1NIn0.eyJleHAiOjE3MTEzOTM1NDAsImlhdCI6MTcxMTM3OTE0MCwianRpIjoiZjIxMDZmODItZGM5OC00ZjRhLWI0OTgt...</msg>
+<msg time="2024-03-26T12:15:51.526741" level="INFO">${accessToken} = eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJod214aVRfaDlEQ0RyQ0dJT2lnOU5qU09xb2lpZzFSSFAxUUNubTBSaC1NIn0.eyJleHAiOjE3MTE0NDQ1NTEsImlhdCI6MTcxMTQzMDE1MSwianRpIjoiNzFhYjY3NWItYjUyMC00YTRmLWI2ZGIt...</msg>
 <var>${accessToken}</var>
 <arg>${clientId}</arg>
 <arg>${clientSecret}</arg>
 <arg>${authUrl}</arg>
-<status status="PASS" start="2024-03-25T22:05:38.754283" elapsed="1.450204"/>
+<status status="PASS" start="2024-03-26T12:15:51.136485" elapsed="0.390286"/>
 </kw>
 <kw name="Create Case" owner="CreateCase">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2024-03-25T22:05:40.205151" level="INFO">${headers} = {}</msg>
+<msg time="2024-03-26T12:15:51.527850" level="INFO">${headers} = {}</msg>
 <var>${headers}</var>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2024-03-25T22:05:40.205021" elapsed="0.000152"/>
+<status status="PASS" start="2024-03-26T12:15:51.527662" elapsed="0.000220"/>
 </kw>
 <kw name="Set To Dictionary" owner="Collections">
 <arg>${headers}</arg>
 <arg>Content-Type</arg>
 <arg>application/json</arg>
 <doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
-<status status="PASS" start="2024-03-25T22:05:40.205283" elapsed="0.000102"/>
+<status status="PASS" start="2024-03-26T12:15:51.528056" elapsed="0.000172"/>
 </kw>
 <kw name="Set To Dictionary" owner="Collections">
 <arg>${headers}</arg>
 <arg>Authorization</arg>
 <arg>Bearer ${accessToken}</arg>
 <doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
-<status status="PASS" start="2024-03-25T22:05:40.205476" elapsed="0.000112"/>
+<status status="PASS" start="2024-03-26T12:15:51.528372" elapsed="0.000154"/>
 </kw>
 <kw name="Get File" owner="OperatingSystem">
-<msg time="2024-03-25T22:05:40.205804" level="INFO" html="true">Getting file '&lt;a href="file:///Users/pinpinn/remote-selling/Body/TwoProprietorCaseByEmail.json"&gt;/Users/pinpinn/remote-selling/Body/TwoProprietorCaseByEmail.json&lt;/a&gt;'.</msg>
-<msg time="2024-03-25T22:05:40.206793" level="INFO">${filePath} = {
+<msg time="2024-03-26T12:15:51.528868" level="INFO" html="true">Getting file '&lt;a href="file:///Users/pinpinn/remote-selling/Body/TwoProprietorCaseByEmail.json"&gt;/Users/pinpinn/remote-selling/Body/TwoProprietorCaseByEmail.json&lt;/a&gt;'.</msg>
+<msg time="2024-03-26T12:15:51.530180" level="INFO">${filePath} = {
     "caseType": {
         "key": "default",
         "code": "001",
@@ -101,112 +101,157 @@
 <var>${filePath}</var>
 <arg>${EXECDIR}/Body/${caseType}.json</arg>
 <doc>Returns the contents of a specified file.</doc>
-<status status="PASS" start="2024-03-25T22:05:40.205682" elapsed="0.001193"/>
+<status status="PASS" start="2024-03-26T12:15:51.528671" elapsed="0.001638"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-03-25T22:05:40.207316" level="INFO">${jsonData} = {'caseType': {'key': 'default', 'code': '001', 'translations': {'en': {'label': 'Remote Selling'}, 'th': {'label': 'Remote Selling'}}}, 'proprietors': [{'expiryDuration': 'P30D', 'proprietorType': 'in...</msg>
+<msg time="2024-03-26T12:15:51.531008" level="INFO">${jsonData} = {'caseType': {'key': 'default', 'code': '001', 'translations': {'en': {'label': 'Remote Selling'}, 'th': {'label': 'Remote Selling'}}}, 'proprietors': [{'expiryDuration': 'P30D', 'proprietorType': 'in...</msg>
 <var>${jsonData}</var>
 <arg>json.loads('''${filePath}''')</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-03-25T22:05:40.206974" elapsed="0.000361"/>
+<status status="PASS" start="2024-03-26T12:15:51.530462" elapsed="0.000579"/>
 </kw>
 <kw name="POST" owner="RequestsLibrary">
-<msg time="2024-03-25T22:05:40.363824" level="INFO">POST Request : url=https://portal-uat.mac-non-prod.appmanteam.com/api/v2/case-keeper/cases 
+<msg time="2024-03-26T12:15:51.712676" level="INFO">POST Request : url=https://portal-uat.mac-non-prod.appmanteam.com/api/v2/case-keeper/cases 
  path_url=/api/v2/case-keeper/cases 
  headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Bearer ', 'Content-Length': '2847'} 
  body=b'{"caseType": {"key": "default", "code": "001", "translations": {"en": {"label": "Remote Selling"}, "th": {"label": "Remote Selling"}}}, "proprietors": [{"expiryDuration": "P30D", "proprietorType": "insured", "citizenId": "1100400984897", "firstName": "xxx", "middleName": null, "lastName": "\\u0e42\\u0e2d\\u0e1a\\u0e01\\u0e34\\u0e08\\u0e01\\u0e32\\u0e08\\u0e1e\\u0e25", "inviteType": "email", "email": "jidapa.o@appman.co.th", "title": {"key": "005", "code": "005", "sex": "M", "translations": {"en": {"label": "Mr."}, "th": {"label": "\\u0e19\\u0e32\\u0e22"}}, "value": "005", "label": "Mr."}, "dateOfBirth": "1999-04-02", "meta": {"insuredTitle": {"key": "005", "code": "005", "sex": "M", "translations": {"en": {"label": "Mr."}, "th": {"label": "\\u0e19\\u0e32\\u0e22"}, "id": {"label": "Tuan"}}, "value": "005", "label": "Mr."}, "insuredFirstName": "\\u0e08\\u0e34\\u0e14\\u0e32\\u0e20\\u0e32", "insuredMiddleName": null, "insuredLastName": "\\u0e42\\u0e2d\\u0e1a\\u0e01\\u0e34\\u0e08\\u0e01\\u0e32\\u0e08\\u0e1e\\u0e25"}, "verifications": [{"frontIdCardConfig": {"required": true, "isEditable": true, "dependenciesRequired": false, "threshHold": 0.8, "attempts": 3}, "backIdCardConfig": {"required": true, "isEditable": true, "dependenciesRequired": false, "threshHold": 0.8, "attempts": 3}, "dopaConfig": {"required": false, "isEditable": true, "dependenciesRequired": true, "attempts": 3}, "idFaceRecognitionConfig": {"required": true, "isEditable": true, "dependenciesRequired": false, "attempts": 3, "threshHold": 0.8}}]}, {"expiryDuration": "P30D", "proprietorType": "payer", "citizenId": "1100400984897", "firstName": "\\u0e08\\u0e34\\u0e14\\u0e32\\u0e20\\u0e32", "middleName": null, "lastName": "\\u0e42\\u0e2d\\u0e1a\\u0e01\\u0e34\\u0e08\\u0e01\\u0e32\\u0e08\\u0e1e\\u0e25", "title": {"key": "005", "code": "005", "sex": "M", "translations": {"en": {"label": "Mr."}, "th": {"label": "\\u0e19\\u0e32\\u0e22"}}, "value": "005", "label": "Mr."}, "dateOfBirth": "1999-04-02", "meta": {"insuredTitle": {"key": "005", "code": "005", "sex": "M", "translations": {"en": {"label": "Mr."}, "th": {"label": "\\u0e19\\u0e32\\u0e22"}, "id": {"label": "Tuan"}}, "value": "005", "label": "Mr."}, "insuredFirstName": "\\u0e08\\u0e34\\u0e14\\u0e32\\u0e20\\u0e32", "insuredMiddleName": null, "insuredLastName": "\\u0e42\\u0e2d\\u0e1a\\u0e01\\u0e34\\u0e08\\u0e01\\u0e32\\u0e08\\u0e1e\\u0e25"}, "verifications": [{"frontIdCardConfig": {"required": true, "isEditable": true, "dependenciesRequired": false, "threshHold": 0.8, "attempts": 3}, "backIdCardConfig": {"required": true, "isEditable": true, "dependenciesRequired": false, "threshHold": 0.8, "attempts": 3}, "dopaConfig": {"required": false, "isEditable": true, "dependenciesRequired": true, "attempts": 3}, "idFaceRecognitionConfig": {"required": true, "isEditable": true, "dependenciesRequired": false, "attempts": 3, "threshHold": 0.8}}]}], "attachMeetingRoom": true}' 
  </msg>
-<msg time="2024-03-25T22:05:40.363911" level="INFO">POST Response : url=https://portal-uat.mac-non-prod.appmanteam.com/api/v2/case-keeper/cases 
+<msg time="2024-03-26T12:15:51.712844" level="INFO">POST Response : url=https://portal-uat.mac-non-prod.appmanteam.com/api/v2/case-keeper/cases 
  status=403, reason=Forbidden 
- headers={'Date': 'Mon, 25 Mar 2024 15:05:40 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '67', 'Connection': 'keep-alive', 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Expose-Headers': 'X-Frame-Options,Strict-Transport-Security,X-Content-Type-Options,X-XSS-Protection', 'Etag': 'W/"43-1efisZCYcOht8i5ypGDoV4YVc58"', 'Set-Cookie': 'connect.sid=s%3Au_kMODEmKB6a6WYzAbkCdFMB88FDePgs.25p3tsNCtawUscftGdg112BBtysdm9IBKpmVcfxHbZw; Path=/; HttpOnly', 'Strict-Transport-Security': 'max-age=315360000; includeSubDomains; preload', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Xss-Protection': '1; mode=block'} 
+ headers={'Date': 'Tue, 26 Mar 2024 05:15:51 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '67', 'Connection': 'keep-alive', 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Expose-Headers': 'X-Frame-Options,Strict-Transport-Security,X-Content-Type-Options,X-XSS-Protection', 'Etag': 'W/"43-1efisZCYcOht8i5ypGDoV4YVc58"', 'Set-Cookie': 'connect.sid=s%3A-c0rh--YX6TLqCg8BhV-6FyVZ8zkccPL.JsuYM7nQ6XDqc6Ch%2FE085hf93zVBABhc7A7EF9Gp%2FfA; Path=/; HttpOnly', 'Strict-Transport-Security': 'max-age=315360000; includeSubDomains; preload', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Xss-Protection': '1; mode=block'} 
  body={"errors":[{"msg":"Permission denied.","code":"permissionDenied"}]} 
  </msg>
-<msg time="2024-03-25T22:05:40.364001" level="INFO">${responseCases} = &lt;Response [403]&gt;</msg>
+<msg time="2024-03-26T12:15:51.713026" level="INFO">${responseCases} = &lt;Response [403]&gt;</msg>
 <var>${responseCases}</var>
 <arg>${baseUrl}/cases</arg>
 <arg>json=${jsonData}</arg>
 <arg>expected_status=${expectedStatus}</arg>
 <arg>headers=${headers}</arg>
 <doc>Sends a POST request.</doc>
-<status status="PASS" start="2024-03-25T22:05:40.207426" elapsed="0.156591"/>
+<status status="PASS" start="2024-03-26T12:15:51.531180" elapsed="0.181876"/>
 </kw>
 <kw name="Set Variable" owner="BuiltIn">
-<msg time="2024-03-25T22:05:40.364535" level="INFO">${responseBodyCases} = {"errors":[{"msg":"Permission denied.","code":"permissionDenied"}]}</msg>
+<msg time="2024-03-26T12:15:51.714049" level="INFO">${responseBodyCases} = {"errors":[{"msg":"Permission denied.","code":"permissionDenied"}]}</msg>
 <var>${responseBodyCases}</var>
 <arg>${responseCases.text}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" start="2024-03-25T22:05:40.364154" elapsed="0.000398"/>
+<status status="PASS" start="2024-03-26T12:15:51.713342" elapsed="0.000737"/>
 </kw>
 <kw name="Evaluate" owner="BuiltIn">
-<msg time="2024-03-25T22:05:40.364846" level="INFO">${responseDictCases} = {'errors': [{'msg': 'Permission denied.', 'code': 'permissionDenied'}]}</msg>
+<msg time="2024-03-26T12:15:51.714615" level="INFO">${responseDictCases} = {'errors': [{'msg': 'Permission denied.', 'code': 'permissionDenied'}]}</msg>
 <var>${responseDictCases}</var>
 <arg>json.loads($responseBodyCases)</arg>
 <arg>json</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="PASS" start="2024-03-25T22:05:40.364646" elapsed="0.000216"/>
+<status status="PASS" start="2024-03-26T12:15:51.714248" elapsed="0.000399"/>
 </kw>
 <kw name="Return From Keyword" owner="BuiltIn">
-<msg time="2024-03-25T22:05:40.364996" level="INFO">Returning from the enclosing user keyword.</msg>
+<msg time="2024-03-26T12:15:51.714895" level="INFO">Returning from the enclosing user keyword.</msg>
 <arg>${responseDictCases}</arg>
 <doc>Returns from the enclosing user keyword.</doc>
-<status status="PASS" start="2024-03-25T22:05:40.364950" elapsed="0.000088"/>
+<status status="PASS" start="2024-03-26T12:15:51.714810" elapsed="0.003681"/>
 </kw>
-<msg time="2024-03-25T22:05:40.365122" level="INFO">${responseDictCases} = {'errors': [{'msg': 'Permission denied.', 'code': 'permissionDenied'}]}</msg>
+<msg time="2024-03-26T12:15:51.718662" level="INFO">${responseDictCases} = {'errors': [{'msg': 'Permission denied.', 'code': 'permissionDenied'}]}</msg>
 <var>${responseDictCases}</var>
 <arg>${baseUrl}</arg>
 <arg>TwoProprietorCaseByEmail</arg>
 <arg>403</arg>
-<status status="PASS" start="2024-03-25T22:05:40.204738" elapsed="0.160399"/>
+<status status="PASS" start="2024-03-26T12:15:51.527184" elapsed="0.191501"/>
 </kw>
 <kw name="Resend Link" owner="Resend">
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2024-03-25T22:05:40.365621" level="INFO">${headers} = {}</msg>
+<msg time="2024-03-26T12:15:51.719479" level="INFO">${headers} = {}</msg>
 <var>${headers}</var>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2024-03-25T22:05:40.365534" elapsed="0.000101"/>
+<status status="PASS" start="2024-03-26T12:15:51.719337" elapsed="0.000164"/>
 </kw>
 <kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2024-03-25T22:05:40.365780" level="INFO">${data} = {}</msg>
+<msg time="2024-03-26T12:15:51.719719" level="INFO">${data} = {}</msg>
 <var>${data}</var>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2024-03-25T22:05:40.365709" elapsed="0.000085"/>
+<status status="PASS" start="2024-03-26T12:15:51.719613" elapsed="0.000126"/>
 </kw>
 <kw name="Set To Dictionary" owner="Collections">
 <arg>${headers}</arg>
 <arg>Authorization</arg>
 <arg>Bearer ${accessToken}</arg>
 <doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
-<status status="PASS" start="2024-03-25T22:05:40.365861" elapsed="0.000090"/>
+<status status="PASS" start="2024-03-26T12:15:51.719853" elapsed="0.000140"/>
 </kw>
 <kw name="POST" owner="RequestsLibrary">
-<msg time="2024-03-25T22:05:40.594402" level="INFO">POST Request : url=https://portal-uat.mac-non-prod.appmanteam.com/api/v2/case-keeper/proprietors/12345678-1234-1234-1234-123456789012/invite?inviteType=invite?inviteType=email&amp;email=pinpinnpinnn3@gmail.com 
+<msg time="2024-03-26T12:15:52.050069" level="INFO">POST Request : url=https://portal-uat.mac-non-prod.appmanteam.com/api/v2/case-keeper/proprietors/12345678-1234-1234-1234-123456789012/invite?inviteType=invite?inviteType=email&amp;email=pinpinnpinnn3@gmail.com 
  path_url=/api/v2/case-keeper/proprietors/12345678-1234-1234-1234-123456789012/invite?inviteType=invite?inviteType=email&amp;email=pinpinnpinnn3@gmail.com 
- headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJod214aVRfaDlEQ0RyQ0dJT2lnOU5qU09xb2lpZzFSSFAxUUNubTBSaC1NIn0.eyJleHAiOjE3MTEzOTM1NDAsImlhdCI6MTcxMTM3OTE0MCwianRpIjoiZjIxMDZmODItZGM5OC00ZjRhLWI0OTgtYjEwOTBmYWFhZGYzIiwiaXNzIjoiaHR0cHM6Ly9wb3J0YWwtdWF0Lm1hYy1ub24tcHJvZC5hcHBtYW50ZWFtLmNvbS9hdXRoL3JlYWxtcy9tYWMtcG9ydGFsIiwiYXVkIjpbIm1hYy1tYW5zaW9uIiwibWFjLW1hbnNpb25fd2ViIl0sInN1YiI6IjNjMjRiZDI1LWQwNDUtNGMxNi05NzBkLTFiM2MzOTBiY2ZiYiIsInR5cCI6IkJlYXJlciIsImF6cCI6Imt0YXhhLWNhc2Uta2VlcGVyLXNlcnZpY2UtYWNjb3VudCIsImFjciI6IjEiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiYWdlbnQiLCJkZWZhdWx0LXJvbGVzLW1hYy1wb3J0YWwiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsibWFjLW1hbnNpb24iOnsicm9sZXMiOlsiYWdlbnQiXX0sIm1hYy1tYW5zaW9uX3dlYiI6eyJyb2xlcyI6WyJhZ2VudCJdfX0sInNjb3BlIjoiZ3JvdXBzIGFnZW50X2NvZGUgbGljZW5zZV9ubyBwcm9maWxlIHVzZXJfYXR0cmlidXRlIGVtYWlsIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJjbGllbnRIb3N0IjoiMTcxLjEwMS4xMDQuMTA4IiwicHJvdmlkZXIiOiJrdGF4YS1iMmUiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJzZXJ2aWNlLWFjY291bnQta3RheGEtY2FzZS1rZWVwZXItc2VydmljZS1hY2NvdW50IiwiY2xpZW50QWRkcmVzcyI6IjE3MS4xMDEuMTA0LjEwOCIsImNsaWVudF9pZCI6Imt0YXhhLWNhc2Uta2VlcGVyLXNlcnZpY2UtYWNjb3VudCJ9.R2OhW_w8BMchejYXyVxc8ZmEvifneVtZfNwrG_CXqnbanSIU7MN_G4shdw8Fv4xh2z82oGOJ_SuAPoGf0trzOvp6rAZa9wBuxmNzWqoi-OKv4otg8C5Y1B3LcWxNr_LkvsNw7ma62caf-vNlp7tSF6zaDVYl6mLT_TzmyetBNpO_TECKVhAssebRSqTToPWTy2em7ZauX2j48apVfE5psafJiCMheovfGRvdAA_bdEKcjfCVxAmszOJd2dP0Eh4fGWQx3q1cVChJWoXebbIcyacetdLLbparsxmvwxKwloxCe4fLSaV_u6qxoJRycA1MtupAzUggc7Zyk4ImBmYDYA', 'Content-Length': '0'} 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJod214aVRfaDlEQ0RyQ0dJT2lnOU5qU09xb2lpZzFSSFAxUUNubTBSaC1NIn0.eyJleHAiOjE3MTE0NDQ1NTEsImlhdCI6MTcxMTQzMDE1MSwianRpIjoiNzFhYjY3NWItYjUyMC00YTRmLWI2ZGItNGM0YjBiNWZiMDQxIiwiaXNzIjoiaHR0cHM6Ly9wb3J0YWwtdWF0Lm1hYy1ub24tcHJvZC5hcHBtYW50ZWFtLmNvbS9hdXRoL3JlYWxtcy9tYWMtcG9ydGFsIiwiYXVkIjpbIm1hYy1tYW5zaW9uIiwibWFjLW1hbnNpb25fd2ViIl0sInN1YiI6IjNjMjRiZDI1LWQwNDUtNGMxNi05NzBkLTFiM2MzOTBiY2ZiYiIsInR5cCI6IkJlYXJlciIsImF6cCI6Imt0YXhhLWNhc2Uta2VlcGVyLXNlcnZpY2UtYWNjb3VudCIsImFjciI6IjEiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiYWdlbnQiLCJkZWZhdWx0LXJvbGVzLW1hYy1wb3J0YWwiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsibWFjLW1hbnNpb24iOnsicm9sZXMiOlsiYWdlbnQiXX0sIm1hYy1tYW5zaW9uX3dlYiI6eyJyb2xlcyI6WyJhZ2VudCJdfX0sInNjb3BlIjoiZ3JvdXBzIGFnZW50X2NvZGUgbGljZW5zZV9ubyBwcm9maWxlIHVzZXJfYXR0cmlidXRlIGVtYWlsIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJjbGllbnRIb3N0IjoiMTYxLjgyLjE2MC4xOTQiLCJwcm92aWRlciI6Imt0YXhhLWIyZSIsInByZWZlcnJlZF91c2VybmFtZSI6InNlcnZpY2UtYWNjb3VudC1rdGF4YS1jYXNlLWtlZXBlci1zZXJ2aWNlLWFjY291bnQiLCJjbGllbnRBZGRyZXNzIjoiMTYxLjgyLjE2MC4xOTQiLCJjbGllbnRfaWQiOiJrdGF4YS1jYXNlLWtlZXBlci1zZXJ2aWNlLWFjY291bnQifQ.QZrrbW0LhceS3-0v8pc6J4n6uKFPezIUKKfPS8C8ydxNF9tFFVKW2ej_dyYeaChznV7fhBNUKHRO-pzRwjNp6dRw3FbnKAwSh4LBTzOpgHx7HmUzmcvG5QzM-cl5rqAopwVwuWqoGX8GjlQa9XYSVkSItlLJyXrNYkKXSuLDfU5OGDeqPYcNwpv1yn9HEQgP4bAQCL6YntQeVAuJtJymPFLbS9WwjQNnmmUJeWfokxOC7-xeyjHXUCe-qe7y5q8CgsV87PSv7p1qVuS6YdXaFl2JR_fit2WFFi2YUWYSwa825Lg_ErzP3UcBke7NIftXL4wXANW4x84lavOXkayHsQ', 'Content-Length': '0'} 
  body=None 
  </msg>
-<msg time="2024-03-25T22:05:40.594557" level="INFO">POST Response : url=https://portal-uat.mac-non-prod.appmanteam.com/api/v2/case-keeper/proprietors/12345678-1234-1234-1234-123456789012/invite?inviteType=invite?inviteType=email&amp;email=pinpinnpinnn3@gmail.com 
+<msg time="2024-03-26T12:15:52.050282" level="INFO">POST Response : url=https://portal-uat.mac-non-prod.appmanteam.com/api/v2/case-keeper/proprietors/12345678-1234-1234-1234-123456789012/invite?inviteType=invite?inviteType=email&amp;email=pinpinnpinnn3@gmail.com 
  status=404, reason=Not Found 
- headers={'Date': 'Mon, 25 Mar 2024 15:05:40 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '74', 'Connection': 'keep-alive', 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Expose-Headers': 'X-Frame-Options,Strict-Transport-Security,X-Content-Type-Options,X-XSS-Protection', 'Etag': 'W/"4a-rzY3Z4muyg+jSqGFBMFYXhBnaEw"', 'Set-Cookie': 'connect.sid=s%3AvGOgvx26roJchbe2QwwObA3MMRjYhf-Y.M8jSPPDi%2Bj4w%2B32f2wAuF27XV7Xf8rdhoMz%2Fzk1GT4s; Path=/; HttpOnly', 'Strict-Transport-Security': 'max-age=315360000; includeSubDomains; preload', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Xss-Protection': '1; mode=block'} 
+ headers={'Date': 'Tue, 26 Mar 2024 05:15:52 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '74', 'Connection': 'keep-alive', 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Expose-Headers': 'X-Frame-Options,Strict-Transport-Security,X-Content-Type-Options,X-XSS-Protection', 'Etag': 'W/"4a-rzY3Z4muyg+jSqGFBMFYXhBnaEw"', 'Set-Cookie': 'connect.sid=s%3AeZ2_DU55BPH8tLn5gFNActGyGBA9oKEF.CWlZ5vMLBtyFRzjJWrRTvHro1rDSUIA4KLiRnmcFCz0; Path=/; HttpOnly', 'Strict-Transport-Security': 'max-age=315360000; includeSubDomains; preload', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Xss-Protection': '1; mode=block'} 
  body={"errors":[{"msg":"Entity could not be found.","code":"enitityNotFound"}]} 
  </msg>
-<msg time="2024-03-25T22:05:40.596137" level="INFO">${responseCases} = &lt;Response [404]&gt;</msg>
+<msg time="2024-03-26T12:15:52.050412" level="INFO">${responseCases} = &lt;Response [404]&gt;</msg>
 <var>${responseCases}</var>
 <arg>${baseUrl}/proprietors/${proprietorId}/${invite}${inviteType}</arg>
 <arg>expected_status=${expectedStatus}</arg>
 <arg>headers=${headers}</arg>
 <doc>Sends a POST request.</doc>
-<status status="PASS" start="2024-03-25T22:05:40.366024" elapsed="0.230142"/>
+<status status="PASS" start="2024-03-26T12:15:51.720103" elapsed="0.330333"/>
 </kw>
 <arg>${accessToken}</arg>
 <arg>${baseUrl}</arg>
-<arg>${invalidPropritorId}</arg>
+<arg>${invalidId}</arg>
 <arg>${emailInviteType}</arg>
 <arg>404</arg>
-<status status="PASS" start="2024-03-25T22:05:40.365288" elapsed="0.230973"/>
+<status status="PASS" start="2024-03-26T12:15:51.718942" elapsed="0.331602"/>
 </kw>
-<status status="PASS" start="2024-03-25T22:05:38.754059" elapsed="1.842357"/>
+<kw name="Get Case By Id" owner="GetCaseById">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-03-26T12:15:52.051326" level="INFO">${headers} = {}</msg>
+<var>${headers}</var>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-03-26T12:15:52.051189" elapsed="0.000159"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-03-26T12:15:52.051570" level="INFO">${data} = {}</msg>
+<var>${data}</var>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-03-26T12:15:52.051464" elapsed="0.000125"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${headers}</arg>
+<arg>Authorization</arg>
+<arg>Bearer ${accessToken}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2024-03-26T12:15:52.051694" elapsed="0.000133"/>
+</kw>
+<kw name="PATCH" owner="RequestsLibrary">
+<msg time="2024-03-26T12:15:52.247110" level="INFO">PATCH Request : url=https://portal-uat.mac-non-prod.appmanteam.com/api/v2/case-keeper/cases/12345678-1234-1234-1234-123456789012/close 
+ path_url=/api/v2/case-keeper/cases/12345678-1234-1234-1234-123456789012/close 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJod214aVRfaDlEQ0RyQ0dJT2lnOU5qU09xb2lpZzFSSFAxUUNubTBSaC1NIn0.eyJleHAiOjE3MTE0NDQ1NTEsImlhdCI6MTcxMTQzMDE1MSwianRpIjoiNzFhYjY3NWItYjUyMC00YTRmLWI2ZGItNGM0YjBiNWZiMDQxIiwiaXNzIjoiaHR0cHM6Ly9wb3J0YWwtdWF0Lm1hYy1ub24tcHJvZC5hcHBtYW50ZWFtLmNvbS9hdXRoL3JlYWxtcy9tYWMtcG9ydGFsIiwiYXVkIjpbIm1hYy1tYW5zaW9uIiwibWFjLW1hbnNpb25fd2ViIl0sInN1YiI6IjNjMjRiZDI1LWQwNDUtNGMxNi05NzBkLTFiM2MzOTBiY2ZiYiIsInR5cCI6IkJlYXJlciIsImF6cCI6Imt0YXhhLWNhc2Uta2VlcGVyLXNlcnZpY2UtYWNjb3VudCIsImFjciI6IjEiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiYWdlbnQiLCJkZWZhdWx0LXJvbGVzLW1hYy1wb3J0YWwiLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsibWFjLW1hbnNpb24iOnsicm9sZXMiOlsiYWdlbnQiXX0sIm1hYy1tYW5zaW9uX3dlYiI6eyJyb2xlcyI6WyJhZ2VudCJdfX0sInNjb3BlIjoiZ3JvdXBzIGFnZW50X2NvZGUgbGljZW5zZV9ubyBwcm9maWxlIHVzZXJfYXR0cmlidXRlIGVtYWlsIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJjbGllbnRIb3N0IjoiMTYxLjgyLjE2MC4xOTQiLCJwcm92aWRlciI6Imt0YXhhLWIyZSIsInByZWZlcnJlZF91c2VybmFtZSI6InNlcnZpY2UtYWNjb3VudC1rdGF4YS1jYXNlLWtlZXBlci1zZXJ2aWNlLWFjY291bnQiLCJjbGllbnRBZGRyZXNzIjoiMTYxLjgyLjE2MC4xOTQiLCJjbGllbnRfaWQiOiJrdGF4YS1jYXNlLWtlZXBlci1zZXJ2aWNlLWFjY291bnQifQ.QZrrbW0LhceS3-0v8pc6J4n6uKFPezIUKKfPS8C8ydxNF9tFFVKW2ej_dyYeaChznV7fhBNUKHRO-pzRwjNp6dRw3FbnKAwSh4LBTzOpgHx7HmUzmcvG5QzM-cl5rqAopwVwuWqoGX8GjlQa9XYSVkSItlLJyXrNYkKXSuLDfU5OGDeqPYcNwpv1yn9HEQgP4bAQCL6YntQeVAuJtJymPFLbS9WwjQNnmmUJeWfokxOC7-xeyjHXUCe-qe7y5q8CgsV87PSv7p1qVuS6YdXaFl2JR_fit2WFFi2YUWYSwa825Lg_ErzP3UcBke7NIftXL4wXANW4x84lavOXkayHsQ', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2024-03-26T12:15:52.247249" level="INFO">PATCH Response : url=https://portal-uat.mac-non-prod.appmanteam.com/api/v2/case-keeper/cases/12345678-1234-1234-1234-123456789012/close 
+ status=404, reason=Not Found 
+ headers={'Date': 'Tue, 26 Mar 2024 05:15:52 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '74', 'Connection': 'keep-alive', 'Access-Control-Allow-Credentials': 'true', 'Access-Control-Expose-Headers': 'X-Frame-Options,Strict-Transport-Security,X-Content-Type-Options,X-XSS-Protection', 'Etag': 'W/"4a-rzY3Z4muyg+jSqGFBMFYXhBnaEw"', 'Set-Cookie': 'connect.sid=s%3AW7I1ii5bn3jlaCmkXACYMaLKeqiY_h4m.nSLhWvdtdu1FvUn19MV28SZJLtVILeONi6kTbgNZBgA; Path=/; HttpOnly', 'Strict-Transport-Security': 'max-age=315360000; includeSubDomains; preload', 'Vary': 'Accept-Encoding', 'X-Content-Type-Options': 'nosniff', 'X-Xss-Protection': '1; mode=block'} 
+ body={"errors":[{"msg":"Entity could not be found.","code":"enitityNotFound"}]} 
+ </msg>
+<msg time="2024-03-26T12:15:52.247395" level="INFO">${responseCases} = &lt;Response [404]&gt;</msg>
+<var>${responseCases}</var>
+<arg>${baseUrl}/cases/${caseId}/close</arg>
+<arg>expected_status=${expectedStatus}</arg>
+<arg>headers=${headers}</arg>
+<doc>Sends a PUT request.</doc>
+<status status="PASS" start="2024-03-26T12:15:52.051938" elapsed="0.195483"/>
+</kw>
+<arg>${accessToken}</arg>
+<arg>${baseUrl}</arg>
+<arg>${invalidId}</arg>
+<arg>404</arg>
+<status status="PASS" start="2024-03-26T12:15:52.050798" elapsed="0.196756"/>
+</kw>
+<status status="PASS" start="2024-03-26T12:15:51.136247" elapsed="1.111625"/>
 </test>
-<status status="PASS" start="2024-03-25T22:05:38.598153" elapsed="1.998604"/>
+<status status="PASS" start="2024-03-26T12:15:50.957335" elapsed="1.290980"/>
 </suite>
 <statistics>
 <total>
