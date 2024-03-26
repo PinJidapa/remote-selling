@@ -1,1 +1,11 @@
-{"type": "object", "properties": {"name": {"type": "string"}, "age": {"type": "number"}}}
+{
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "age": {
+            "type": "number"
+        }
+    }
+}
