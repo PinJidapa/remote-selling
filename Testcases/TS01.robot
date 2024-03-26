@@ -5,6 +5,7 @@ Resource        ../Page/GetToken.robot
 Resource        ../Page/CreateCase.robot
 Resource        ../Page/Resend.robot
 Resource        ../Page/GetCaseById.robot
+Resource        ../Page/Kyc.robot
 Resource        ../Resourse/Env/${env}/Credential.robot
 Resource        ../Resourse/Env/${env}/Url.robot
 
@@ -26,6 +27,8 @@ Post Create Case By Email
     ${insuredProprietorId} =    Get From Dictionary    ${responseDictCases["proprietors"][0]}    id
     ${caseId} =    Get From Dictionary    ${responseDictCases}    id
 
+    ${insuredVerificationId} =    Get From Dictionary    ${responseDictCases["proprietors"][0]}    verificationRef
+
     Validate Verification Response
     ...    ${responseDictCases}
     Resend Link
@@ -34,8 +37,47 @@ Post Create Case By Email
     ...    ${insuredProprietorId}
     ...    ${smsInviteType}
     ...    204
-   Get Case By Id
+    Get Case By Id
     ...    ${accessToken}
     ...    ${baseUrl}
     ...    ${caseId}
     ...    204
+    Patch Consent
+    ...    ${kycPrivateKey}    
+    ...    ${baseKycUrl}  
+    ...    ${insuredVerificationId}
+    ...    200
+    Post Front ID Card
+    ...    ${kycPrivateKey} 
+    ...    ${baseKycUrl}
+    ...    ${insuredVerificationId}
+    ...    /Resourse/TestData/IdCard/FrontIdCard.JPG
+    ...    image/JPG
+    Patch Front ID Card
+    ...    ${kycPrivateKey} 
+    ...    ${baseKycUrl}
+    ...    ${insuredVerificationId}
+    Post Back ID Card
+    ...    ${kycPrivateKey} 
+    ...    ${baseKycUrl}
+    ...    ${insuredVerificationId}
+    ...    /Resourse/TestData/IdCard/BackIdCard.jpeg
+    ...    image/jpeg
+    Patch Back ID Card
+    ...    ${kycPrivateKey}
+    ...    ${baseKycUrl}
+    ...    ${insuredVerificationId}
+    Get FaceTec Token Session  
+    ...    ${kycPrivateKey}
+    ...    ${baseKycUrl}
+    ...    ${insuredVerificationId}
+    Patch Remark
+    ...    ${kycPrivateKey}    
+    ...    ${baseKycUrl}    
+    ...    ${insuredVerificationId}
+    Patch Confirm Verification
+    ...    ${kycPrivateKey}    
+    ...    ${baseKycUrl}    
+    ...    ${insuredVerificationId}
+
+

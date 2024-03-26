@@ -28,4 +28,4 @@ Create Case
 
 Validate Verification Response
     [Arguments]    ${responseDictCases}
-    Validate Json Schema    ${responseDictCases}     ${EXECDIR}/Schema/verificationResponseSchema.json
+    Validate Json Schema    ${responseDictCases}     ${EXECDIR}/Schema/VerificationResponseSchema.json

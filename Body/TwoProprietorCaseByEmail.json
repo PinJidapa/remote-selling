@@ -15,10 +15,10 @@
         {
             "expiryDuration": "P30D",
             "proprietorType": "insured",
-            "citizenId": "1100400984897",
-            "firstName": "xxx",
+            "citizenId": "1100940932657",
+            "firstName": "ภากร",
             "middleName": null,
-            "lastName": "โอบกิจกาจพล",
+            "lastName": "สุขรังสรรค์",
             "inviteType": "email",
             "email": "jidapa.o@appman.co.th",
             "title": {
@@ -56,9 +56,9 @@
                     "value": "005",
                     "label": "Mr."
                 },
-                "insuredFirstName": "จิดาภา",
+                "insuredFirstName": "ภากร",
                 "insuredMiddleName": null,
-                "insuredLastName": "โอบกิจกาจพล"
+                "insuredLastName": "สุขรังสรรค์"
             },
             "verifications": [
                 {
@@ -86,7 +86,7 @@
                         "required": true,
                         "isEditable": true,
                         "dependenciesRequired": false,
-                        "attempts": 3,
+                        "attempts": 1,
                         "threshHold": 0.8
                     }
                 }
@@ -164,7 +164,7 @@
                         "required": true,
                         "isEditable": true,
                         "dependenciesRequired": false,
-                        "attempts": 3,
+                        "attempts": 1,
                         "threshHold": 0.8
                     }
                 }

@@ -15,10 +15,10 @@
         {
             "expiryDuration": "P30D",
             "proprietorType": "insured",
-            "citizenId": "1100400984897",
-            "firstName": "จิดาภา",
+            "citizenId": "1729900599685",
+            "firstName": "กรรณชัย",
             "middleName": null,
-            "lastName": "โอบกิจกาจพล",
+            "lastName": "อ่างแก้ว",
             "inviteType": "sms",
             "phoneNumber": "0619926554",
             "title": {
@@ -36,7 +36,7 @@
                 "value": "005",
                 "label": "Mr."
             },
-            "dateOfBirth": "1999-04-02",
+            "dateOfBirth": "2002-12-09",
             "meta": {
                 "insuredTitle": {
                     "key": "005",
@@ -56,9 +56,9 @@
                     "value": "005",
                     "label": "Mr."
                 },
-                "insuredFirstName": "จิดาภา",
+                "insuredFirstName": "กรรณชัย",
                 "insuredMiddleName": null,
-                "insuredLastName": "โอบกิจกาจพล"
+                "insuredLastName": "อ่างแก้ว"
             },
             "verifications": [
                 {
@@ -86,7 +86,7 @@
                         "required": true,
                         "isEditable": true,
                         "dependenciesRequired": false,
-                        "attempts": 3,
+                        "attempts": 1,
                         "threshHold": 0.8
                     }
                 }
