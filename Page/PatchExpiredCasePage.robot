@@ -3,10 +3,10 @@ Library         RequestsLibrary
 Library         ../Scripts/validate.py
 Library         Collections
 Library         OperatingSystem
-Resource        ./GetToken.robot
+Resource        ./GetTokenPage.robot
 
 *** Keywords *** 
-Get Case By Id
+Patch Expired Case
     [Arguments]    ${accessToken}    ${baseUrl}    ${caseId}    ${expectedStatus}
     ${headers} =    Create Dictionary
     ${data} =    Create Dictionary

@@ -3,7 +3,7 @@ Library         RequestsLibrary
 Library         ../Scripts/validate.py
 Library         Collections
 Library         OperatingSystem
-Resource        ./GetToken.robot
+Resource        ./GetTokenPage.robot
 
 *** Variables ***
 ${SCHEMA}    {"type": "object", "properties": {"key": {"type": "string"}}, "required": ["key"]}
@@ -26,6 +26,8 @@ Create Case
 
     Return From Keyword   ${responseDictCases}
 
+
+
 Validate Verification Response
     [Arguments]    ${responseDictCases}
-    Validate Json Schema    ${responseDictCases}     ${EXECDIR}/Schema/verificationResponseSchema.json
+    Validate Json Schema    ${responseDictCases}     ${EXECDIR}/Schema/VerificationResponseSchema.json
