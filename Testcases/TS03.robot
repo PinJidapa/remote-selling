@@ -6,6 +6,9 @@ Resource        ../Page/CreateCasePage.robot
 Resource        ../Page/ResendPage.robot
 Resource        ../Page/GetCaseByIdPage.robot
 Resource        ../Keywords/KycKeyword.robot
+Resource        ../Page/GetProprietorByIdPage.robot
+Resource        ../Page/PatchExpiredCasePage.robot
+Resource        ../Page/PatchSubmitCasePage.robot
 Resource        ../Resourse/Env/${env}/Credential.robot
 Resource        ../Resourse/Env/${env}/Url.robot
 
@@ -44,3 +47,23 @@ TS03 Negative Case
     ...    /Resourse/TestData/IdCard/BackIdCard01.jpeg
     ...    image/jpeg
     ...    404
+
+    Get Proprietors By ID
+    ...    ${accessToken}
+    ...    ${baseUrl}
+    ...    ${invalidId} 
+    ...    404
+
+    Patch Submit Case
+    ...    ${accessToken}
+    ...    ${baseUrl}
+    ...    ${invalidId} 
+    ...    404
+
+    Patch Expired Case
+    ...    ${accessToken}
+    ...    ${baseUrl}
+    ...    ${invalidId} 
+    ...    404
+
+

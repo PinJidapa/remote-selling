@@ -8,6 +8,7 @@ Resource        ../Page/GetCaseByIdPage.robot
 Resource        ../Keywords/KycKeyword.robot
 Resource        ../Page/GetProprietorByIdPage.robot
 Resource        ../Page/PatchExpiredCasePage.robot
+Resource        ../Page/PatchSubmitCasePage.robot
 Resource        ../Resourse/Env/${env}/Credential.robot
 Resource        ../Resourse/Env/${env}/Url.robot
 
@@ -81,14 +82,21 @@ TS01 Create Case By Mobile Phone Number And Only One Proprietor Does Ekyc
     ...    ${baseUrl}
     ...    ${insuredProprietorId}
     ...    200
+
+    Patch Submit Case
+    ...    ${accessToken}
+    ...    ${baseUrl}
+    ...    ${caseId}
+    ...    204   
+    
     Patch Expired Case
     ...    ${accessToken}
     ...    ${baseUrl}
     ...    ${caseId}
     ...    204
+    Sleep    5s
     Patch Expired Case
     ...    ${accessToken}
     ...    ${baseUrl}
     ...    ${caseId}
     ...    404
-

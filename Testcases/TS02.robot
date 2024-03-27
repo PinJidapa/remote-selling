@@ -6,6 +6,9 @@ Resource        ../Page/CreateCasePage.robot
 Resource        ../Page/ResendPage.robot
 Resource        ../Page/GetCaseByIdPage.robot
 Resource        ../Keywords/KycKeyword.robot
+Resource        ../Page/GetProprietorByIdPage.robot
+Resource        ../Page/PatchExpiredCasePage.robot
+Resource        ../Page/PatchSubmitCasePage.robot
 Resource        ../Resourse/Env/${env}/Credential.robot
 Resource        ../Resourse/Env/${env}/Url.robot
 
@@ -43,7 +46,7 @@ TS02 Create Case By Email And Two Proprietor Do Ekyc
     ...    ${accessToken}
     ...    ${baseUrl}
     ...    ${caseId}
-    ...    204
+    ...    200
 
     Client Pass Front ID Card, Back ID Card, Not Pass Face Recognition
     ...    ${kycPrivateKey}
@@ -57,7 +60,38 @@ TS02 Create Case By Email And Two Proprietor Do Ekyc
     Client Pass Front ID Card, Back ID Card, Not Pass Face Recognition
     ...    ${kycPrivateKey}
     ...    ${baseKycUrl}
+    ...    ${payerVerificationId}
     ...    /Resourse/TestData/IdCard/FrontIdCard02.jpeg 
     ...    /Resourse/TestData/IdCard/BackIdCard02.jpeg
     ...    image/jpeg
     ...    200
+
+    Get Proprietors By ID
+    ...    ${accessToken}
+    ...    ${baseUrl}
+    ...    ${insuredProprietorId}
+    ...    200
+
+    Get Proprietors By ID
+    ...    ${accessToken}
+    ...    ${baseUrl}
+    ...    ${payerProprietorId}
+    ...    200
+
+    Patch Submit Case
+    ...    ${accessToken}
+    ...    ${baseUrl}
+    ...    ${caseId}
+    ...    204   
+    
+    Patch Expired Case
+    ...    ${accessToken}
+    ...    ${baseUrl}
+    ...    ${caseId}
+    ...    204
+    Sleep    5s
+    Patch Expired Case
+    ...    ${accessToken}
+    ...    ${baseUrl}
+    ...    ${caseId}
+    ...    404
