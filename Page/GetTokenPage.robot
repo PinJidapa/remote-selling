@@ -4,9 +4,9 @@ Library         Collections
 
 
 *** Keywords *** 
-
-
 Get Token
+    [Documentation]       Get a token from the API Gateway for making authenticated requests. 
+    ...    Requires the clientId and the clientSecret
     [Arguments]    ${clientId}    ${clientSecret}    ${authUrl} 
     ${data} =    Create Dictionary
     ...    client_id=${clientId}

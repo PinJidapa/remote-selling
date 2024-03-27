@@ -14,7 +14,7 @@ ${smsInviteType}    invite?inviteType=sms&phoneNumber=0619926554
 ${emailInviteType}    invite?inviteType=email&email=pinpinnpinnn3@gmail.com
 
 *** Test Cases ***
-Post Create Case By Email
+TS02 Create Case By Email And Two Proprietor Do Ekyc
     ${accessToken}=     Get Token
     ...    ${clientId}    
     ...    ${clientSecret}    
@@ -22,7 +22,6 @@ Post Create Case By Email
     ${responseDictCases}=    Create Case
     ...    ${accessToken}
     ...    ${baseUrl}
-    # ...    OneProprietorCaseBySms
     ...    TwoProprietorCaseByEmail
     ...    201
     ${insuredProprietorId} =    Get From Dictionary    ${responseDictCases["proprietors"][0]}    id
@@ -58,8 +57,7 @@ Post Create Case By Email
     Client Pass Front ID Card, Back ID Card, Not Pass Face Recognition
     ...    ${kycPrivateKey}
     ...    ${baseKycUrl}
-    ...    ${payerVerificationId}
     ...    /Resourse/TestData/IdCard/FrontIdCard02.jpeg 
     ...    /Resourse/TestData/IdCard/BackIdCard02.jpeg
     ...    image/jpeg
-     ...   200
+    ...    200

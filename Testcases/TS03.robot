@@ -14,9 +14,8 @@ ${smsInviteType}    invite?inviteType=sms&phoneNumber=0619926554
 ${emailInviteType}    invite?inviteType=email&email=pinpinnpinnn3@gmail.com
 ${invalidId}    12345678-1234-1234-1234-123456789012
 
-
 *** Test Cases ***
-Post Create Case By Email
+TS03 Negative Case
     ${accessToken}=     Get Token
     ...    ${clientId}    
     ...    ${clientSecret}    
