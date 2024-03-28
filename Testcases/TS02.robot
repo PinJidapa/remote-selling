@@ -28,10 +28,14 @@ ${emailInviteType}    invite?inviteType=email&email=pinpinnpinnn3@gmail.com
 
 *** Test Cases ***
 TS02 Create Case By Email And Two Proprietor Do Ekyc
+    # Get access token 
     ${accessToken}=     Get Token
     ...    ${clientId}    
     ...    ${clientSecret}    
     ...    ${authUrl}
+
+    # Create the case for insured and payer to do ekyc
+    # which the status code should be 201
     ${responseDictCases}=    Create Case
     ...    ${accessToken}
     ...    ${baseUrl}
@@ -40,29 +44,31 @@ TS02 Create Case By Email And Two Proprietor Do Ekyc
     ${insuredProprietorId} =    Get From Dictionary    ${responseDictCases["proprietors"][0]}    id
     ${payerProprietorId} =    Get From Dictionary    ${responseDictCases["proprietors"][1]}    id
     ${caseId} =    Get From Dictionary    ${responseDictCases}    id
+    Log To Console  ${caseId}
 
     ${insuredVerificationId} =    Get From Dictionary    ${responseDictCases["proprietors"][0]}    verificationRef
     ${payerVerificationId} =    Get From Dictionary    ${responseDictCases["proprietors"][1]}    verificationRef
+    
 
+    Validate Create Case Response
+    ...    ${responseDictCases}
+    ...    verificationResponseSchemaTS002
+    Resend Link
+    ...    ${accessToken}
+    ...    ${baseUrl}
+    ...    ${insuredProprietorId}
+    ...    ${emailInviteType}
+    ...    204
 
-    # Validate Create Case Response
-    # ...    ${responseDictCases}
-    # ...    verificationResponseSchemaTS002
-    # Resend Link
-    # ...    ${accessToken}
-    # ...    ${baseUrl}
-    # ...    ${insuredProprietorId}
-    # ...    ${emailInviteType}
-    # ...    204
     ${responseDictCases}=    Get Case By Id
     ...    ${accessToken}
     ...    ${baseUrl}
-    ...    ${caseId}
+    ...    b8ab0575-59d4-4229-bc79-9f0fb237ca74
     ...    200
 
-     Validate Case Detail Response
+    Validate Case Detail Response
     ...    ${responseDictCases}
-    ...    getcaseResponseTS002copy
+    ...    CaseResponseAfterCreateCaseTS002
 
     Client Pass Front ID Card, Back ID Card, Not Pass Face Recognition
     ...    ${kycPrivateKey}
@@ -102,20 +108,20 @@ TS02 Create Case By Email And Two Proprietor Do Ekyc
     ...    ${responseDictProprietor}
     ...    getProprietorResponseBeforeEkycTS002
 
-    # Patch Submit Case
-    # ...    ${accessToken}
-    # ...    ${baseUrl}
-    # ...    ${caseId}
-    # ...    204   
+    Patch Submit Case
+    ...    ${accessToken}
+    ...    ${baseUrl}
+    ...    ${caseId}
+    ...    204   
     
-    # Patch Expired Case
-    # ...    ${accessToken}
-    # ...    ${baseUrl}
-    # ...    ${caseId}
-    # ...    204
-    # Sleep    5s
-    # Patch Expired Case
-    # ...    ${accessToken}
-    # ...    ${baseUrl}
-    # ...    ${caseId}
-    # ...    404
+    Patch Expired Case
+    ...    ${accessToken}
+    ...    ${baseUrl}
+    ...    ${caseId}
+    ...    204
+    Sleep    5s
+    Patch Expired Case
+    ...    ${accessToken}
+    ...    ${baseUrl}
+    ...    ${caseId}
+    ...    404

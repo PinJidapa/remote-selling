@@ -31,4 +31,4 @@ Get Case By Id
 Validate Case Detail Response
     #validate the response body from the API with the expected value (the expected value file is located in Schema folder)
     [Arguments]    ${responseDictCase}    ${expectedResponse}
-    Validate Json Schema   ${responseDictCase}    ${EXECDIR}/Schema/${expectedResponse}.json
+    Validate Json Schema   ${responseDictCase}    ${EXECDIR}/Schema/CaseResponse/${expectedResponse}.json

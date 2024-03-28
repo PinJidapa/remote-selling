@@ -1,0 +1,474 @@
+{
+    "id": "b8ab0575-59d4-4229-bc79-9f0fb237ca74",
+    "createdAt": "2024-03-28T15:59:50.340Z",
+    "updatedAt": "2024-03-28T15:59:51.132Z",
+    "deletedAt": null,
+    "userId": "4cce4c33-a81b-4333-b812-524e5835d76f",
+    "status": "inProgress",
+    "caseStatus": "inProgress",
+    "remark": null,
+    "appNumber": null,
+    "department": null,
+    "meetingRoomId": "6cf0-4618-8b6c",
+    "caseType": {
+        "key": "default",
+        "code": "001",
+        "translations": {
+            "en": {
+                "label": "Remote Selling"
+            },
+            "th": {
+                "label": "Remote Selling"
+            }
+        }
+    },
+    "voiceScripts": null,
+    "proprietors": [
+        {
+            "id": "502d7215-ea2b-467b-9086-6a7f39bbe1b0",
+            "createdAt": "2024-03-28T15:59:51.626Z",
+            "updatedAt": "2024-03-28T15:59:54.406Z",
+            "deletedAt": null,
+            "userId": "4cce4c33-a81b-4333-b812-524e5835d76f",
+            "caseId": "b8ab0575-59d4-4229-bc79-9f0fb237ca74",
+            "guardianId": null,
+            "proprietorType": "insured",
+            "inviteType": "email",
+            "countryCode": "TH",
+            "citizenId": "1729900599685",
+            "passportNumber": null,
+            "title": {
+                "key": "005",
+                "sex": "M",
+                "code": "005",
+                "label": "Mr.",
+                "value": "005",
+                "translations": {
+                    "en": {
+                        "label": "Mr."
+                    },
+                    "th": {
+                        "label": "นาย"
+                    }
+                }
+            },
+            "firstName": "กรรณชัย",
+            "middleName": null,
+            "lastName": "อ่างแก้ว",
+            "dateOfBirth": "2002-12-09",
+            "phoneNumber": null,
+            "email": "jidapa.o@appman.co.th",
+            "verificationRef": "ca2eefb0-9d20-4b48-b68d-62a5a0db6b06",
+            "verificationCache": {
+                "id": "ca2eefb0-9d20-4b48-b68d-62a5a0db6b06",
+                "ref": null,
+                "meta": {
+                    "proprietor": {
+                        "case": {
+                            "id": "b8ab0575-59d4-4229-bc79-9f0fb237ca74",
+                            "caseType": {
+                                "key": "default",
+                                "code": "001",
+                                "translations": {
+                                    "en": {
+                                        "label": "Remote Selling"
+                                    },
+                                    "th": {
+                                        "label": "Remote Selling"
+                                    }
+                                }
+                            },
+                            "policies": []
+                        },
+                        "lastName": "อ่างแก้ว",
+                        "firstName": "กรรณชัย"
+                    },
+                    "insuredTitle": {
+                        "key": "005",
+                        "sex": "M",
+                        "code": "005",
+                        "label": "Mr.",
+                        "value": "005",
+                        "translations": {
+                            "en": {
+                                "label": "Mr."
+                            },
+                            "id": {
+                                "label": "Tuan"
+                            },
+                            "th": {
+                                "label": "นาย"
+                            }
+                        }
+                    },
+                    "insuredLastName": "อ่างแก้ว",
+                    "insuredFirstName": "กรรณชัย",
+                    "insuredMiddleName": null
+                },
+                "email": "jidapa.o@appman.co.th",
+                "status": "open",
+                "userId": "4cce4c33-a81b-4333-b812-524e5835d76f",
+                "feedback": null,
+                "lastName": "อ่างแก้ว",
+                "position": null,
+                "citizenId": "1729900599685",
+                "createdAt": "2024-03-28T15:59:52.652Z",
+                "deletedAt": null,
+                "expiresAt": "2024-04-27T15:59:52.585Z",
+                "firstName": "กรรณชัย",
+                "kycStatus": "open",
+                "laserCode": null,
+                "updatedAt": "2024-03-28T15:59:52.652Z",
+                "amloConfig": {
+                    "required": false
+                },
+                "amloResult": null,
+                "department": null,
+                "dopaConfig": {
+                    "required": false
+                },
+                "dopaResult": null,
+                "middleName": null,
+                "notifyType": "none",
+                "verifiedAt": null,
+                "amloResults": null,
+                "appointment": null,
+                "dateOfBirth": "2002-12-09",
+                "dopaResults": null,
+                "phoneNumber": null,
+                "dipChipConfig": {
+                    "required": false
+                },
+                "dipChipResult": null,
+                "dipChipStatus": "unspecified",
+                "kycVerifiedAt": null,
+                "pdpaConsented": false,
+                "reusedResults": null,
+                "approvalRemark": null,
+                "approvalStatus": "inProgress",
+                "dipChipResults": null,
+                "passportConfig": {
+                    "required": false
+                },
+                "passportNumber": null,
+                "passportResult": null,
+                "sanctionConfig": {
+                    "required": false
+                },
+                "sanctionResult": null,
+                "sanctionStatus": "unspecified",
+                "verificationId": null,
+                "passportResults": null,
+                "sanctionResults": null,
+                "backIdCardConfig": {
+                    "attempts": 3,
+                    "required": true,
+                    "isEditable": true,
+                    "threshHold": 0.8,
+                    "currentAttempt": 3,
+                    "dependenciesRequired": false
+                },
+                "backIdCardResult": null,
+                "bankruptcyConfig": {
+                    "required": false
+                },
+                "bankruptcyResult": null,
+                "bankruptcyStatus": "unspecified",
+                "smsNotifyContent": null,
+                "backIdCardResults": null,
+                "bankruptcyResults": null,
+                "dipChipVerifiedAt": null,
+                "frontIdCardConfig": {
+                    "attempts": 3,
+                    "required": true,
+                    "isEditable": true,
+                    "threshHold": 0.8,
+                    "validations": [],
+                    "currentAttempt": 3,
+                    "dependenciesRequired": false,
+                    "compareNonEssentialFields": false
+                },
+                "frontIdCardResult": null,
+                "incomeCheckConfig": {
+                    "required": false
+                },
+                "incomeCheckResult": null,
+                "incomeCheckStatus": "unspecified",
+                "emailNotifyContent": null,
+                "emailNotifySubject": null,
+                "frontIdCardResults": null,
+                "incomeCheckResults": null,
+                "sanctionVerifiedAt": null,
+                "criminalCheckConfig": {
+                    "required": false
+                },
+                "criminalCheckResult": null,
+                "criminalCheckStatus": "unspecified",
+                "bankruptcyVerifiedAt": null,
+                "criminalCheckResults": null,
+                "educationCheckConfig": {
+                    "required": false
+                },
+                "educationCheckResult": null,
+                "educationCheckStatus": "unspecified",
+                "referenceCheckConfig": {
+                    "required": false
+                },
+                "referenceCheckResult": null,
+                "referenceCheckStatus": "unspecified",
+                "educationCheckResults": null,
+                "incomeCheckVerifiedAt": null,
+                "referenceCheckResults": null,
+                "criminalCheckVerifiedAt": null,
+                "idFaceRecognitionConfig": {
+                    "attempts": 1,
+                    "required": true,
+                    "threshHold": 0.8,
+                    "currentAttempt": 1,
+                    "livenessProvider": "facetecXAWS",
+                    "dependenciesRequired": false
+                },
+                "idFaceRecognitionResult": null,
+                "educationCheckVerifiedAt": null,
+                "idFaceRecognitionResults": null,
+                "referenceCheckVerifiedAt": null,
+                "educationCheckDocumentStatus": "unspecified",
+                "employmentVerificationConfig": {
+                    "required": false
+                },
+                "employmentVerificationResult": null,
+                "employmentVerificationStatus": "unspecified",
+                "employmentVerificationResults": null,
+                "employmentVerificationVerifiedAt": null
+            },
+            "certificationNumber": null,
+            "memberNumber": null,
+            "expiresAt": null,
+            "verifiedAt": null
+        },
+        {
+            "id": "bdb367f0-2dc6-4fb3-ae32-5d1d909a7c93",
+            "createdAt": "2024-03-28T15:59:51.638Z",
+            "updatedAt": "2024-03-28T15:59:54.410Z",
+            "deletedAt": null,
+            "userId": "4cce4c33-a81b-4333-b812-524e5835d76f",
+            "caseId": "b8ab0575-59d4-4229-bc79-9f0fb237ca74",
+            "guardianId": null,
+            "proprietorType": "payer",
+            "inviteType": "none",
+            "countryCode": "TH",
+            "citizenId": "1239900336573",
+            "passportNumber": null,
+            "title": {
+                "key": "005",
+                "sex": "M",
+                "code": "005",
+                "label": "Mr.",
+                "value": "005",
+                "translations": {
+                    "en": {
+                        "label": "Mr."
+                    },
+                    "th": {
+                        "label": "นาย"
+                    }
+                }
+            },
+            "firstName": "อมรรัตน์",
+            "middleName": null,
+            "lastName": "ดิษเจริญ",
+            "dateOfBirth": "2001-05-21",
+            "phoneNumber": null,
+            "email": null,
+            "verificationRef": "1db9d45a-2cd7-4682-a0c2-aa34958bbd5a",
+            "verificationCache": {
+                "id": "1db9d45a-2cd7-4682-a0c2-aa34958bbd5a",
+                "ref": null,
+                "meta": {
+                    "proprietor": {
+                        "case": {
+                            "id": "b8ab0575-59d4-4229-bc79-9f0fb237ca74",
+                            "caseType": {
+                                "key": "default",
+                                "code": "001",
+                                "translations": {
+                                    "en": {
+                                        "label": "Remote Selling"
+                                    },
+                                    "th": {
+                                        "label": "Remote Selling"
+                                    }
+                                }
+                            },
+                            "policies": []
+                        },
+                        "lastName": "ดิษเจริญ",
+                        "firstName": "อมรรัตน์"
+                    },
+                    "insuredTitle": {
+                        "key": "005",
+                        "sex": "M",
+                        "code": "005",
+                        "label": "Mr.",
+                        "value": "005",
+                        "translations": {
+                            "en": {
+                                "label": "Mr."
+                            },
+                            "id": {
+                                "label": "Tuan"
+                            },
+                            "th": {
+                                "label": "นาย"
+                            }
+                        }
+                    },
+                    "insuredLastName": "โดิษเจริญ",
+                    "insuredFirstName": "อมรรัตน์",
+                    "insuredMiddleName": null
+                },
+                "email": null,
+                "status": "open",
+                "userId": "4cce4c33-a81b-4333-b812-524e5835d76f",
+                "feedback": null,
+                "lastName": "ดิษเจริญ",
+                "position": null,
+                "citizenId": "1239900336573",
+                "createdAt": "2024-03-28T15:59:52.647Z",
+                "deletedAt": null,
+                "expiresAt": "2024-04-27T15:59:52.601Z",
+                "firstName": "อมรรัตน์",
+                "kycStatus": "open",
+                "laserCode": null,
+                "updatedAt": "2024-03-28T15:59:52.647Z",
+                "amloConfig": {
+                    "required": false
+                },
+                "amloResult": null,
+                "department": null,
+                "dopaConfig": {
+                    "required": false
+                },
+                "dopaResult": null,
+                "middleName": null,
+                "notifyType": "none",
+                "verifiedAt": null,
+                "amloResults": null,
+                "appointment": null,
+                "dateOfBirth": "2001-05-21",
+                "dopaResults": null,
+                "phoneNumber": null,
+                "dipChipConfig": {
+                    "required": false
+                },
+                "dipChipResult": null,
+                "dipChipStatus": "unspecified",
+                "kycVerifiedAt": null,
+                "pdpaConsented": false,
+                "reusedResults": null,
+                "approvalRemark": null,
+                "approvalStatus": "inProgress",
+                "dipChipResults": null,
+                "passportConfig": {
+                    "required": false
+                },
+                "passportNumber": null,
+                "passportResult": null,
+                "sanctionConfig": {
+                    "required": false
+                },
+                "sanctionResult": null,
+                "sanctionStatus": "unspecified",
+                "verificationId": null,
+                "passportResults": null,
+                "sanctionResults": null,
+                "backIdCardConfig": {
+                    "attempts": 3,
+                    "required": true,
+                    "isEditable": true,
+                    "threshHold": 0.8,
+                    "currentAttempt": 3,
+                    "dependenciesRequired": false
+                },
+                "backIdCardResult": null,
+                "bankruptcyConfig": {
+                    "required": false
+                },
+                "bankruptcyResult": null,
+                "bankruptcyStatus": "unspecified",
+                "smsNotifyContent": null,
+                "backIdCardResults": null,
+                "bankruptcyResults": null,
+                "dipChipVerifiedAt": null,
+                "frontIdCardConfig": {
+                    "attempts": 3,
+                    "required": true,
+                    "isEditable": true,
+                    "threshHold": 0.8,
+                    "validations": [],
+                    "currentAttempt": 3,
+                    "dependenciesRequired": false,
+                    "compareNonEssentialFields": false
+                },
+                "frontIdCardResult": null,
+                "incomeCheckConfig": {
+                    "required": false
+                },
+                "incomeCheckResult": null,
+                "incomeCheckStatus": "unspecified",
+                "emailNotifyContent": null,
+                "emailNotifySubject": null,
+                "frontIdCardResults": null,
+                "incomeCheckResults": null,
+                "sanctionVerifiedAt": null,
+                "criminalCheckConfig": {
+                    "required": false
+                },
+                "criminalCheckResult": null,
+                "criminalCheckStatus": "unspecified",
+                "bankruptcyVerifiedAt": null,
+                "criminalCheckResults": null,
+                "educationCheckConfig": {
+                    "required": false
+                },
+                "educationCheckResult": null,
+                "educationCheckStatus": "unspecified",
+                "referenceCheckConfig": {
+                    "required": false
+                },
+                "referenceCheckResult": null,
+                "referenceCheckStatus": "unspecified",
+                "educationCheckResults": null,
+                "incomeCheckVerifiedAt": null,
+                "referenceCheckResults": null,
+                "criminalCheckVerifiedAt": null,
+                "idFaceRecognitionConfig": {
+                    "attempts": 1,
+                    "required": true,
+                    "threshHold": 0.8,
+                    "currentAttempt": 1,
+                    "livenessProvider": "facetecXAWS",
+                    "dependenciesRequired": false
+                },
+                "idFaceRecognitionResult": null,
+                "educationCheckVerifiedAt": null,
+                "idFaceRecognitionResults": null,
+                "referenceCheckVerifiedAt": null,
+                "educationCheckDocumentStatus": "unspecified",
+                "employmentVerificationConfig": {
+                    "required": false
+                },
+                "employmentVerificationResult": null,
+                "employmentVerificationStatus": "unspecified",
+                "employmentVerificationResults": null,
+                "employmentVerificationVerifiedAt": null
+            },
+            "certificationNumber": null,
+            "memberNumber": null,
+            "expiresAt": null,
+            "verifiedAt": null
+        }
+    ],
+    "policies": [],
+    "documents": []
+}

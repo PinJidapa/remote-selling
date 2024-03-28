@@ -155,7 +155,6 @@
                     },
                     "verificationCache": {
                         "type": "object",
-                    
                         "properties": {
                             "id": {
                                 "type": "string"
@@ -180,14 +179,34 @@
                             },
                             "meta": {
                                 "type": "object",
-                                "properties":{
-                                    "firstName":{
+                                "properties": {
+                                    "proprietor": {
+                                        "type": "object",
+                                        "properties": {
+                                            "lastName": {
+                                                "type": "string"
+                                            },
+                                            "firstName": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "lastName",
+                                            "firstName"
+                                        ]
+                                    },
+                                    "insuredLastName": {
                                         "type": "string"
                                     },
-                                    "lastName":{
+                                    "insuredFirstName": {
                                         "type": "string"
                                     }
-                                }
+                                },
+                                "required": [
+                                    "proprietor",
+                                    "insuredLastName",
+                                    "insuredFirstName"
+                                ]
                             }
                         },
                         "required": [
@@ -268,8 +287,16 @@
                         "email": {
                             "const": "jidapa.o@appman.co.th"
                         },
-                        "verificationCache": {
-                            "meta": {
+                        "properties": {
+                            "verificationCache": {
+                                "meta": {
+                                    "firstName": {
+                                        "const": "กรรณชัย"
+                                    },
+                                    "lastName": {
+                                        "const": "อ่างแก้ว"
+                                    }
+                                }
                             }
                         }
                     }
