@@ -12,15 +12,18 @@ Get Proprietors By ID
     ...                   - accessToken to authenticated 
     ...                   - proprietorId which get from create case api
 
-    [Arguments]    ${accessToken}    ${baseUrl}    ${proprietorId}    ${expectedStatus}    ${expectedResponse}
+    [Arguments]    ${accessToken}    ${baseUrl}    ${proprietorId}    ${expectedStatus}
     ${headers} =    Create Dictionary
     ${data} =    Create Dictionary
     Set To Dictionary    ${headers}    Authorization    Bearer ${accessToken}
-    ${responseCases} =    GET    ${baseUrl}/proprietors/${proprietorId}
+    ${responseProprietor} =    GET    ${baseUrl}/proprietors/${proprietorId}
     ...    expected_status=${expectedStatus}
     ...    headers=${headers}
 
-    ${responseBodyCases} =    Set Variable    ${responseCases.text}
-    ${responseDictCases} =    Evaluate    json.loads($responseBodyCases)    json
+    ${responseBodyProprietor} =    Set Variable    ${responseProprietor.text}
+    ${responseDictProprietor} =    Evaluate    json.loads($responseBodyProprietor)    json
+    Return From Keyword    ${responseDictProprietor}    
 
-    Validate Json Schema    ${responseDictCases}     ${EXECDIR}/Schema/${expectedResponse}.json
+Validate Proprietors Response
+    [Arguments]    ${responseDictProprietor}     ${expectedResponse}
+    Validate Json Schema    ${responseDictProprietor}     ${EXECDIR}/Schema/ProprietorResponse/${expectedResponse}.json

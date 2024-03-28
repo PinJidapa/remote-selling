@@ -17,6 +17,16 @@ ${smsInviteType}    invite?inviteType=sms&phoneNumber=0619926554
 ${emailInviteType}    invite?inviteType=email&email=pinpinnpinnn3@gmail.com
 ${invalidId}    12345678-1234-1234-1234-123456789012
 
+# [TS01] Step
+# Emulate there is no token to create the case (post create case by valid access token)
+# Then, agent is unable to resend the link because an invalid insured proprietor id was provided  (post resend link by insured's proprietor id)
+# Next, agent is unable to see the case detail because of an invalid case id (get case detail by case id)
+# After, that the agent can't get the ekyc result due to an invalid proprietor id (get ekyc result by proprietor id)
+# Then, simulate insured can't do the ekyc due to an invalid verification id (patch and post ekyc data by insured's verification id and payer's verification id)
+# Next, the agent fetches the ekyc result after insured and payer have done the ekyc (get ekyc result by insured's proprietor id and payer's proprietors id)
+# Then, the agent can't submit case becasue of an invalid case id (patch submit case by case id)
+# Lastly, the agent isn't able to close the case for making the case expire because of an invalid case id (patch expire case by case id)
+
 *** Test Cases ***
 TS03 Negative Case
     ${accessToken}=     Get Token

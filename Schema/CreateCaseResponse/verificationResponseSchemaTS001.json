@@ -2,51 +2,6 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "properties": {
-        "caseType": {
-            "type": "object",
-            "properties": {
-                "key": {
-                    "type": "string",
-                    "const": "default"
-                },
-                "code": {
-                    "type": "string",
-                    "const": "001"
-                },
-                "translations": {
-                    "type": "object",
-                    "properties": {
-                        "en": {
-                            "type": "object",
-                            "properties": {
-                                "label": {
-                                    "type": "string",
-                                    "const": "Remote Selling"
-                                }
-                            }
-                        },
-                        "th": {
-                            "type": "object",
-                            "properties": {
-                                "label": {
-                                    "type": "string",
-                                    "const": "Remote Selling"
-                                }
-                            }
-                        }
-                    },
-                    "required": [
-                        "en",
-                        "th"
-                    ]
-                }
-            },
-            "required": [
-                "key",
-                "code",
-                "translations"
-            ]
-        },
         "proprietors": {
             "type": "array",
             "items": {
@@ -130,6 +85,14 @@
         },
         "attachMeetingRoom": {
             "type": "boolean"
+        },
+        "status":{
+            "type":  "string",
+            "const": "inProgress"
+        },
+        "caseStatus":{
+            "type":  "string",
+            "const": "inProgress"
         }
     },
     "required": [

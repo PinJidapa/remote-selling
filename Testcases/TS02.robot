@@ -16,6 +16,16 @@ Resource        ../Resourse/Env/${env}/Url.robot
 ${smsInviteType}    invite?inviteType=sms&phoneNumber=0619926554
 ${emailInviteType}    invite?inviteType=email&email=pinpinnpinnn3@gmail.com
 
+# [TS01] Step
+# Emulate agent create ekyc case for insured and payer to do ekyc and sends link via email (post create case by valid access token)
+# Then the agent resends link by email  (post resend link by insured's proprietor id)
+# Next agent gets case to see the case detail (get case detail by case id)
+# After that the agent fetch the ekyc result before insured and payer do ekyc (get ekyc result by insured's proprietor id and payer's proprietor id)
+# Then simulate insured and payer do ekyc by patch front id, back id, and face compare (liveness's not passed) (patch and post ekyc data by insured's verification id and payer's verification id)
+# Next the agent fetches the ekyc result after insured and payer have done the ekyc (get ekyc result by insured's proprietor id and payer's proprietors id)
+# Then the agent submit case (patch submit case by case id)
+# Lastly, the agent closes the cas to make the case expire (patch expire case by case id)
+
 *** Test Cases ***
 TS02 Create Case By Email And Two Proprietor Do Ekyc
     ${accessToken}=     Get Token
@@ -35,7 +45,7 @@ TS02 Create Case By Email And Two Proprietor Do Ekyc
     ${payerVerificationId} =    Get From Dictionary    ${responseDictCases["proprietors"][1]}    verificationRef
 
 
-    # Validate Verification Response
+    # Validate Create Case Response
     # ...    ${responseDictCases}
     # ...    verificationResponseSchemaTS002
     # Resend Link
@@ -44,11 +54,14 @@ TS02 Create Case By Email And Two Proprietor Do Ekyc
     # ...    ${insuredProprietorId}
     # ...    ${emailInviteType}
     # ...    204
-    Get Case By Id
+    ${responseDictCases}=    Get Case By Id
     ...    ${accessToken}
     ...    ${baseUrl}
     ...    ${caseId}
     ...    200
+
+     Validate Case Detail Response
+    ...    ${responseDictCases}
     ...    getcaseResponseTS002copy
 
     Client Pass Front ID Card, Back ID Card, Not Pass Face Recognition
@@ -69,17 +82,25 @@ TS02 Create Case By Email And Two Proprietor Do Ekyc
     ...    image/jpeg
     ...    200
 
-    # Get Proprietors By ID
-    # ...    ${accessToken}
-    # ...    ${baseUrl}
-    # ...    ${insuredProprietorId}
-    # ...    200
+    ${responseDictProprietor}=    Get Proprietors By ID
+    ...    ${accessToken}
+    ...    ${baseUrl}
+    ...    ${insuredProprietorId}
+    ...    200
 
-    # Get Proprietors By ID
-    # ...    ${accessToken}
-    # ...    ${baseUrl}
-    # ...    ${payerProprietorId}
-    # ...    200
+    Validate Proprietors Response
+    ...    ${responseDictProprietor}
+    ...    getProprietorResponseBeforeEkycTS002
+
+    ${responseDictProprietor}=    Get Proprietors By ID
+    ...    ${accessToken}
+    ...    ${baseUrl}
+    ...    ${payerProprietorId}
+    ...    200
+
+    Validate Proprietors Response
+    ...    ${responseDictProprietor}
+    ...    getProprietorResponseBeforeEkycTS002
 
     # Patch Submit Case
     # ...    ${accessToken}

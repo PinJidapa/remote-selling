@@ -8,20 +8,27 @@ Resource        ./GetTokenPage.robot
 *** Keywords *** 
 Get Case By Id
     [Documentation]       Get case by id from the api for geting the case detail
-    ...                   Requires
-    ...                   - accessToken to authenticated 
-    ...                   - caseId which get from create case api
+    ...                       Requires
+    ...                           - accessToken to authenticated 
+    ...                           - base url
+    ...                           - case id which get from create case api
+    ...                           - expected status after get case detail by case id
 
-    [Arguments]    ${accessToken}    ${baseUrl}    ${caseId}    ${expectedStatus}        ${expectedResponse}
+
+    [Arguments]    ${accessToken}    ${baseUrl}    ${caseId}    ${expectedStatus}
     ${headers} =    Create Dictionary
     ${data} =    Create Dictionary
     Set To Dictionary    ${headers}    Authorization    Bearer ${accessToken}
-    ${responseCases} =    GET    ${baseUrl}/cases/${caseId}
+    ${responseCase} =    GET    ${baseUrl}/cases/${caseId}
     ...    expected_status=${expectedStatus}
     ...    headers=${headers}
     
-    ${responseBodyCases} =    Set Variable    ${responseCases.text}
-    ${responseDictCases} =    Evaluate    json.loads($responseBodyCases)    json
+    ${responseBodyCase} =    Set Variable    ${responseCase.text}
+    ${responseDictCase} =    Evaluate    json.loads($responseBodyCase)    json
 
+    Return From Keyword    ${responseDictCase}
+    
+Validate Case Detail Response
     #validate the response body from the API with the expected value (the expected value file is located in Schema folder)
-    Validate Json Schema    ${responseDictCases}    ${EXECDIR}/Schema/${expectedResponse}.json
+    [Arguments]    ${responseDictCase}    ${expectedResponse}
+    Validate Json Schema   ${responseDictCase}    ${EXECDIR}/Schema/${expectedResponse}.json

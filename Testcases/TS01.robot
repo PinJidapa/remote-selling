@@ -16,17 +16,17 @@ Resource        ../Resourse/Env/${env}/Url.robot
 ${smsInviteType}    invite?inviteType=sms&phoneNumber=0619926554
 ${emailInviteType}    invite?inviteType=email&email=pinpinnpinnn3@gmail.com
 
-*** Test Cases ***
 # [TS01] Step
-# create case for one proprietor to do ekyc and send the link by sms
-# resend link by sms
-# get case (exsiting case)
-# get proprietor by id before insured will do ekyc
-# patch front id, back id, and face compare (liveness's not passed) by valid proprietor id for insured
-# get proprietor by id after patch the ekyc result
-# patch submit case (valid case)
-# patch expired case (valid case)
+# Emulate agent create ekyc case for one insured to do ekyc and sends link via sms  (post create case by valid access token)
+# Then the agent resends link by sms (post resend link by insured's proprietor id)
+# Next agent get case to see the case detail (get case detail by case id)
+# After that the agent fetch the ekyc result before insured does ekyc (get ekyc result by proprietor id)
+# Then simulate insured does ekyc by patch front id, back id, and face compare (liveness's not passed) (patch and post ekyc data by insured's verification id)
+# Next the agent fetches the ekyc result after insured has done the ekyc (get ekyc result by insured's proprietor id)
+# Then the agent submit case (patch submit case by case id)
+# Lastly, the agent closes the cas to make the case expire (patch expire case by case id)
 
+*** Test Cases ***
 TS01 Create Case By Mobile Phone Number And Only One Proprietor Does Ekyc
     # Get access token 
     ${accessToken}=     Get Token
@@ -35,25 +35,25 @@ TS01 Create Case By Mobile Phone Number And Only One Proprietor Does Ekyc
     ...    ${authUrl}
 
     # Create the case and retrieve the response body to validate the response
-    ${responseDictCases}=    Create Case
+    ${responseDictCreateCases}=    Create Case
     ...    ${accessToken}
     ...    ${baseUrl}
     ...    OneProprietorCaseBySms
     ...    201
 
     # Get proprietor id from create case response to use in next request
-    ${insuredProprietorId} =    Get From Dictionary    ${responseDictCases["proprietors"][0]}    id
+    ${insuredProprietorId} =    Get From Dictionary    ${responseDictCreateCases["proprietors"][0]}    id
 
     # Get case id from create case response to use in next request
-    ${caseId} =    Get From Dictionary    ${responseDictCases}    id
-    Log To Console    ${caseId}
+    ${caseId} =    Get From Dictionary    ${responseDictCreateCases}    id
+    Log To Console    ${insuredProprietorId}
 
     # Get verification id from create case response to use in next request
-    ${insuredVerificationId} =    Get From Dictionary    ${responseDictCases["proprietors"][0]}    verificationRef
+    ${insuredVerificationId} =    Get From Dictionary    ${responseDictCreateCases["proprietors"][0]}    verificationRef
     
     # validate the verification response after create the case
-    Validate Verification Response
-    ...    ${responseDictCases}
+    Validate Create Case Response
+    ...    ${responseDictCreateCases}
     ...    verificationResponseSchemaTS001
 
     # retrieve the access token from get token api, proprietor id from create case api 
@@ -70,20 +70,26 @@ TS01 Create Case By Mobile Phone Number And Only One Proprietor Does Ekyc
     # which the status code should be 200\
     # the response body after get case by id should be the same as expected result
     # we mainly focus on firstname, lastname, status, citizenId, inviteType, verificationCache
-    Get Case By Id
+    ${responseDictCases}=    Get Case By Id
     ...    ${accessToken}
     ...    ${baseUrl}
     ...    ${caseId}
     ...    200
+
+    Validate Case Detail Response
+    ...    ${responseDictCases}
     ...    getcaseResponseTS001
 
-    Get Proprietors By ID
+    ${responseDictProprietor}=    Get Proprietors By ID
     ...    ${accessToken}
     ...    ${baseUrl}
     ...    ${insuredProprietorId}
     ...    200
+
+    Validate Proprietors Response
+    ...    ${responseDictProprietor}
     ...    getProprietorResponseBeforeEkycTS001
-    
+
     # Client Pass Front ID Card, Back ID Card, Not Pass Face Recognition
     # ...    ${kycPrivateKey}
     # ...    ${baseKycUrl}
@@ -92,11 +98,16 @@ TS01 Create Case By Mobile Phone Number And Only One Proprietor Does Ekyc
     # ...    /Resourse/TestData/IdCard/BackIdCard01.jpeg
     # ...    image/jpeg
     # ...    200
-    # Get Proprietors By ID
+
+    # ${responseDictProprietor}=  Get Proprietors By ID
     # ...    ${accessToken}
     # ...    ${baseUrl}
     # ...    ${insuredProprietorId}
     # ...    200
+
+    # Validate Proprietors Response
+    # ...    ${responseDictProprietor}
+    # ...    getProprietorResponseBeforeEkycTS001
 
     # Patch Submit Case
     # ...    ${accessToken}
@@ -115,3 +126,5 @@ TS01 Create Case By Mobile Phone Number And Only One Proprietor Does Ekyc
     # ...    ${baseUrl}
     # ...    ${caseId}
     # ...    404
+
+
