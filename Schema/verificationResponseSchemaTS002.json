@@ -1,0 +1,276 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "caseType": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "const": "default"
+                },
+                "code": {
+                    "type": "string",
+                    "const": "001"
+                },
+                "translations": {
+                    "type": "object",
+                    "properties": {
+                        "en": {
+                            "type": "object",
+                            "properties": {
+                                "label": {
+                                    "type": "string",
+                                    "const": "Remote Selling"
+                                }
+                            }
+                        },
+                        "th": {
+                            "type": "object",
+                            "properties": {
+                                "label": {
+                                    "type": "string",
+                                    "const": "Remote Selling"
+                                }
+                            }
+                        }
+                    },
+                    "required": [
+                        "en",
+                        "th"
+                    ]
+                }
+            },
+            "required": [
+                "key",
+                "code",
+                "translations"
+            ]
+        },
+        "proprietors": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "expiryDuration": {
+                        "type": "string",
+                        "const": "P30D"
+                    },
+                    "proprietorType": {
+                        "type": "string",
+                        "enum": ["insured", "payer"]
+                    },
+                    "citizenId": {
+                        "type": "string"
+                    },
+                    "firstName": {
+                        "type": "string"
+                    },
+                    "middleName": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "lastName": {
+                        "type": "string"
+                    },
+                    "inviteType": {
+                        "type": "string",
+                        "const": "sms"
+                    },
+                    "email": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "dateOfBirth": {
+                        "type": "string"
+                    },
+                    "verifications": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "frontIdCardConfig": {
+                                    "$ref": "#/definitions/idCardConfig"
+                                },
+                                "backIdCardConfig": {
+                                    "$ref": "#/definitions/idCardConfig"
+                                },
+                                "FaceRecognitionConidfig": {
+                                    "$ref": "#/definitions/faceRecognitionConfig"
+                                }
+                            },
+                            "required": [
+                                "frontIdCardConfig",
+                                "backIdCardConfig",
+                                "idFaceRecognitionConfig"
+                            ]
+                        }
+                    }
+                },
+                "required": [
+                    "expiryDuration",
+                    "proprietorType",
+                    "citizenId",
+                    "firstName",
+                    "lastName",
+                    "title",
+                    "dateOfBirth",
+                    "meta",
+                    "verifications"
+                ],
+                "maxItems": 2,
+                "minItems": 2
+            }
+        },
+        
+        "attachMeetingRoom": {
+            "type": "boolean"
+        }
+    },
+    "required": [
+        "caseType",
+        "proprietors",
+        "attachMeetingRoom"
+    ],
+    "definitions": {
+        "idCardConfig": {
+            "type": "object",
+            "properties": {
+                "required": {
+                    "type": "boolean",
+                    "const": true
+                },
+                "isEditable": {
+                    "type": "boolean",
+                    "const": true
+                },
+                "dependenciesRequired": {
+                    "type": "boolean",
+                    "const": false
+                },
+                "threshHold": {
+                    "type": "number",
+                    "threshHold": 0.8
+                },
+                "attempts": {
+                    "type": "integer",
+                    "const": 3
+                }
+            },
+            "required": [
+                "required",
+                "isEditable",
+                "dependenciesRequired",
+                "attempts"
+            ]
+        },
+        "faceRecognitionConfig": {
+            "type": "object",
+            "properties": {
+                "required": {
+                    "type": "boolean",
+                    "const": true
+                },
+                "dependenciesRequired": {
+                    "type": "boolean",
+                    "const": false
+                },
+                "threshHold": {
+                    "type": "number",
+                    "const": 0.8
+                },
+                "attempts": {
+                    "type": "integer",
+                    "const": 1
+                }
+            },
+            "required": [
+                "required",
+                "dependenciesRequired",
+                "attempts"
+            ]
+        }
+    },
+    "if": {
+        "properties": {
+            "proprietors": {
+                "items": {
+                    "properties": {
+                        "proprietorType": {
+                            "const": "insured"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "then": {
+        "properties": {
+            "proprietors": {
+                "items": {
+                    "properties": {
+                        "expiryDuration": {
+                            "const": "P30D"
+                        },
+                        "proprietorType": {
+                            "const": "insured"
+                        },
+                        "citizenId": {
+                            "const": "1729900599685"
+                        },
+                        "firstName": {
+                            "const": "กรรณชัย"
+                        },
+                        "middleName": {
+                            "type": "null"
+                        },
+                        "lastName": {
+                            "const": "อ่างแก้ว"
+                        },
+                        "inviteType": {
+                            "const": "email"
+                        },
+                        "email": {
+                            "const": "jidapa.o@appman.co.th"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "else": {
+        "properties": {
+            "proprietors": {
+                "items": {
+                    "properties": {
+                        "expiryDuration": {
+                            "const": "P30D"
+                        },
+                        "proprietorType": {
+                            "const": "payer"
+                        },
+                        "citizenId": {
+                            "const": "1239900336573"
+                        },
+                        "firstName": {
+                            "const": "อมรรัตน์"
+                        },
+                        "middleName": {
+                            "type": "null"
+                        },
+                        "lastName": {
+                            "const": "ดิษเจริญ"
+                        },
+                        "inviteType": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

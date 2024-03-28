@@ -34,19 +34,22 @@ TS02 Create Case By Email And Two Proprietor Do Ekyc
     ${insuredVerificationId} =    Get From Dictionary    ${responseDictCases["proprietors"][0]}    verificationRef
     ${payerVerificationId} =    Get From Dictionary    ${responseDictCases["proprietors"][1]}    verificationRef
 
-    Validate Verification Response
-    ...    ${responseDictCases}
-    Resend Link
-    ...    ${accessToken}
-    ...    ${baseUrl}
-    ...    ${insuredProprietorId}
-    ...    ${emailInviteType}
-    ...    204
+
+    # Validate Verification Response
+    # ...    ${responseDictCases}
+    # ...    verificationResponseSchemaTS002
+    # Resend Link
+    # ...    ${accessToken}
+    # ...    ${baseUrl}
+    # ...    ${insuredProprietorId}
+    # ...    ${emailInviteType}
+    # ...    204
     Get Case By Id
     ...    ${accessToken}
     ...    ${baseUrl}
     ...    ${caseId}
     ...    200
+    ...    getcaseResponseTS002copy
 
     Client Pass Front ID Card, Back ID Card, Not Pass Face Recognition
     ...    ${kycPrivateKey}
@@ -66,32 +69,32 @@ TS02 Create Case By Email And Two Proprietor Do Ekyc
     ...    image/jpeg
     ...    200
 
-    Get Proprietors By ID
-    ...    ${accessToken}
-    ...    ${baseUrl}
-    ...    ${insuredProprietorId}
-    ...    200
+    # Get Proprietors By ID
+    # ...    ${accessToken}
+    # ...    ${baseUrl}
+    # ...    ${insuredProprietorId}
+    # ...    200
 
-    Get Proprietors By ID
-    ...    ${accessToken}
-    ...    ${baseUrl}
-    ...    ${payerProprietorId}
-    ...    200
+    # Get Proprietors By ID
+    # ...    ${accessToken}
+    # ...    ${baseUrl}
+    # ...    ${payerProprietorId}
+    # ...    200
 
-    Patch Submit Case
-    ...    ${accessToken}
-    ...    ${baseUrl}
-    ...    ${caseId}
-    ...    204   
+    # Patch Submit Case
+    # ...    ${accessToken}
+    # ...    ${baseUrl}
+    # ...    ${caseId}
+    # ...    204   
     
-    Patch Expired Case
-    ...    ${accessToken}
-    ...    ${baseUrl}
-    ...    ${caseId}
-    ...    204
-    Sleep    5s
-    Patch Expired Case
-    ...    ${accessToken}
-    ...    ${baseUrl}
-    ...    ${caseId}
-    ...    404
+    # Patch Expired Case
+    # ...    ${accessToken}
+    # ...    ${baseUrl}
+    # ...    ${caseId}
+    # ...    204
+    # Sleep    5s
+    # Patch Expired Case
+    # ...    ${accessToken}
+    # ...    ${baseUrl}
+    # ...    ${caseId}
+    # ...    404

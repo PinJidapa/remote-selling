@@ -6,10 +6,12 @@
             "type": "object",
             "properties": {
                 "key": {
-                    "type": "string"
+                    "type": "string",
+                    "const": "default"
                 },
                 "code": {
-                    "type": "string"
+                    "type": "string",
+                    "const": "001"
                 },
                 "translations": {
                     "type": "object",
@@ -18,7 +20,8 @@
                             "type": "object",
                             "properties": {
                                 "label": {
-                                    "type": "string"
+                                    "type": "string",
+                                    "const": "Remote Selling"
                                 }
                             }
                         },
@@ -26,7 +29,8 @@
                             "type": "object",
                             "properties": {
                                 "label": {
-                                    "type": "string"
+                                    "type": "string",
+                                    "const": "Remote Selling"
                                 }
                             }
                         }
@@ -49,16 +53,20 @@
                 "type": "object",
                 "properties": {
                     "expiryDuration": {
-                        "type": "string"
+                        "type": "string",
+                        "const": "P30D"
                     },
                     "proprietorType": {
-                        "type": "string"
+                        "type": "string",
+                        "const": "insured"
                     },
                     "citizenId": {
-                        "type": "string"
+                        "type": "string",
+                        "const": "1729900599685"
                     },
                     "firstName": {
-                        "type": "string"
+                        "type": "string",
+                        "const": "กรรณชัย"
                     },
                     "middleName": {
                         "type": [
@@ -67,10 +75,12 @@
                         ]
                     },
                     "lastName": {
-                        "type": "string"
+                        "type": "string",
+                        "const": "อ่างแก้ว"
                     },
                     "inviteType": {
-                        "type": "string"
+                        "type": "string",
+                        "const": "sms"
                     },
                     "email": {
                         "type": [
@@ -79,7 +89,8 @@
                         ]
                     },
                     "dateOfBirth": {
-                        "type": "string"
+                        "type": "string",
+                        "const": "2002-12-09"
                     },
                     "verifications": {
                         "type": "array",
@@ -92,8 +103,8 @@
                                 "backIdCardConfig": {
                                     "$ref": "#/definitions/idCardConfig"
                                 },
-                                "FaceRecognitionConidfig": {
-                                    "$ref": "#/definitions/faceRecognitionConfig"
+                                "idFaceRecognitionConfig": {
+                                    "$ref": "#/definitions/idFaceRecognitionConfig"
                                 }
                             },
                             "required": [
@@ -131,19 +142,24 @@
             "type": "object",
             "properties": {
                 "required": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "const": true
                 },
                 "isEditable": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "const": true
                 },
                 "dependenciesRequired": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "const": false
                 },
                 "threshHold": {
-                    "type": "number"
+                    "type": "number",
+                    "threshHold": 0.8
                 },
                 "attempts": {
-                    "type": "integer"
+                    "type": "integer",
+                    "const": 3
                 }
             },
             "required": [
@@ -153,26 +169,35 @@
                 "attempts"
             ]
         },
-        "faceRecognitionConfig": {
+        "idFaceRecognitionConfig": {
             "type": "object",
             "properties": {
                 "required": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "const": true
                 },
                 "dependenciesRequired": {
-                    "type": "boolean"
+                    "type": "boolean",
+                    "const": false
                 },
                 "threshHold": {
-                    "type": "number"
+                    "type": "number",
+                    "const": 0.8
                 },
                 "attempts": {
-                    "type": "integer"
+                    "type": "integer",
+                    "const": 1
+                },
+                "livenessProvider":{
+                    "type": "string",
+                    "const": "facetecXAWS"
                 }
             },
             "required": [
                 "required",
                 "dependenciesRequired",
-                "attempts"
+                "attempts",
+                "livenessProvider"
             ]
         }
     }

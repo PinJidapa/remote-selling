@@ -11,6 +11,13 @@ ${JSON_DATA}    {"key": "value"}
 
 *** Keywords *** 
 Create Case
+    [Documentation]    Post create case for generate proprietors id, case id, and verification id For Patch The EKYC Data
+    ...                Requires
+    ...                - accessToken to authenticate
+    ...                - base url
+    ...                - case type is the file name which is Request body with raw JSON
+    ...                - expect status after post create case
+
     [Arguments]    ${accessToken}    ${baseUrl}    ${caseType}    ${expectedStatus}
     ${headers} =    Create Dictionary
     Set To Dictionary    ${headers}    Content-Type    application/json
@@ -27,7 +34,7 @@ Create Case
     Return From Keyword   ${responseDictCases}
 
 
-
+    #validate the response body from the API with the expected value (the expected value file is located in Schema folder)
 Validate Verification Response
-    [Arguments]    ${responseDictCases}
-    Validate Json Schema    ${responseDictCases}     ${EXECDIR}/Schema/VerificationResponseSchema.json
+    [Arguments]    ${responseDictCases}        ${expectedResponse}
+    Validate Json Schema    ${responseDictCases}     ${EXECDIR}/Schema/${expectedResponse}.json

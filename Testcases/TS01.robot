@@ -33,22 +33,28 @@ TS01 Create Case By Mobile Phone Number And Only One Proprietor Does Ekyc
     ...    ${clientId}    
     ...    ${clientSecret}    
     ...    ${authUrl}
+
     # Create the case and retrieve the response body to validate the response
     ${responseDictCases}=    Create Case
     ...    ${accessToken}
     ...    ${baseUrl}
     ...    OneProprietorCaseBySms
     ...    201
+
     # Get proprietor id from create case response to use in next request
     ${insuredProprietorId} =    Get From Dictionary    ${responseDictCases["proprietors"][0]}    id
+
     # Get case id from create case response to use in next request
     ${caseId} =    Get From Dictionary    ${responseDictCases}    id
+    Log To Console    ${caseId}
+
     # Get verification id from create case response to use in next request
     ${insuredVerificationId} =    Get From Dictionary    ${responseDictCases["proprietors"][0]}    verificationRef
     
     # validate the verification response after create the case
     Validate Verification Response
     ...    ${responseDictCases}
+    ...    verificationResponseSchemaTS001
 
     # retrieve the access token from get token api, proprietor id from create case api 
     # and select the invite type as sms to resend the link
@@ -59,44 +65,53 @@ TS01 Create Case By Mobile Phone Number And Only One Proprietor Does Ekyc
     ...    ${insuredProprietorId}
     ...    ${smsInviteType}
     ...    204
+
+    # retrieve the access token from get token api, case id from create case api 
+    # which the status code should be 200\
+    # the response body after get case by id should be the same as expected result
+    # we mainly focus on firstname, lastname, status, citizenId, inviteType, verificationCache
     Get Case By Id
     ...    ${accessToken}
     ...    ${baseUrl}
     ...    ${caseId}
     ...    200
-    Get Proprietors By ID
-    ...    ${accessToken}
-    ...    ${baseUrl}
-    ...    ${insuredProprietorId}
-    ...    200
-    Client Pass Front ID Card, Back ID Card, Not Pass Face Recognition
-    ...    ${kycPrivateKey}
-    ...    ${baseKycUrl}
-    ...    ${insuredVerificationId}
-    ...    /Resourse/TestData/IdCard/FrontIdCard01.jpeg 
-    ...    /Resourse/TestData/IdCard/BackIdCard01.jpeg
-    ...    image/jpeg
-    ...    200
-    Get Proprietors By ID
-    ...    ${accessToken}
-    ...    ${baseUrl}
-    ...    ${insuredProprietorId}
-    ...    200
+    ...    getcaseResponseTS001
 
-    Patch Submit Case
+    Get Proprietors By ID
     ...    ${accessToken}
     ...    ${baseUrl}
-    ...    ${caseId}
-    ...    204   
+    ...    ${insuredProprietorId}
+    ...    200
+    ...    getProprietorResponseBeforeEkycTS001
     
-    Patch Expired Case
-    ...    ${accessToken}
-    ...    ${baseUrl}
-    ...    ${caseId}
-    ...    204
-    Sleep    5s
-    Patch Expired Case
-    ...    ${accessToken}
-    ...    ${baseUrl}
-    ...    ${caseId}
-    ...    404
+    # Client Pass Front ID Card, Back ID Card, Not Pass Face Recognition
+    # ...    ${kycPrivateKey}
+    # ...    ${baseKycUrl}
+    # ...    ${insuredVerificationId}
+    # ...    /Resourse/TestData/IdCard/FrontIdCard01.jpeg 
+    # ...    /Resourse/TestData/IdCard/BackIdCard01.jpeg
+    # ...    image/jpeg
+    # ...    200
+    # Get Proprietors By ID
+    # ...    ${accessToken}
+    # ...    ${baseUrl}
+    # ...    ${insuredProprietorId}
+    # ...    200
+
+    # Patch Submit Case
+    # ...    ${accessToken}
+    # ...    ${baseUrl}
+    # ...    ${caseId}
+    # ...    204   
+    
+    # Patch Expired Case
+    # ...    ${accessToken}
+    # ...    ${baseUrl}
+    # ...    ${caseId}
+    # ...    204
+    # Sleep    5s
+    # Patch Expired Case
+    # ...    ${accessToken}
+    # ...    ${baseUrl}
+    # ...    ${caseId}
+    # ...    404

@@ -7,6 +7,11 @@ Resource        ./GetTokenPage.robot
 
 *** Keywords *** 
 Patch Expired Case
+    [Documentation]    Patch close case by case id to make the link expire
+    ...                Requires
+    ...                - accessToken
+    ...                - case id from create case response
+
     [Arguments]    ${accessToken}    ${baseUrl}    ${caseId}    ${expectedStatus}
     ${headers} =    Create Dictionary
     ${data} =    Create Dictionary

@@ -1,0 +1,487 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "id": {
+            "type": "string"
+        },
+        "createdAt": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+        },
+        "deletedAt": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "format": "date-time"
+        },
+        "userId": {
+            "type": "string"
+        },
+        "status": {
+            "type": "string",
+            "const": "inProgress"
+        },
+        "caseStatus": {
+            "type": "string",
+            "const": "inProgress"
+        },
+        "remark": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "appNumber": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "department": {
+            "type": [
+                "string",
+                "null"
+            ]
+        },
+        "meetingRoomId": {
+            "type": "string"
+        },
+        "caseType": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "const": "default"
+                },
+                "code": {
+                    "type": "string",
+                    "const": "001"
+                }
+            },
+            "required": [
+                "key",
+                "code"
+            ]
+        },
+        "proprietors": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "deletedAt": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "format": "date-time"
+                    },
+                    "userId": {
+                        "type": "string"
+                    },
+                    "caseId": {
+                        "type": "string"
+                    },
+                    "guardianId": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "proprietorType": {
+                        "type": "string",
+                        "const": "insured"
+                    },
+                    "inviteType": {
+                        "type": "string",
+                        "const": "sms"
+                    },
+                    "countryCode": {
+                        "type": "string",
+                        "const": "TH"
+                    },
+                    "citizenId": {
+                        "type": "string",
+                        "const": "1729900599685"
+                    },
+                    "passportNumber": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "title": {
+                        "type": "object",
+                        "properties": {
+                            "key": {
+                                "type": "string",
+                                "const": "005"
+                            },
+                            "sex": {
+                                "type": "string",
+                                "const": "M"
+                            },
+                            "code": {
+                                "type": "string",
+                                "const": "005"
+                            },
+                            "label": {
+                                "type": "string",
+                                "const": "Mr."
+                            },
+                            "value": {
+                                "type": "string",
+                                "const": "005"
+                            }
+                        },
+                        "required": [
+                            "key",
+                            "sex",
+                            "code",
+                            "label",
+                            "value"
+                        ]
+                    },
+                    "firstName": {
+                        "type": "string",
+                        "const": "กรรณชัย"
+                    },
+                    "middleName": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "lastName": {
+                        "type": "string",
+                        "const": "อ่างแก้ว"
+                    },
+                    "dateOfBirth": {
+                        "type": "string",
+                        "format": "date",
+                        "const": "2002-12-09"
+                    },
+                    "phoneNumber": {
+                        "type": "string",
+                        "const":  "0619926554"
+                    },
+                    "email": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
+                    },
+                    "verificationRef": {
+                        "type": [
+                            "string"
+                        ]
+                    },
+                    "verificationCache": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            },
+                            "ref": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "meta": {
+                                "type": "object",
+                                "properties": {
+                                    "proprietor": {
+                                        "type": "object",
+                                        "properties": {
+                                            "case": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "string"
+                                                    },
+                                                    "caseType": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "key": {
+                                                                "type": "string",
+                                                                "const": "default"
+                                                            },
+                                                            "code": {
+                                                                "type": "string",
+                                                                "const": "001"
+                                                            },
+                                                            "translations": {
+                                                                "type": "object",
+                                                                "properties": {
+                                                                    "en": {
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                            "label": {
+                                                                                "type": "string",
+                                                                                "const": "Remote Selling"
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "th": {
+                                                                        "type": "object",
+                                                                        "properties": {
+                                                                            "label": {
+                                                                                "type": "string",
+                                                                                "const": "Remote Selling"
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                },
+                                                                "required": [
+                                                                    "en",
+                                                                    "th"
+                                                                ]
+                                                            }
+                                                        },
+                                                        "required": [
+                                                            "key",
+                                                            "code",
+                                                            "translations"
+                                                        ]
+                                                    },
+                                                    "policies": {
+                                                        "type": "array"
+                                                    }
+                                                },
+                                                "required": [
+                                                    "id",
+                                                    "caseType",
+                                                    "policies"
+                                                ]
+                                            },
+                                            "lastName": {
+                                                "type": "string",
+                                                "const": "อ่างแก้ว"
+                                            },
+                                            "firstName": {
+                                                "type": "string",
+                                                "const": "กรรณชัย"
+                                            }
+                                        },
+                                        "required": [
+                                            "case",
+                                            "lastName",
+                                            "firstName"
+                                        ]
+                                    },
+                                    "insuredTitle": {
+                                        "type": "object",
+                                        "properties": {
+                                            "key": {
+                                                "type": "string",
+                                                "const": "005"
+                                            },
+                                            "sex": {
+                                                "type": "string",
+                                                "const": "M"
+                                            },
+                                            "code": {
+                                                "type": "string",
+                                                "const": "005"
+                                            },
+                                            "label": {
+                                                "type": "string",
+                                                "const":  "Mr."
+                                            },
+                                            "value": {
+                                                "type": "string",
+                                                "const": "005"
+                                            },
+                                            "translations": {
+                                                "type": "object",
+                                                "properties": {
+                                                    "en": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "label": {
+                                                                "type": "string",
+                                                                "const": "Mr."
+                                                            }
+                                                        }
+                                                    },
+                                                    "id": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "label": {
+                                                                "type": "string",
+                                                                "const": "Tuan"
+                                                            }
+                                                        }
+                                                    },
+                                                    "th": {
+                                                        "type": "object",
+                                                        "properties": {
+                                                            "label": {
+                                                                "type": "string",
+                                                                "const": "นาย"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "required": [
+                                                    "en",
+                                                    "id",
+                                                    "th"
+                                                ]
+                                            }
+                                        },
+                                        "required": [
+                                            "key",
+                                            "sex",
+                                            "code",
+                                            "label",
+                                            "value",
+                                            "translations"
+                                        ]
+                                    },
+                                    "insuredLastName": {
+                                        "type": "string",
+                                        "const": "อ่างแก้ว"
+                                    },
+                                    "insuredFirstName": {
+                                        "type": "string",
+                                        "const": "กรรณชัย"
+                                    },
+                                    "insuredMiddleName": {
+                                        "type": [
+                                            "string",
+                                            "null"
+                                        ]
+                                    }
+                                },
+                                "required": [
+                                    "proprietor",
+                                    "insuredTitle",
+                                    "insuredLastName",
+                                    "insuredFirstName",
+                                    "insuredMiddleName"
+                                ]
+                            },
+                            "email": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            },
+                            "status": {
+                                "type": "string",
+                                "const": "open"
+                            },
+                            "userId": {
+                                "type": "string"
+                            },
+                            "createdAt": {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            "deletedAt": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ],
+                                "format": "date-time"
+                            },
+                            "expiresAt": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ],
+                                "format": "date-time"
+                            },
+                            "kycStatus": {
+                                "type": "string",
+                                "const": "open"
+                            },
+                            "updatedAt": {
+                                "type": "string",
+                                "format": "date-time"
+                            }
+                        },
+                        "required": [
+                            "id",
+                            "userId",
+                            "status",
+                            "meta",
+                            "createdAt",
+                            "updatedAt"
+                        ]
+                    },
+                    "expiresAt": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "format": "date-time"
+                    },
+                    "verifiedAt": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "format": "date-time"
+                    }
+                },
+                "required": [
+                    "id",
+                    "createdAt",
+                    "updatedAt",
+                    "userId",
+                    "caseId",
+                    "proprietorType",
+                    "inviteType",
+                    "countryCode",
+                    "citizenId",
+                    "title",
+                    "firstName",
+                    "lastName",
+                    "dateOfBirth",
+                    "phoneNumber",
+                    "email",
+                    "verificationRef",
+                    "verificationCache"
+                ]
+            }
+        },
+        "policies": {
+            "type": "array"
+        },
+        "documents": {
+            "type": "array"
+        }
+    },
+    "required": [
+        "id",
+        "createdAt",
+        "updatedAt",
+        "userId",
+        "status",
+        "caseStatus",
+        "meetingRoomId",
+        "caseType",
+        "proprietors",
+        "policies",
+        "documents"
+    ]
+}

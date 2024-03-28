@@ -5,9 +5,14 @@ Library         Collections
 Library         OperatingSystem
 Library         ../Scripts/api.py
 Resource        ./GetTokenPage.robot
-
 *** Keywords *** 
 Patch Consent
+    [Documentation]    Patch consent for updating consent status for PDPA compliance.
+    ...                Requires
+    ...                - kycPrivateKey
+    ...                - verification id from create case response
+    ...                - request body with the raw json file
+
     [Arguments]    ${kycPrivateKey}    ${baseKycUrl}    ${verificationId}    ${expectedStatus}
     ${headers} =    Create Dictionary
     Set To Dictionary    ${headers}    Authorization    Bearer ${kycPrivateKey}
@@ -19,6 +24,12 @@ Patch Consent
     ...    headers=${headers}
 
 Post Front ID Card
+    [Documentation]    Post front id card file by verificationId for operating front id card OCR
+    ...                Requires
+    ...                - kycPrivateKey
+    ...                - verificationId from create case api
+    ...                - front id card image as form-data
+
     [Arguments]    ${kycPrivateKey}    ${baseKycUrl}    ${verificationId}    ${frontIdCard}    ${extensionName}
     ${headers} =    Create Dictionary
     Set To Dictionary    ${headers}    Authorization    Bearer ${kycPrivateKey}
@@ -29,6 +40,12 @@ Post Front ID Card
     ...    ${headers}
 
 Patch Front ID Card
+    [Documentation]    Patch front id card for confirming the result from OCR
+    ...                Requires
+    ...                - kycPrivateKey
+    ...                - verificationId from create case api
+    ...                - request body with the raw json file
+
     [Arguments]    ${kycPrivateKey}    ${baseKycUrl}    ${verificationId}    ${expectedStatus}
     ${headers} =    Create Dictionary
     Set To Dictionary    ${headers}    Authorization    Bearer ${kycPrivateKey}
@@ -40,6 +57,12 @@ Patch Front ID Card
     ...    expected_status=${expectedStatus}
 
 Post Back ID Card
+    [Documentation]    Post back id card file by verificationId for operating back id card OCR
+    ...                Requires
+    ...                - kycPrivateKey
+    ...                - verificationId from create case api
+    ...                - back id card image as form-data
+
     [Arguments]    ${kycPrivateKey}    ${baseKycUrl}    ${verificationId}    ${backIdCard}    ${extensionName}
     ${headers} =    Create Dictionary
     Set To Dictionary    ${headers}    Authorization    Bearer ${kycPrivateKey}
@@ -50,6 +73,12 @@ Post Back ID Card
     ...    ${headers}
 
 Patch Back ID Card
+    [Documentation]    Patch back id card for confirming the result from OCR
+    ...                Requires
+    ...                - kycPrivateKey
+    ...                - verification id from create case api
+    ...                - request body with the raw json file
+
     [Arguments]    ${kycPrivateKey}    ${baseKycUrl}    ${verificationId}    ${expectedStatus}
     ${headers} =    Create Dictionary
     Set To Dictionary    ${headers}    Authorization    Bearer ${kycPrivateKey}
@@ -61,6 +90,16 @@ Patch Back ID Card
     ...    expected_status=${expectedStatus}
 
 Get FaceTec Token Session  
+    [Documentation]    Get the sessionToken from FaceTec for making the face recognition 
+    ...                    Requires
+    ...                        - kycPrivateKey
+    ...                        - verification id from create case api
+    ...                Post the liveness Image/video to do the liveness 
+    ...                    Requires
+    ...                        - sessionToken
+    ...                        - verification id from create case api
+    ...                        - video and image file with Base64 format with the raw json file
+
     [Arguments]    ${kycPrivateKey}    ${baseKycUrl}    ${verificationId}    ${expectedStatus}
     ${headers} =    Create Dictionary
     Set To Dictionary    ${headers}    Authorization    Bearer ${kycPrivateKey}
@@ -81,6 +120,12 @@ Get FaceTec Token Session
     ...    expected_status=${expectedStatus}
 
 Patch Remark
+    [Documentation]    Patch the remark to note the reason why not pass face recognition
+    ...                Requires
+    ...                - kycPrivateKey
+    ...                - verification id from create case api
+    ...                - request body with the raw json file
+
     [Arguments]    ${kycPrivateKey}    ${baseKycUrl}    ${verificationId}    ${expectedStatus}
     ${headers} =    Create Dictionary
     Set To Dictionary    ${headers}    Authorization    Bearer ${kycPrivateKey}
@@ -92,6 +137,12 @@ Patch Remark
     ...    expected_status=${expectedStatus}
 
 Patch Confirm Verification
+    [Documentation]    Patch confirm the EKYC verifcation to finish the EKYC process
+    ...                Requires
+    ...                - kycPrivateKey
+    ...                - verification id from create case api
+    ...                - request body with the raw json file
+
     [Arguments]    ${kycPrivateKey}    ${baseKycUrl}    ${verificationId}    ${expectedStatus}
     ${headers} =    Create Dictionary
     Set To Dictionary    ${headers}    Authorization    Bearer ${kycPrivateKey}
