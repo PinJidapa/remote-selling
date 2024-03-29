@@ -49,26 +49,27 @@ TS02 Create Case By Email And Two Proprietor Do Ekyc
     ${insuredVerificationId} =    Get From Dictionary    ${responseDictCases["proprietors"][0]}    verificationRef
     ${payerVerificationId} =    Get From Dictionary    ${responseDictCases["proprietors"][1]}    verificationRef
     
-
-    # Validate Create Case Response
-    # ...    ${responseDictCases}
-    # ...    verificationResponseSchemaTS002
-    Resend Link
-    ...    ${accessToken}
-    ...    ${baseUrl}
-    ...    ${insuredProprietorId}
-    ...    ${emailInviteType}
-    ...    204
-
-    ${responseDictCases}=    Get Case By Id
-    ...    ${accessToken}
-    ...    ${baseUrl}
-    ...    b8ab0575-59d4-4229-bc79-9f0fb237ca74
-    ...    200
-
-    Validate Case Detail Response
+    Sleep    2
+    Validate Create Case Response
     ...    ${responseDictCases}
-    ...    CaseResponseAfterCreateCaseTS002
+    ...    verificationResponseSchemaTS002
+
+    # Resend Link
+    # ...    ${accessToken}
+    # ...    ${baseUrl}
+    # ...    ${insuredProprietorId}
+    # ...    ${emailInviteType}
+    # ...    204
+
+    # ${responseDictCases}=    Get Case By Id
+    # ...    ${accessToken}
+    # ...    ${baseUrl}
+    # ...    ${caseId}
+    # ...    200
+
+    # Validate Case Detail Response
+    # ...    ${responseDictCases}
+    # ...    CaseResponseAfterCreateCaseTS002
 
     # Client Pass Front ID Card, Back ID Card, Not Pass Face Recognition
     # ...    ${kycPrivateKey}

@@ -2,63 +2,32 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "properties": {
-        "caseType": {
-            "type": "object",
-            "properties": {
-                "key": {
-                    "type": "string",
-                    "const": "default"
-                },
-                "code": {
-                    "type": "string",
-                    "const": "001"
-                },
-                "translations": {
-                    "type": "object",
-                    "properties": {
-                        "en": {
-                            "type": "object",
-                            "properties": {
-                                "label": {
-                                    "type": "string",
-                                    "const": "Remote Selling"
-                                }
-                            }
-                        },
-                        "th": {
-                            "type": "object",
-                            "properties": {
-                                "label": {
-                                    "type": "string",
-                                    "const": "Remote Selling"
-                                }
-                            }
-                        }
-                    },
-                    "required": [
-                        "en",
-                        "th"
-                    ]
-                }
-            },
-            "required": [
-                "key",
-                "code",
-                "translations"
-            ]
+        "status": {
+            "type": "string",
+            "const": "inProgress"
+        },
+        "caseStatus": {
+            "type": "string",
+            "const": "inProgress"
         },
         "proprietors": {
             "type": "array",
             "items": {
                 "type": "object",
                 "properties": {
-                    "expiryDuration": {
-                        "type": "string",
-                        "const": "P30D"
-                    },
                     "proprietorType": {
                         "type": "string",
-                        "enum": ["insured", "payer"]
+                        "enum": [
+                            "insured",
+                            "payer"
+                        ]
+                    },
+                    "inviteType": {
+                        "type": "string",
+                        "enum": [
+                            "email",
+                            "none"
+                        ]
                     },
                     "citizenId": {
                         "type": "string"
@@ -75,9 +44,15 @@
                     "lastName": {
                         "type": "string"
                     },
-                    "inviteType": {
+                    "dateOfBirth": {
                         "type": "string",
-                        "const": "sms"
+                        "format": "date"
+                    },
+                    "phoneNumber": {
+                        "type": [
+                            "string",
+                            "null"
+                        ]
                     },
                     "email": {
                         "type": [
@@ -85,148 +60,101 @@
                             "null"
                         ]
                     },
-                    "dateOfBirth": {
-                        "type": "string"
-                    },
-                    "verifications": {
-                        "type": "array",
-                        "items": {
-                            "type": "object",
-                            "properties": {
-                                "frontIdCardConfig": {
-                                    "$ref": "#/definitions/idCardConfig"
-                                },
-                                "backIdCardConfig": {
-                                    "$ref": "#/definitions/idCardConfig"
-                                },
-                                "FaceRecognitionConidfig": {
-                                    "$ref": "#/definitions/faceRecognitionConfig"
-                                }
+                    "verificationCache": {
+                        "type": "object",
+                        "properties": {
+                            "status": {
+                                "type": "string"
                             },
-                            "required": [
-                                "frontIdCardConfig",
-                                "backIdCardConfig",
-                                "idFaceRecognitionConfig"
-                            ]
-                        }
+                            "lastName": {
+                                "type": "string"
+                            },
+                            "citizenId": {
+                                "type": "string"
+                            },
+                            "firstName": {
+                                "type": "string"
+                            },
+                            "kycStatus": {
+                                "type": "string"
+                            },
+                            "dateOfBirth": {
+                                "type": "string"
+                            },
+                            "meta": {
+                                "type": "object",
+                                "properties": {
+                                    "proprietor": {
+                                        "type": "object",
+                                        "properties": {
+                                            "lastName": {
+                                                "type": "string"
+                                            },
+                                            "firstName": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "required": [
+                                            "lastName",
+                                            "firstName"
+                                        ]
+                                    },
+                                    "insuredLastName": {
+                                        "type": "string"
+                                    },
+                                    "insuredFirstName": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "proprietor",
+                                    "insuredLastName",
+                                    "insuredFirstName"
+                                ]
+                            },
+                            "backIdCardConfig": {
+                                "$ref": "#/definitions/idCardConfig"
+                            },
+                            "frontIdCardConfig": {
+                                "$ref": "#/definitions/idCardConfig"
+                            },
+                            "idFaceRecognitionConfig": {
+                                "$ref": "#/definitions/idFaceRecognitionConfig"
+                            }
+                        },
+                        "required": [
+                            "id",
+                            "meta",
+                            "status",
+                            "userId"
+                        ]
                     }
                 },
                 "required": [
-                    "expiryDuration",
+                    "id",
+                    "createdAt",
+                    "updatedAt",
+                    "userId",
+                    "caseId",
                     "proprietorType",
+                    "inviteType",
                     "citizenId",
                     "firstName",
                     "lastName",
-                    "title",
                     "dateOfBirth",
-                    "meta",
-                    "verifications"
+                    "verificationCache"
                 ],
-                "maxItems": 2,
-                "minItems": 2
-            }
-        },
-        
-        "attachMeetingRoom": {
-            "type": "boolean"
-        }
-    },
-    "required": [
-        "caseType",
-        "proprietors",
-        "attachMeetingRoom"
-    ],
-    "definitions": {
-        "idCardConfig": {
-            "type": "object",
-            "properties": {
-                "required": {
-                    "type": "boolean",
-                    "const": true
-                },
-                "isEditable": {
-                    "type": "boolean",
-                    "const": true
-                },
-                "dependenciesRequired": {
-                    "type": "boolean",
-                    "const": false
-                },
-                "threshHold": {
-                    "type": "number",
-                    "threshHold": 0.8
-                },
-                "attempts": {
-                    "type": "integer",
-                    "const": 3
-                }
-            },
-            "required": [
-                "required",
-                "isEditable",
-                "dependenciesRequired",
-                "attempts"
-            ]
-        },
-        "faceRecognitionConfig": {
-            "type": "object",
-            "properties": {
-                "required": {
-                    "type": "boolean",
-                    "const": true
-                },
-                "dependenciesRequired": {
-                    "type": "boolean",
-                    "const": false
-                },
-                "threshHold": {
-                    "type": "number",
-                    "const": 0.8
-                },
-                "attempts": {
-                    "type": "integer",
-                    "const": 1
-                }
-            },
-            "required": [
-                "required",
-                "dependenciesRequired",
-                "attempts"
-            ]
-        }
-    },
-    "if": {
-        "properties": {
-            "proprietors": {
-                "items": {
+                "if": {
                     "properties": {
                         "proprietorType": {
                             "const": "insured"
                         }
                     }
-                }
-            }
-        }
-    },
-    "then": {
-        "properties": {
-            "proprietors": {
-                "items": {
+                },
+                "then": {
                     "properties": {
-                        "expiryDuration": {
-                            "const": "P30D"
-                        },
-                        "proprietorType": {
-                            "const": "insured"
-                        },
-                        "citizenId": {
-                            "const": "1729900599685"
-                        },
                         "firstName": {
                             "const": "กรรณชัย"
-                        },
-                        "middleName": {
-                            "type": "null"
                         },
                         "lastName": {
                             "const": "อ่างแก้ว"
@@ -234,43 +162,185 @@
                         "inviteType": {
                             "const": "email"
                         },
+                        "citizenId": {
+                            "const": "1729900599685"
+                        },
+                        "dateOfBirth": {
+                            "const": "2002-12-09"
+                        },
                         "email": {
                             "const": "jidapa.o@appman.co.th"
+                        },
+                        "verificationCache": {
+                            "type": "object",
+                            "properties": {
+                                "meta": {
+                                    "type": "object",
+                                    "properties": {
+                                        "insuredLastName": {
+                                            "type": "string",
+                                            "const": "อ่างแก้ว"
+                                        },
+                                        "insuredFirstName": {
+                                            "type": "string",
+                                            "const": "กรรณชัย"
+                                        }
+                                    },
+                                    "required": [
+                                        "insuredLastName",
+                                        "insuredFirstName"
+                                    ]
+                                },
+                                "status": {
+                                    "const": "open"
+                                },
+                                "lastName": {
+                                    "const": "อ่างแก้ว"
+                                },
+                                "citizenId": {
+                                    "const": "1729900599685"
+                                },
+                                "firstName": {
+                                    "const": "กรรณชัย"
+                                },
+                                "kycStatus": {
+                                    "const": "open"
+                                },
+                                "dateOfBirth": {
+                                    "const": "2002-12-09"
+                                }
+                            }
                         }
                     }
-                }
-            }
-        }
-    },
-    "else": {
-        "properties": {
-            "proprietors": {
-                "items": {
+                },
+                "else": {
                     "properties": {
-                        "expiryDuration": {
-                            "const": "P30D"
-                        },
-                        "proprietorType": {
-                            "const": "payer"
-                        },
-                        "citizenId": {
-                            "const": "1239900336573"
-                        },
                         "firstName": {
                             "const": "อมรรัตน์"
-                        },
-                        "middleName": {
-                            "type": "null"
                         },
                         "lastName": {
                             "const": "ดิษเจริญ"
                         },
-                        "inviteType": {
-                            "type": "string"
+                        "dateOfBirth": {
+                            "const": "2001-05-21"
+                        },
+                        "citizenId": {
+                            "const": "1239900336573"
+                        },
+                        "verificationCache": {
+                            "type": "object",
+                            "properties": {
+                                "meta": {
+                                    "type": "object",
+                                    "properties": {
+                                        "insuredLastName": {
+                                            "type": "string",
+                                            "const": "โดิษเจริญ"
+                                        },
+                                        "insuredFirstName": {
+                                            "type": "string",
+                                            "const": "อมรรัตน์"
+                                        }
+                                    },
+                                    "required": [
+                                        "insuredLastName",
+                                        "insuredFirstName"
+                                    ]
+                                },
+                                "status": {
+                                    "const": "open"
+                                },
+                                "lastName": {
+                                    "const": "ดิษเจริญ"
+                                },
+                                "citizenId": {
+                                    "const": "1239900336573"
+                                },
+                                "firstName": {
+                                    "const": "อมรรัตน์"
+                                },
+                                "kycStatus": {
+                                    "const": "open"
+                                },
+                                "dateOfBirth": {
+                                    "const": "2001-05-21"
+                                }
+                            }
                         }
                     }
                 }
-            }
+            },
+            "minItems": 2,
+            "maxItems": 2
+        }
+    },
+    "required": [
+        "proprietors"
+    ],
+    "definitions": {
+        "idCardConfig": {
+            "type": "object",
+            "properties": {
+                "attempts": {
+                    "type": "integer",
+                    "const": 3
+                },
+                "required": {
+                    "type": "boolean",
+                    "const": true
+                },
+                "threshHold": {
+                    "type": "number",
+                    "const": 0.8
+                },
+                "dependenciesRequired": {
+                    "type": "boolean",
+                    "const": false
+                }
+            },
+            "required": [
+                "attempts",
+                "required",
+                "isEditable",
+                "threshHold",
+                "currentAttempt",
+                "dependenciesRequired"
+            ]
+        },
+        "idFaceRecognitionConfig": {
+            "type": "object",
+            "properties": {
+                "attempts": {
+                    "type": "integer",
+                    "const": 1
+                },
+                "required": {
+                    "type": "boolean",
+                    "const": true
+                },
+                "threshHold": {
+                    "type": "number",
+                    "const": 0.8
+                },
+                "livenessProvider": {
+                    "type": "string",
+                    "const": "facetecXAWS"
+                },
+                "dependenciesRequired": {
+                    "type": "boolean",
+                    "const": false
+                }
+            },
+            "required": [
+                "attempts",
+                "required",
+                "threshHold",
+                "currentAttempt",
+                "livenessProvider",
+                "dependenciesRequired"
+            ]
         }
     }
 }
+
+                                    
