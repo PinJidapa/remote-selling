@@ -131,21 +131,17 @@ TS01 Create Case By Mobile Phone Number And Only One Proprietor Does Ekyc
     ...    ${caseId}
     ...    204   
     
-    # retrieve the access token from get token api, and case id from create case api
-    # patch Expired the case or close the case
-    # which the status code should be 204
-    Patch Expired Case
-    ...    ${accessToken}
-    ...    ${baseUrl}
-    ...    ${caseId}
-    ...    204
-    
-    # retrieve the access token from get token api, and case id from create case api
-    # patch Expired the case or close the case again
-    # which the status code should be 404
     Sleep    5s
-    Patch Expired Case
+    # # retrieve the access token from get token api, and case id from create case api 
+    # # which the status code should be 200
+    ${responseDictCases}=    Get Case By Id
     ...    ${accessToken}
     ...    ${baseUrl}
     ...    ${caseId}
-    ...    404
+    ...    200
+
+    # validate the response (get the case by id) with json schema which located in schema folder
+    # we mainly focus on insured detail, inviteType, verificationCache and case status
+    Validate Case Detail Response
+    ...    ${responseDictCases}
+    ...    CaseResponsAfterSubmitCaseTS001

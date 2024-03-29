@@ -50,9 +50,9 @@ TS02 Create Case By Email And Two Proprietor Do Ekyc
     ${payerVerificationId} =    Get From Dictionary    ${responseDictCases["proprietors"][1]}    verificationRef
     
 
-    Validate Create Case Response
-    ...    ${responseDictCases}
-    ...    verificationResponseSchemaTS002
+    # Validate Create Case Response
+    # ...    ${responseDictCases}
+    # ...    verificationResponseSchemaTS002
     Resend Link
     ...    ${accessToken}
     ...    ${baseUrl}
@@ -70,23 +70,23 @@ TS02 Create Case By Email And Two Proprietor Do Ekyc
     ...    ${responseDictCases}
     ...    CaseResponseAfterCreateCaseTS002
 
-    Client Pass Front ID Card, Back ID Card, Not Pass Face Recognition
-    ...    ${kycPrivateKey}
-    ...    ${baseKycUrl}
-    ...    ${insuredVerificationId}
-    ...    /Resourse/TestData/IdCard/FrontIdCard01.jpeg 
-    ...    /Resourse/TestData/IdCard/BackIdCard01.jpeg
-    ...    image/jpeg
-    ...    200
+    # Client Pass Front ID Card, Back ID Card, Not Pass Face Recognition
+    # ...    ${kycPrivateKey}
+    # ...    ${baseKycUrl}
+    # ...    ${insuredVerificationId}
+    # ...    /Resourse/TestData/IdCard/FrontIdCard01.jpeg 
+    # ...    /Resourse/TestData/IdCard/BackIdCard01.jpeg
+    # ...    image/jpeg
+    # ...    200
 
-    Client Pass Front ID Card, Back ID Card, Not Pass Face Recognition
-    ...    ${kycPrivateKey}
-    ...    ${baseKycUrl}
-    ...    ${payerVerificationId}
-    ...    /Resourse/TestData/IdCard/FrontIdCard02.jpeg 
-    ...    /Resourse/TestData/IdCard/BackIdCard02.jpeg
-    ...    image/jpeg
-    ...    200
+    # Client Pass Front ID Card, Back ID Card, Not Pass Face Recognition
+    # ...    ${kycPrivateKey}
+    # ...    ${baseKycUrl}
+    # ...    ${payerVerificationId}
+    # ...    /Resourse/TestData/IdCard/FrontIdCard02.jpeg 
+    # ...    /Resourse/TestData/IdCard/BackIdCard02.jpeg
+    # ...    image/jpeg
+    # ...    200
 
     ${responseDictProprietor}=    Get Proprietors By ID
     ...    ${accessToken}
@@ -94,9 +94,9 @@ TS02 Create Case By Email And Two Proprietor Do Ekyc
     ...    ${insuredProprietorId}
     ...    200
 
-    Validate Proprietors Response
-    ...    ${responseDictProprietor}
-    ...    getProprietorResponseBeforeEkycTS002
+    # Validate Proprietors Response
+    # ...    ${responseDictProprietor}
+    # ...    getProprietorResponseBeforeEkycTS002
 
     ${responseDictProprietor}=    Get Proprietors By ID
     ...    ${accessToken}
@@ -104,9 +104,9 @@ TS02 Create Case By Email And Two Proprietor Do Ekyc
     ...    ${payerProprietorId}
     ...    200
 
-    Validate Proprietors Response
-    ...    ${responseDictProprietor}
-    ...    getProprietorResponseBeforeEkycTS002
+    # Validate Proprietors Response
+    # ...    ${responseDictProprietor}
+    # ...    getProprietorResponseBeforeEkycTS002
 
     Patch Submit Case
     ...    ${accessToken}

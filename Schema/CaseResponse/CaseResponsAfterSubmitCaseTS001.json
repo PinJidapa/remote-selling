@@ -4,11 +4,11 @@
     "properties": {
         "status": {
             "type": "string",
-            "const": "inProgress"
+            "const": "completed"
         },
         "caseStatus": {
             "type": "string",
-            "const": "inProgress"
+            "const": "completed"
         },
         "proprietors": {
             "type": "array",
@@ -89,7 +89,7 @@
                             },
                             "status": {
                                 "type": "string",
-                                "const": "open"
+                                "const": "completed"
                             },
                             "lastName": {
                                 "type": "string",
@@ -102,10 +102,6 @@
                             "firstName": {
                                 "type": "string",
                                 "const": "กรรณชัย"
-                            },
-                            "kycStatus": {
-                                "type": "string",
-                                "const": "open"
                             },
                             "dateOfBirth": {
                                 "type": "string",
@@ -131,7 +127,6 @@
                             "lastName",
                             "citizenId",
                             "firstName",
-                            "kycStatus",
                             "dateOfBirth",
                             "phoneNumber",
                             "backIdCardConfig",
@@ -189,6 +184,7 @@
                 "required",
                 "isEditable",
                 "threshHold",
+                "currentAttempt",
                 "dependenciesRequired"
             ]
         },
@@ -220,6 +216,7 @@
                 "attempts",
                 "required",
                 "threshHold",
+                "currentAttempt",
                 "livenessProvider",
                 "dependenciesRequired"
             ]

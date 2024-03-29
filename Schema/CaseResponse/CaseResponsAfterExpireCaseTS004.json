@@ -4,11 +4,11 @@
     "properties": {
         "status": {
             "type": "string",
-            "const": "inProgress"
+            "const": "closed"
         },
         "caseStatus": {
             "type": "string",
-            "const": "inProgress"
+            "const": "closed"
         },
         "proprietors": {
             "type": "array",
@@ -103,10 +103,6 @@
                                 "type": "string",
                                 "const": "กรรณชัย"
                             },
-                            "kycStatus": {
-                                "type": "string",
-                                "const": "open"
-                            },
                             "dateOfBirth": {
                                 "type": "string",
                                 "const": "2002-12-09"
@@ -131,7 +127,6 @@
                             "lastName",
                             "citizenId",
                             "firstName",
-                            "kycStatus",
                             "dateOfBirth",
                             "phoneNumber",
                             "backIdCardConfig",
@@ -189,6 +184,7 @@
                 "required",
                 "isEditable",
                 "threshHold",
+                "currentAttempt",
                 "dependenciesRequired"
             ]
         },
@@ -220,6 +216,7 @@
                 "attempts",
                 "required",
                 "threshHold",
+                "currentAttempt",
                 "livenessProvider",
                 "dependenciesRequired"
             ]
