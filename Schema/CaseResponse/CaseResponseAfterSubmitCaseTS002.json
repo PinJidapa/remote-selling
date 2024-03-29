@@ -2,13 +2,13 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "properties": {
-        "status": {
+        "status":{
             "type": "string",
-            "const": "inProgress"
+            "const": "completed"
         },
-        "caseStatus": {
+        "caseStatus":{
             "type": "string",
-            "const": "inProgress"
+            "const": "completed"
         },
         "proprietors": {
             "type": "array",
@@ -75,9 +75,6 @@
                             "firstName": {
                                 "type": "string"
                             },
-                            "kycStatus": {
-                                "type": "string"
-                            },
                             "dateOfBirth": {
                                 "type": "string"
                             },
@@ -125,8 +122,7 @@
                         "required": [
                             "id",
                             "meta",
-                            "status",
-                            "userId"
+                            "status"
                         ]
                     }
                 },
@@ -134,7 +130,6 @@
                     "id",
                     "createdAt",
                     "updatedAt",
-                    "userId",
                     "caseId",
                     "proprietorType",
                     "inviteType",
@@ -191,8 +186,8 @@
                                         "insuredFirstName"
                                     ]
                                 },
-                                "status": {
-                                    "const": "open"
+                                "status":{
+                                    "const": "completed"
                                 },
                                 "lastName": {
                                     "const": "อ่างแก้ว"
@@ -202,9 +197,6 @@
                                 },
                                 "firstName": {
                                     "const": "กรรณชัย"
-                                },
-                                "kycStatus": {
-                                    "const": "open"
                                 },
                                 "dateOfBirth": {
                                     "const": "2002-12-09"
@@ -247,8 +239,8 @@
                                         "insuredFirstName"
                                     ]
                                 },
-                                "status": {
-                                    "const": "open"
+                                "status":{
+                                    "const": "completed"
                                 },
                                 "lastName": {
                                     "const": "ดิษเจริญ"
@@ -258,9 +250,6 @@
                                 },
                                 "firstName": {
                                     "const": "อมรรัตน์"
-                                },
-                                "kycStatus": {
-                                    "const": "open"
                                 },
                                 "dateOfBirth": {
                                     "const": "2001-05-21"
@@ -342,5 +331,3 @@
         }
     }
 }
-
-                                    

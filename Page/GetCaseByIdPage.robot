@@ -13,8 +13,12 @@ Get Case By Id
     ...                           - base url
     ...                           - case id which get from create case api
     ...                           - expected status after get case detail by case id
+    ...                   Validate the case detail response
+    ...                        Requires
+    ...                           - response dict cases (response from get case by id) 
+    ...                           - json schema
 
-
+    #get case by id
     [Arguments]    ${accessToken}    ${baseUrl}    ${caseId}    ${expectedStatus}
     ${headers} =    Create Dictionary
     ${data} =    Create Dictionary
@@ -29,6 +33,6 @@ Get Case By Id
     Return From Keyword    ${responseDictCase}
     
 Validate Case Detail Response
-    #validate the response body from the API with the expected value (the expected value file is located in Schema folder)
-    [Arguments]    ${responseDictCase}    ${expectedResponse}
-    Validate Json Schema   ${responseDictCase}    ${EXECDIR}/Schema/${expectedResponse}.json
+    #validate the response body from the get cases API with the json schema
+    [Arguments]    ${responseDictCase}    ${jsonSchema}
+    Validate Json Schema   ${responseDictCase}    ${EXECDIR}/Schema/CaseResponse/${jsonSchema}.json

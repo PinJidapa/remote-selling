@@ -8,10 +8,17 @@ Resource        ./GetTokenPage.robot
 *** Keywords *** 
 Get Proprietors By ID
     [Documentation]       Get Propietors by id from the api for geting EKYC resule
-    ...                   Requires
-    ...                   - accessToken to authenticated 
-    ...                   - proprietorId which get from create case api
+    ...                       Requires
+    ...                           - accessToken to authenticate
+    ...                           - base url
+    ...                           - proprietor id which get from create case api
+    ...                           - expected status after get proprietor by proprietor id
+    ...                    Validate the case detail response
+    ...                        Requires
+    ...                           - response dict cases (response from get proprietor by proprietor id) 
+    ...                           - json schema
 
+    #get proprietors by proprietor id
     [Arguments]    ${accessToken}    ${baseUrl}    ${proprietorId}    ${expectedStatus}
     ${headers} =    Create Dictionary
     ${data} =    Create Dictionary
@@ -25,5 +32,6 @@ Get Proprietors By ID
     Return From Keyword    ${responseDictProprietor}    
 
 Validate Proprietors Response
-    [Arguments]    ${responseDictProprietor}     ${expectedResponse}
-    Validate Json Schema    ${responseDictProprietor}     ${EXECDIR}/Schema/ProprietorResponse/${expectedResponse}.json
+    #validate the response body from the get proprietor API with the json schema
+    [Arguments]    ${responseDictProprietor}     ${jsonSchema}
+    Validate Json Schema    ${responseDictProprietor}     ${EXECDIR}/Schema/ProprietorResponse/${jsonSchema}.json

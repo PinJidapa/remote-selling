@@ -2,9 +2,6 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "properties": {
-            "status":{
-                "type": "string"
-            },
             "verifications": {
                 "type": "array",
                 "items": {
@@ -79,7 +76,7 @@
             },
             "inviteType":{
                 "type": "string",
-                "const": "sms"
+                "const": "email"
             },
             "proprietorType":{
                 "type": "string",
@@ -97,9 +94,9 @@
                 "type": "string",
                 "const": "2002-12-09"
             },
-            "phoneNumber":{
+            "email":{
                 "type": "string",
-                "const": "0619926554"
+                "const": "jidapa.o@appman.co.th"
             },
             "verificationCache":{
                 "type":"object",

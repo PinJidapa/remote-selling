@@ -2,11 +2,11 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "properties": {
-        "status": {
+        "status":{
             "type": "string",
             "const": "inProgress"
         },
-        "caseStatus": {
+        "caseStatus":{
             "type": "string",
             "const": "inProgress"
         },
@@ -191,7 +191,7 @@
                                         "insuredFirstName"
                                     ]
                                 },
-                                "status": {
+                                "status":{
                                     "const": "open"
                                 },
                                 "lastName": {
@@ -247,7 +247,7 @@
                                         "insuredFirstName"
                                     ]
                                 },
-                                "status": {
+                                "status":{
                                     "const": "open"
                                 },
                                 "lastName": {
@@ -342,5 +342,3 @@
         }
     }
 }
-
-                                    
