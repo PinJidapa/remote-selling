@@ -9,7 +9,9 @@ Get Token
     ...    Get a token from the api Gateway for making authenticated requests. 
     ...    Requires 
     ...        - the clientId and the clientSecret
+    ...        - autorization url
 
+    #get token  from authorization
     [Arguments]    ${clientId}    ${clientSecret}    ${authUrl} 
     ${data} =    Create Dictionary
     ...    client_id=${clientId}

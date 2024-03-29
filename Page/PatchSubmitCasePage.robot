@@ -8,9 +8,11 @@ Resource        ./GetTokenPage.robot
 *** Keywords *** 
 Patch Submit Case
     [Documentation]    Patch submit case by case id to submit the case
-    ...                Requires
-    ...                - accessToken
-    ...                - case id from create case response
+    ...                    Requires
+    ...                         - accessToken to authenticate
+    ...                         - base url
+    ...                         - case id from create case response
+    ...                         - expected statis after sibmit the case
 
     [Arguments]    ${accessToken}    ${baseUrl}    ${caseId}    ${expectedStatus}
     ${headers} =    Create Dictionary

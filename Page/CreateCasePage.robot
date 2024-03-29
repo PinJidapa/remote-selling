@@ -20,7 +20,7 @@ Create Case
     ...                Validate the create case response 
     ...                    Requires
     ...                        - response dict cases (response from post create case) 
-    ...                        - expected response schema 
+    ...                        - json schema
 
     #post create case
     [Arguments]    ${accessToken}    ${baseUrl}    ${caseType}    ${expectedStatus}
@@ -42,6 +42,6 @@ Create Case
     Return From Keyword   ${responseDictCreateCases}
 
 Validate Create Case Response
-    #validate the response body from the create case API with the expected response
-    [Arguments]    ${responseDictCreateCases}       ${expectedResponse}
-    Validate Json Schema    ${responseDictCreateCases}     ${EXECDIR}/Schema/CreateCaseResponse/${expectedResponse}.json
+    #validate the response body from the create case API with the json schema
+    [Arguments]    ${responseDictCreateCases}       ${jsonSchema}
+    Validate Json Schema    ${responseDictCreateCases}     ${EXECDIR}/Schema/CreateCaseResponse/${jsonSchema}.json

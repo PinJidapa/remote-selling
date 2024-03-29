@@ -18,13 +18,12 @@ ${emailInviteType}    invite?inviteType=email&email=jidapa.o@appman.co.th
 
 # [TS01] Step
 # Emulate agent create ekyc case for one insured to do ekyc and sends link via sms  (post create case by valid access token)
-# Then the agent resends link by sms (post resend link by insured's proprietor id)
-# Next agent get case to see the case detail (get case detail by case id)
-# After that the agent fetch the ekyc result before insured does ekyc (get ekyc result by proprietor id)
-# Then simulate insured does ekyc by patch front id, back id, and face compare (liveness's not passed) (patch and post ekyc data by insured's verification id)
-# Next the agent fetches the ekyc result after insured has done the ekyc (get ekyc result by insured's proprietor id)
-# Then the agent submit case (patch submit case by case id)
-# Lastly, the agent closes the cas to make the case expire (patch expire case by case id)
+# Then, the agent resends link by sms (post resend link by insured's proprietor id)
+# Next, agent get case to see the case detail (get case detail by case id)
+# After that, the agent fetch the ekyc result before insured does ekyc (get ekyc result by proprietor id)
+# Then, simulate insured does ekyc by patch front id, back id, and face compare (liveness's not passed) (patch and post ekyc data by insured's verification id)
+# Next, the agent fetches the ekyc result after insured has done the ekyc (get ekyc result by insured's proprietor id)
+# Lastly, the agent submits case (patch submit case by case id)
 
 *** Test Cases ***
 TS01 Create Case By Mobile Phone Number And Only One Proprietor Does Ekyc
@@ -47,7 +46,6 @@ TS01 Create Case By Mobile Phone Number And Only One Proprietor Does Ekyc
 
     # Get case id from create case response to use in next request
     ${caseId} =    Get From Dictionary    ${responseDictCreateCases}    id
-    Log To Console    ${caseId}
 
     # Get verification id from create case response to use in next request
     ${insuredVerificationId} =    Get From Dictionary    ${responseDictCreateCases["proprietors"][0]}    verificationRef
@@ -60,7 +58,7 @@ TS01 Create Case By Mobile Phone Number And Only One Proprietor Does Ekyc
 
     # retrieve the access token from get token api, and proprietor id from create case api 
     # then select the invite type as sms to resend the link
-    # which the status code should be 200
+    # which the status code should be 204
     Resend Link
     ...    ${accessToken}
     ...    ${baseUrl}
@@ -82,7 +80,7 @@ TS01 Create Case By Mobile Phone Number And Only One Proprietor Does Ekyc
     ...    ${responseDictCases}
     ...    CaseResponsAfterCreateCaseTS001
 
-    # retrieve the access token from get token api, and proprietor id from create case api  
+    # retrieve the access token from get token api, and insured's proprietor id from create case api  
     # which the status code should be 200
     ${responseDictProprietor}=    Get Proprietors By ID
     ...    ${accessToken}
@@ -94,7 +92,7 @@ TS01 Create Case By Mobile Phone Number And Only One Proprietor Does Ekyc
     # we mainly focus on insured detail, verificationCache, and ekyc status
     Validate Proprietors Response
     ...    ${responseDictProprietor}
-    ...    BeforeDoEkycTS001
+    ...    ProprietorResponseBeforeDoEkycTS001
 
     # post and patch the ekyc data for insured that required the front and back id card image (located in testData file)
     # the status code should be 200
@@ -113,14 +111,14 @@ TS01 Create Case By Mobile Phone Number And Only One Proprietor Does Ekyc
     ${responseDictProprietor}=  Get Proprietors By ID
     ...    ${accessToken}
     ...    ${baseUrl}
-    ...    e43d1645-61cf-4bbd-bd53-d0824efc356e
+    ...    ${insuredProprietorId}
     ...    200
  
     # validate the response (get the case by id) with json schema which located in schema folder
     # we mainly focus on insured detail, verificationCache, ocr detail and ekyc status
     Validate Proprietors Response
     ...    ${responseDictProprietor}
-    ...    AfterDoEkycTS001
+    ...    ProprietorResponseAfterDoneEkycTS001
 
     # retrieve the access token from get token api, and case id from create case api
     # patch submit the case
@@ -131,9 +129,9 @@ TS01 Create Case By Mobile Phone Number And Only One Proprietor Does Ekyc
     ...    ${caseId}
     ...    204   
     
-    Sleep    5s
-    # # retrieve the access token from get token api, and case id from create case api 
-    # # which the status code should be 200
+    Sleep    2
+    # retrieve the access token from get token api, and case id from create case api 
+    # which the status code should be 200
     ${responseDictCases}=    Get Case By Id
     ...    ${accessToken}
     ...    ${baseUrl}
@@ -141,7 +139,7 @@ TS01 Create Case By Mobile Phone Number And Only One Proprietor Does Ekyc
     ...    200
 
     # validate the response (get the case by id) with json schema which located in schema folder
-    # we mainly focus on insured detail, inviteType, verificationCache and case status
+    # we mainly focus on the case status
     Validate Case Detail Response
     ...    ${responseDictCases}
     ...    CaseResponsAfterSubmitCaseTS001
