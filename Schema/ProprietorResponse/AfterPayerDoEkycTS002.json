@@ -7,6 +7,10 @@
             "items": {
                 "type": "object",
                 "properties": {
+                    "status": {
+                        "type": "string",
+                        "const": "completed"
+                    },
                     "frontIdCardConfig": {
                         "$ref": "#/definitions/idCardConfig"
                     },
@@ -16,38 +20,58 @@
                     "idFaceRecognitionConfig": {
                         "$ref": "#/definitions/idFaceRecognitionConfig"
                     },
-                    "status": {
-                        "type": "string",
-                        "const": "completed"
-                    },
                     "citizenId": {
                         "type": "string",
-                        "const": "1729900599685"
+                        "const": "1239900336573"
                     },
-                    "lastName": {
-                        "type": "string",
-                        "const": "อ่างแก้ว"
+                    "passportNumber": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "const": null
+                    },
+                    "laserCode": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "const": null
                     },
                     "firstName": {
                         "type": "string",
-                        "const": "กรรณชัย"
+                        "const": "อมรรัตน์"
+                    },
+                    "middleName": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "const": null
+                    },
+                    "lastName": {
+                        "type": "string",
+                        "const": "ดิษเจริญ"
                     },
                     "dateOfBirth": {
                         "type": "string",
-                        "const": "2002-12-09"
+                        "format": "date",
+                        "const": "2001-05-21"
                     },
-                    "meta": {
-                        "type": "object",
-                        "properties": {
-                            "insuredLastName": {
-                                "type": "string",
-                                "const": "อ่างแก้ว"
-                            },
-                            "insuredFirstName": {
-                                "type": "string",
-                                "const": "กรรณชัย"
-                            }
-                        }
+                    "email": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "format": "email",
+                        "const": null
+                    },
+                    "phoneNumber": {
+                        "type": [
+                            "string",
+                            "null"
+                        ],
+                        "const": null
                     },
                     "frontIdCardResult": {
                         "type": "object",
@@ -55,28 +79,40 @@
                             "response": {
                                 "type": "object",
                                 "properties": {
-                                    "result":{
+                                    "result": {
                                         "type": "object",
                                         "properties": {
                                             "name_en": {
                                                 "type": "string",
-                                                "const": "Mr. Kanchai"
+                                                "const": "Miss Amonrat"
+                                            },
+                                            "district": {
+                                                "type": "string",
+                                                "const": "อ.บ่อไร่"
+                                            },
+                                            "province": {
+                                                "type": "string",
+                                                "const": "จ.ตราด"
                                             },
                                             "title_en": {
                                                 "type": "string",
-                                                "const": "Mr."
+                                                "const": "Miss"
                                             },
                                             "title_th": {
                                                 "type": "string",
-                                                "const": "นาย"
+                                                "const": "น.ส."
                                             },
                                             "id_number": {
                                                 "type": "string",
-                                                "const": "1 7299 00599 68 5"
+                                                "const": "1 2399 00336 57 3"
+                                            },
+                                            "address_no": {
+                                                "type": "string",
+                                                "const": "58 หมู่ที่ 2"
                                             },
                                             "address_th": {
                                                 "type": "string",
-                                                "const": "165 หมู่ที่ 3 ต.คลองใหม่ อ.สามพราน จ.นครปฐม"
+                                                "const": "58 หมู่ที่ 2 ต.นนทรีย์ อ.บ่อไร่ จ.ตราด"
                                             },
                                             "religion_th": {
                                                 "type": "string",
@@ -84,31 +120,31 @@
                                             },
                                             "full_name_th": {
                                                 "type": "string",
-                                                "const": "นาย กรรณชัย อ่างแก้ว"
+                                                "const": "น.ส. อมรรัตน์ ดิษเจริญ"
                                             },
                                             "last_name_en": {
                                                 "type": "string",
-                                                "const": "Angkaew"
+                                                "const": "Discharoen"
                                             },
                                             "last_name_th": {
                                                 "type": "string",
-                                                "const": "อ่างแก้ว"
+                                                "const": "ดิษเจริญ"
                                             },
                                             "sub_district": {
                                                 "type": "string",
-                                                "const": "ต.คลองใหม่"
+                                                "const": "ต.นนทรีย์"
                                             },
                                             "first_name_en": {
                                                 "type": "string",
-                                                "const": "Kanchai"
+                                                "const": "Amonrat"
                                             },
                                             "first_name_th": {
                                                 "type": "string",
-                                                "const": "กรรณชัย"
+                                                "const": "อมรรัตน์"
                                             },
                                             "serial_number": {
                                                 "type": "string",
-                                                "const": "1298-04-07051517"
+                                                "const": "2304-02-05090924"
                                             },
                                             "middle_name_en": {
                                                 "type": "string",
@@ -120,42 +156,60 @@
                                             },
                                             "date_of_birth_en": {
                                                 "type": "string",
-                                                "const": "9 Dec. 2002"
+                                                "const": "21 May 2001"
                                             },
                                             "date_of_birth_th": {
                                                 "type": "string",
-                                                "const": "9 ธ.ค. 2545"
+                                                "const": "21 พ.ค. 2544"
                                             },
                                             "date_of_issue_en": {
                                                 "type": "string",
-                                                "const": "5 Jul. 2021"
+                                                "const": "9 May 2017"
                                             },
                                             "date_of_issue_th": {
                                                 "type": "string",
-                                                "const": "5 ก.ค. 2564"
+                                                "const": "9 พ.ค. 2560"
                                             },
                                             "date_of_expiry_en": {
                                                 "type": "string",
-                                                "const": "8 Dec. 2029"
+                                                "const": "20 May 2025"
                                             },
                                             "date_of_expiry_th": {
                                                 "type": "string",
-                                                "const": "8 ธ.ค. 2572"
+                                                "const": "20 พ.ค. 2568"
                                             },
                                             "middle_last_name_en": {
                                                 "type": "string",
-                                                "const": "Angkaew"
+                                                "const": "Discharoen"
                                             },
                                             "title_first_name_en": {
                                                 "type": "string",
-                                                "const": "Mr. Kanchai"
+                                                "const": "Miss Amonrat"
                                             }
                                         }
                                     }
                                 }
+                            },
+                            "verified": {
+                                "type": "boolean",
+                                "const": true
+                            },
+                            "confirmed": {
+                                "type": "boolean",
+                                "const": true
                             }
                         }
-                        
+                    },
+                    "passportResult": {
+                        "type": [
+                            "object",
+                            "null"
+                        ],
+                        "const": null
+                    },
+                    "passportResults": {
+                        "type": "array",
+                        "const": []
                     },
                     "backIdCardResult": {
                         "type": "object",
@@ -163,36 +217,63 @@
                             "response": {
                                 "type": "object",
                                 "properties": {
-                                    "result":{
+                                    "result": {
                                         "type": "object",
                                         "properties": {
                                             "laser_code": {
                                                 "type": "string",
-                                                "const": "JT0-0707563-50"
+                                                "const": "ME3-1490872-87"
                                             }
                                         }
                                     }
-                                    
                                 }
+                            },
+                            "verified": {
+                                "type": "boolean",
+                                "const": true
+                            },
+                            "confirmed": {
+                                "type": "boolean",
+                                "const": true
                             }
                         }
                     },
                     "idFaceRecognitionResult": {
                         "type": "object",
                         "properties": {
-                            "verified":{
+                            "verified": {
                                 "type": "boolean",
                                 "const": false
                             },
-                            "confirmed":{
+                            "confirmed": {
                                 "type": "boolean",
                                 "const": true
                             }
                         }
                     },
-                    "feedback":{
+                    "feedback": {
                         "type": "string",
                         "const": "ทำศัยกรรม"
+                    },
+                    "meta": {
+                        "type": "object",
+                        "properties": {
+                            "insuredLastName": {
+                                "type": "string",
+                                "const": "อ่างแก้ว"
+                            },
+                            "insuredFirstName": {
+                                "type": "string",
+                                "const": "กรรณชัย"
+                            },
+                            "insuredMiddleName": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ],
+                                "const": null
+                            }
+                        }
                     },
                     "kycStatus": {
                         "type": "string",
@@ -200,9 +281,17 @@
                     }
                 },
                 "required": [
+                    "status",
                     "frontIdCardConfig",
+                    "passportConfig",
                     "backIdCardConfig",
-                    "idFaceRecognitionConfig"
+                    "idFaceRecognitionConfig",
+                    "citizenId",
+                    "firstName",
+                    "lastName",
+                    "dateOfBirth",
+                    "frontIdCardResult",
+                    "kycStatus"
                 ]
             }
         },
@@ -217,35 +306,61 @@
                     "type": "string",
                     "const": "inProgress"
                 }
-            }
-        },
-        "inviteType": {
-            "type": "string",
-            "const": "sms"
-        },
-        "citizenId": {
-            "type": "string",
-            "const":"1729900599685"
+            },
+            "required": [
+                "status",
+                "caseStatus"
+            ]
         },
         "proprietorType": {
             "type": "string",
-            "const": "insured"
+            "const": "payer"
+        },
+        "inviteType": {
+            "type": "string",
+            "const": "none"
+        },
+        "citizenId": {
+            "type": "string",
+            "const": "1239900336573"
         },
         "firstName": {
             "type": "string",
-            "const": "กรรณชัย"
+            "const": "อมรรัตน์"
+        },
+        "middleName": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "const": null
         },
         "lastName": {
             "type": "string",
-            "const": "อ่างแก้ว"
+            "const": "ดิษเจริญ"
         },
         "dateOfBirth": {
             "type": "string",
-            "const": "2002-12-09"
+            "format": "date",
+            "const": "2001-05-21"
         },
         "phoneNumber": {
-            "type": "string",
-            "const": "0619926554"
+            "type": [
+                "string",
+                "null"
+            ],
+            "const": null
+        },
+        "email": {
+            "type": [
+                "string",
+                "null"
+            ],
+            "format": "email",
+            "const": null
+        },
+        "verificationRef": {
+            "type": "string"
         },
         "verificationCache": {
             "type": "object",
@@ -260,12 +375,35 @@
                         "insuredFirstName": {
                             "type": "string",
                             "const": "กรรณชัย"
+                        },
+                        "insuredMiddleName": {
+                            "type": [
+                                "string",
+                                "null"
+                            ],
+                            "const": null
                         }
                     }
                 }
             }
         }
     },
+    "required": [
+        "id",
+        "createdAt",
+        "updatedAt",
+        "userId",
+        "verifications",
+        "case",
+        "proprietorType",
+        "inviteType",
+        "citizenId",
+        "firstName",
+        "lastName",
+        "dateOfBirth",
+        "verificationRef",
+        "verificationCache"
+    ],
     "definitions": {
         "idCardConfig": {
             "type": "object",

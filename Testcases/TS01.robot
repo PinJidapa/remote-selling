@@ -14,7 +14,7 @@ Resource        ../Resourse/Env/${env}/Url.robot
 
 *** Variables ***
 ${smsInviteType}    invite?inviteType=sms&phoneNumber=0619926554
-${emailInviteType}    invite?inviteType=email&email=pinpinnpinnn3@gmail.com
+${emailInviteType}    invite?inviteType=email&email=jidapa.o@appman.co.th
 
 # [TS01] Step
 # Emulate agent create ekyc case for one insured to do ekyc and sends link via sms  (post create case by valid access token)

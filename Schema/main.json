@@ -1,337 +1,431 @@
 {
-    "id": "47af0d61-6325-4290-ac69-e5310a8218ab",
-    "createdAt": "2024-03-29T05:10:27.275Z",
-    "updatedAt": "2024-03-29T05:10:28.007Z",
+    "id": "d09128e3-e6af-4ce2-bc8e-cb1f8639b471",
+    "createdAt": "2024-03-29T08:14:37.141Z",
+    "updatedAt": "2024-03-29T08:14:55.786Z",
     "deletedAt": null,
     "userId": "4cce4c33-a81b-4333-b812-524e5835d76f",
-    "status": "inProgress",
-    "caseStatus": "inProgress",
-    "proprietors": [
+    "verifications": [
         {
-            "proprietorType": "insured",
-            "inviteType": "email",
-            "countryCode": "TH",
+            "status": "completed",
+            "frontIdCardConfig": {
+                "attempts": 3,
+                "required": true,
+                "isEditable": true,
+                "threshHold": 0.8,
+                "dependenciesRequired": false
+            },
+            "backIdCardConfig": {
+                "attempts": 3,
+                "required": true,
+                "isEditable": true,
+                "threshHold": 0.8,
+                "dependenciesRequired": false
+            },
+            "idFaceRecognitionConfig": {
+                "attempts": 1,
+                "required": true,
+                "threshHold": 0.8,
+                "currentAttempt": 0,
+                "livenessProvider": "facetecXAWS",
+                "dependenciesRequired": false
+            },
             "citizenId": "1729900599685",
+            "passportNumber": null,
+            "laserCode": null,
             "firstName": "กรรณชัย",
             "middleName": null,
             "lastName": "อ่างแก้ว",
             "dateOfBirth": "2002-12-09",
-            "phoneNumber": null,
             "email": "jidapa.o@appman.co.th",
-            "verificationRef": "47c68c07-eae3-4a7b-9c45-fbf7f06a2742",
-            "verificationCache": {
-                "ref": null,
-                "verificationId": null,
-                "reusedResults": null,
-                "userId": "4cce4c33-a81b-4333-b812-524e5835d76f",
-                "status": "open",
-                "notifyType": "none",
-                "expiresAt": "2024-04-28T05:10:29.518Z",
-                "verifiedAt": null,
-                "frontIdCardConfig": {
-                    "attempts": 3,
-                    "required": true,
-                    "isEditable": true,
-                    "threshHold": 0.8,
-                    "validations": [],
-                    "currentAttempt": 3,
-                    "dependenciesRequired": false,
-                    "compareNonEssentialFields": false
-                },
-                "passportConfig": {
-                    "required": false
-                },
-                "backIdCardConfig": {
-                    "attempts": 3,
-                    "required": true,
-                    "isEditable": true,
-                    "threshHold": 0.8,
-                    "currentAttempt": 3,
-                    "dependenciesRequired": false
-                },
-                "idFaceRecognitionConfig": {
-                    "attempts": 1,
-                    "required": true,
-                    "threshHold": 0.8,
-                    "currentAttempt": 1,
-                    "livenessProvider": "facetecXAWS",
-                    "dependenciesRequired": false
-                },
-                "citizenId": "1729900599685",
-                "passportNumber": null,
-                "laserCode": null,
-                "firstName": "กรรณชัย",
-                "middleName": null,
-                "lastName": "อ่างแก้ว",
-                "dateOfBirth": "2002-12-09",
-                "email": "jidapa.o@appman.co.th",
-                "phoneNumber": null,  
-                "appointment": null,
-                "pdpaConsented": false,
-                "feedback": null,
-                "meta": {
-                    "proprietor": {
-                        "lastName": "อ่างแก้ว",
-                        "firstName": "กรรณชัย"
-                    },
-                    "insuredLastName": "อ่างแก้ว",
-                    "insuredFirstName": "กรรณชัย",
-                    "insuredMiddleName": null
-                },
-                "kycStatus": "open",
-                "dipChipStatus": "unspecified",
-                "approvalStatus": "inProgress"
-            },
-            "expiryDuration": "P30D",
-            "meta": {
-                "insuredFirstName": "กรรณชัย",
-                "insuredMiddleName": null,
-                "insuredLastName": "อ่างแก้ว",
-                "proprietor": {
-                    "firstName": "กรรณชัย",
-                    "lastName": "อ่างแก้ว"
-                }
-            },
-            "verifications": [
-                {
-                    "proprietors": [
-                        {
-                            "proprietorType": "insured",
-                            "inviteType": "email",
-                            "countryCode": "TH",
-                            "citizenId": "1729900599685",
-                            "passportNumber": null,
-                            "firstName": "กรรณชัย",
-                            "middleName": null,
-                            "lastName": "อ่างแก้ว",
-                            "dateOfBirth": "2002-12-09",
-                            "phoneNumber": null,
-                            "email": "jidapa.o@appman.co.th",
-                            "verificationRef": null,
-                            "verificationCache": null,
-                            "certificationNumber": null,
-                            "memberNumber": null,
-                            "expiresAt": null,
-                            "verifiedAt": null
-                        }
-                    ],
-                    "userId": "4cce4c33-a81b-4333-b812-524e5835d76f",
-                    "status": "open",
-                    "notifyType": "none",
-                    "expiresAt": "2024-04-28T05:10:29.518Z",
-                    "verifiedAt": null,
-                    "frontIdCardConfig": {
-                        "attempts": 3,
-                        "required": true,
-                        "isEditable": true,
-                        "threshHold": 0.8,
-                        "validations": [],
-                        "currentAttempt": 3,
-                        "dependenciesRequired": false,
-                        "compareNonEssentialFields": false
-                    },
-                    "backIdCardConfig": {
-                        "attempts": 3,
-                        "required": true,
-                        "isEditable": true,
-                        "threshHold": 0.8,
-                        "currentAttempt": 3,
-                        "dependenciesRequired": false
-                    },
-                    "idFaceRecognitionConfig": {
-                        "attempts": 1,
-                        "required": true,
-                        "threshHold": 0.8,
-                        "currentAttempt": 1,
-                        "livenessProvider": "facetecXAWS",
-                        "dependenciesRequired": false
-                    },
-                    "citizenId": "1729900599685",
-                    
-                   
-                    "firstName": "กรรณชัย",
-                    "middleName": null,
-                    "lastName": "อ่างแก้ว",
-                    "dateOfBirth": "2002-12-09",
-                    "email": "jidapa.o@appman.co.th",
-                    "phoneNumber": null,
-                    "meta": {
-                        "proprietor": {
-                            "lastName": "อ่างแก้ว",
-                            "firstName": "กรรณชัย"
-                        },
-                        "insuredLastName": "อ่างแก้ว",
-                        "insuredFirstName": "กรรณชัย",
-                        "insuredMiddleName": null
-                    },
-                    "kycStatus": "open",
-                    "approvalStatus": "inProgress"
-                }
-            ]
-        },
-        {
-            "proprietorType": "insured",
-            "inviteType": "email",
-            "countryCode": "TH",
-            "citizenId": "1729900599685",
-            "firstName": "กรรณชัย",
-            "middleName": null,
-            "lastName": "อ่างแก้ว",
-            "dateOfBirth": "2002-12-09",
             "phoneNumber": null,
-            "email": "jidapa.o@appman.co.th",
-            "verificationRef": "47c68c07-eae3-4a7b-9c45-fbf7f06a2742",
-            "verificationCache": {
-                "ref": null,
-                "verificationId": null,
-                "reusedResults": null,
-                "userId": "4cce4c33-a81b-4333-b812-524e5835d76f",
-                "status": "open",
-                "notifyType": "none",
-                "expiresAt": "2024-04-28T05:10:29.518Z",
-                "verifiedAt": null,
-                "frontIdCardConfig": {
-                    "attempts": 3,
-                    "required": true,
-                    "isEditable": true,
-                    "threshHold": 0.8,
-                    "validations": [],
-                    "currentAttempt": 3,
-                    "dependenciesRequired": false,
-                    "compareNonEssentialFields": false
+            "frontIdCardResult": {
+                "response": {
+                    "result": {
+                        "name_en": "Mr. Kanchai",
+                        "district": "อ.สามพราน",
+                        "province": "จ.นครปฐม",
+                        "title_en": "Mr.",
+                        "title_th": "นาย",
+                        "id_number": "1 7299 00599 68 5",
+                        "address_no": "165 หมู่ที่ 3",
+                        "address_th": "165 หมู่ที่ 3 ต.คลองใหม่ อ.สามพราน จ.นครปฐม",
+                        "religion_th": "พุทธ",
+                        "full_name_th": "นาย กรรณชัย อ่างแก้ว",
+                        "last_name_en": "Angkaew",
+                        "last_name_th": "อ่างแก้ว",
+                        "sub_district": "ต.คลองใหม่",
+                        "first_name_en": "Kanchai",
+                        "first_name_th": "กรรณชัย",
+                        "serial_number": "1298-04-07051517",
+                        "middle_name_en": "",
+                        "middle_name_th": "",
+                        "date_of_birth_en": "9 Dec. 2002",
+                        "date_of_birth_th": "9 ธ.ค. 2545",
+                        "date_of_issue_en": "5 Jul. 2021",
+                        "date_of_issue_th": "5 ก.ค. 2564",
+                        "date_of_expiry_en": "8 Dec. 2029",
+                        "date_of_expiry_th": "8 ธ.ค. 2572",
+                        "middle_last_name_en": "Angkaew",
+                        "title_first_name_en": "Mr. Kanchai"
+                    }
                 },
-                "passportConfig": {
-                    "required": false
-                },
-                "backIdCardConfig": {
-                    "attempts": 3,
-                    "required": true,
-                    "isEditable": true,
-                    "threshHold": 0.8,
-                    "currentAttempt": 3,
-                    "dependenciesRequired": false
-                },
-                "idFaceRecognitionConfig": {
-                    "attempts": 1,
-                    "required": true,
-                    "threshHold": 0.8,
-                    "currentAttempt": 1,
-                    "livenessProvider": "facetecXAWS",
-                    "dependenciesRequired": false
-                },
-                "citizenId": "1729900599685",
-                "passportNumber": null,
-                "laserCode": null,
-                "firstName": "กรรณชัย",
-                "middleName": null,
-                "lastName": "อ่างแก้ว",
-                "dateOfBirth": "2002-12-09",
-                "email": "jidapa.o@appman.co.th",
-                "phoneNumber": null,  
-                "appointment": null,
-                "pdpaConsented": false,
-                "feedback": null,
-                "meta": {
-                    "proprietor": {
-                        "lastName": "อ่างแก้ว",
-                        "firstName": "กรรณชัย"
+                "comparisons": [
+                    {
+                        "key": "firstNameTh",
+                        "result": 100,
+                        "comparisonResult": [
+                            {
+                                "keys": [
+                                    "initial",
+                                    "ocr"
+                                ],
+                                "values": [
+                                    "กรรณชัย",
+                                    "กรรณชัย"
+                                ],
+                                "distance": 100,
+                                "hasResult": true
+                            },
+                            {
+                                "keys": [
+                                    "ocr",
+                                    "edit"
+                                ],
+                                "values": [
+                                    "กรรณชัย",
+                                    null
+                                ],
+                                "distance": 100,
+                                "hasResult": false
+                            },
+                            {
+                                "keys": [
+                                    "initial",
+                                    "nfc"
+                                ],
+                                "values": [
+                                    "กรรณชัย",
+                                    null
+                                ],
+                                "distance": 100,
+                                "hasResult": false
+                            },
+                            {
+                                "keys": [
+                                    "ocr",
+                                    "nfc"
+                                ],
+                                "values": [
+                                    "กรรณชัย",
+                                    null
+                                ],
+                                "distance": 100,
+                                "hasResult": false
+                            },
+                            {
+                                "keys": [
+                                    "edit",
+                                    "nfc"
+                                ],
+                                "values": [
+                                    null,
+                                    null
+                                ],
+                                "distance": 100,
+                                "hasResult": false
+                            },
+                            {
+                                "keys": [
+                                    "initial",
+                                    "edit"
+                                ],
+                                "values": [
+                                    "กรรณชัย",
+                                    null
+                                ],
+                                "distance": 100,
+                                "hasResult": false
+                            }
+                        ]
                     },
-                    "insuredLastName": "อ่างแก้ว",
-                    "insuredFirstName": "กรรณชัย",
-                    "insuredMiddleName": null
-                },
-                "kycStatus": "open",
-                "dipChipStatus": "unspecified",
-                "approvalStatus": "inProgress"
+                    {
+                        "key": "middleNameAndLastNameTh",
+                        "result": 100,
+                        "comparisonResult": [
+                            {
+                                "keys": [
+                                    "initial",
+                                    "ocr"
+                                ],
+                                "values": [
+                                    "อ่างแก้ว",
+                                    "อ่างแก้ว"
+                                ],
+                                "distance": 100,
+                                "hasResult": true
+                            },
+                            {
+                                "keys": [
+                                    "ocr",
+                                    "edit"
+                                ],
+                                "values": [
+                                    "อ่างแก้ว",
+                                    ""
+                                ],
+                                "distance": 100,
+                                "hasResult": false
+                            },
+                            {
+                                "keys": [
+                                    "initial",
+                                    "nfc"
+                                ],
+                                "values": [
+                                    "อ่างแก้ว",
+                                    null
+                                ],
+                                "distance": 100,
+                                "hasResult": false
+                            },
+                            {
+                                "keys": [
+                                    "ocr",
+                                    "nfc"
+                                ],
+                                "values": [
+                                    "อ่างแก้ว",
+                                    null
+                                ],
+                                "distance": 100,
+                                "hasResult": false
+                            },
+                            {
+                                "keys": [
+                                    "edit",
+                                    "nfc"
+                                ],
+                                "values": [
+                                    "",
+                                    null
+                                ],
+                                "distance": 100,
+                                "hasResult": false
+                            },
+                            {
+                                "keys": [
+                                    "initial",
+                                    "edit"
+                                ],
+                                "values": [
+                                    "อ่างแก้ว",
+                                    ""
+                                ],
+                                "distance": 100,
+                                "hasResult": false
+                            }
+                        ]
+                    },
+                    {
+                        "key": "citizenId",
+                        "result": 100,
+                        "comparisonResult": [
+                            {
+                                "keys": [
+                                    "initial",
+                                    "ocr"
+                                ],
+                                "values": [
+                                    "1729900599685",
+                                    "1729900599685"
+                                ],
+                                "distance": 100,
+                                "hasResult": true
+                            },
+                            {
+                                "keys": [
+                                    "ocr",
+                                    "edit"
+                                ],
+                                "values": [
+                                    "1729900599685",
+                                    null
+                                ],
+                                "distance": 100,
+                                "hasResult": false
+                            },
+                            {
+                                "keys": [
+                                    "initial",
+                                    "nfc"
+                                ],
+                                "values": [
+                                    "1729900599685",
+                                    null
+                                ],
+                                "distance": 100,
+                                "hasResult": false
+                            },
+                            {
+                                "keys": [
+                                    "ocr",
+                                    "nfc"
+                                ],
+                                "values": [
+                                    "1729900599685",
+                                    null
+                                ],
+                                "distance": 100,
+                                "hasResult": false
+                            },
+                            {
+                                "keys": [
+                                    "edit",
+                                    "nfc"
+                                ],
+                                "values": [
+                                    null,
+                                    null
+                                ],
+                                "distance": 100,
+                                "hasResult": false
+                            },
+                            {
+                                "keys": [
+                                    "initial",
+                                    "edit"
+                                ],
+                                "values": [
+                                    "1729900599685",
+                                    null
+                                ],
+                                "distance": 100,
+                                "hasResult": false
+                            }
+                        ]
+                    },
+                    {
+                        "key": "dateOfBirth",
+                        "result": 100,
+                        "comparisonResult": [
+                            {
+                                "keys": [
+                                    "initial",
+                                    "ocr"
+                                ],
+                                "values": [
+                                    "2002-12-09",
+                                    "2002-12-09"
+                                ],
+                                "distance": 100,
+                                "hasResult": true
+                            },
+                            {
+                                "keys": [
+                                    "ocr",
+                                    "edit"
+                                ],
+                                "values": [
+                                    "2002-12-09",
+                                    null
+                                ],
+                                "distance": 100,
+                                "hasResult": false
+                            },
+                            {
+                                "keys": [
+                                    "initial",
+                                    "nfc"
+                                ],
+                                "values": [
+                                    "2002-12-09",
+                                    null
+                                ],
+                                "distance": 100,
+                                "hasResult": false
+                            },
+                            {
+                                "keys": [
+                                    "ocr",
+                                    "nfc"
+                                ],
+                                "values": [
+                                    "2002-12-09",
+                                    null
+                                ],
+                                "distance": 100,
+                                "hasResult": false
+                            },
+                            {
+                                "keys": [
+                                    "edit",
+                                    "nfc"
+                                ],
+                                "values": [
+                                    null,
+                                    null
+                                ],
+                                "distance": 100,
+                                "hasResult": false
+                            },
+                            {
+                                "keys": [
+                                    "initial",
+                                    "edit"
+                                ],
+                                "values": [
+                                    "2002-12-09",
+                                    null
+                                ],
+                                "distance": 100,
+                                "hasResult": false
+                            }
+                        ]
+                    }
+                ],
+                "verified": true,
+                "confirmed": true
             },
-            "expiryDuration": "P30D",
+            "backIdCardResult": {
+                "id": "f7554ece-913a-4bf0-8c83-834425173a3f",
+                "response": {
+                    "error": null,
+                    "result": {
+                        "laser_code": "JT0-0707563-50"
+                    }
+                },
+                "verified": true,
+                "confirmed": true
+            },
+            "idFaceRecognitionResult": {
+                "verified": false,
+                "confirmed": true
+            },
+            "feedback": "ทำศัยกรรม",
             "meta": {
-                "insuredFirstName": "กรรณชัย",
-                "insuredMiddleName": null,
                 "insuredLastName": "อ่างแก้ว",
-                "proprietor": {
-                    "firstName": "กรรณชัย",
-                    "lastName": "อ่างแก้ว"
-                }
+                "insuredFirstName": "กรรณชัย",
+                "insuredMiddleName": null
             },
-            "verifications": [
-                {
-                    "proprietors": [
-                        {
-                            "proprietorType": "insured",
-                            "inviteType": "email",
-                            "countryCode": "TH",
-                            "citizenId": "1729900599685",
-                            "passportNumber": null,
-                            "firstName": "กรรณชัย",
-                            "middleName": null,
-                            "lastName": "อ่างแก้ว",
-                            "dateOfBirth": "2002-12-09",
-                            "phoneNumber": null,
-                            "email": "jidapa.o@appman.co.th",
-                            "verificationRef": null,
-                            "verificationCache": null,
-                            "certificationNumber": null,
-                            "memberNumber": null,
-                            "expiresAt": null,
-                            "verifiedAt": null
-                        }
-                    ],
-                    "userId": "4cce4c33-a81b-4333-b812-524e5835d76f",
-                    "status": "open",
-                    "notifyType": "none",
-                    "expiresAt": "2024-04-28T05:10:29.518Z",
-                    "verifiedAt": null,
-                    "frontIdCardConfig": {
-                        "attempts": 3,
-                        "required": true,
-                        "isEditable": true,
-                        "threshHold": 0.8,
-                        "validations": [],
-                        "currentAttempt": 3,
-                        "dependenciesRequired": false,
-                        "compareNonEssentialFields": false
-                    },
-                    "backIdCardConfig": {
-                        "attempts": 3,
-                        "required": true,
-                        "isEditable": true,
-                        "threshHold": 0.8,
-                        "currentAttempt": 3,
-                        "dependenciesRequired": false
-                    },
-                    "idFaceRecognitionConfig": {
-                        "attempts": 1,
-                        "required": true,
-                        "threshHold": 0.8,
-                        "currentAttempt": 1,
-                        "livenessProvider": "facetecXAWS",
-                        "dependenciesRequired": false
-                    },
-                    "citizenId": "1729900599685",
-                    
-                   
-                    "firstName": "กรรณชัย",
-                    "middleName": null,
-                    "lastName": "อ่างแก้ว",
-                    "dateOfBirth": "2002-12-09",
-                    "email": "jidapa.o@appman.co.th",
-                    "phoneNumber": null,
-                    "meta": {
-                        "proprietor": {
-                            "lastName": "อ่างแก้ว",
-                            "firstName": "กรรณชัย"
-                        },
-                        "insuredLastName": "อ่างแก้ว",
-                        "insuredFirstName": "กรรณชัย",
-                        "insuredMiddleName": null
-                    },
-                    "kycStatus": "open",
-                    "approvalStatus": "inProgress"
-                }
-            ]
+            "kycStatus": "completed"
         }
     ],
-    "policies": [],
-    "attachMeetingRoom": true
+    "case": {
+        "status": "inProgress",
+        "caseStatus": "inProgress"
+    },
+    "proprietorType": "insured",
+    "inviteType": "email",
+    "citizenId": "1729900599685",
+    "firstName": "กรรณชัย",
+    "lastName": "อ่างแก้ว",
+    "dateOfBirth": "2002-12-09",
+    "email": "jidapa.o@appman.co.th",
+    "verificationCache": {
+        "meta": {
+            "insuredLastName": "อ่างแก้ว",
+            "insuredFirstName": "กรรณชัย",
+            "insuredMiddleName": null
+        }
+    }
 }

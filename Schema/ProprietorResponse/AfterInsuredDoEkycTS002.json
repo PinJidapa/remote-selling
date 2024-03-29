@@ -7,6 +7,10 @@
             "items": {
                 "type": "object",
                 "properties": {
+                    "status": {
+                        "type": "string",
+                        "const": "completed"
+                    },
                     "frontIdCardConfig": {
                         "$ref": "#/definitions/idCardConfig"
                     },
@@ -16,38 +20,27 @@
                     "idFaceRecognitionConfig": {
                         "$ref": "#/definitions/idFaceRecognitionConfig"
                     },
-                    "status": {
-                        "type": "string",
-                        "const": "completed"
-                    },
                     "citizenId": {
                         "type": "string",
                         "const": "1729900599685"
-                    },
-                    "lastName": {
-                        "type": "string",
-                        "const": "อ่างแก้ว"
                     },
                     "firstName": {
                         "type": "string",
                         "const": "กรรณชัย"
                     },
+                    "lastName": {
+                        "type": "string",
+                        "const": "อ่างแก้ว"
+                    },
                     "dateOfBirth": {
                         "type": "string",
+                        "format": "date",
                         "const": "2002-12-09"
                     },
-                    "meta": {
-                        "type": "object",
-                        "properties": {
-                            "insuredLastName": {
-                                "type": "string",
-                                "const": "อ่างแก้ว"
-                            },
-                            "insuredFirstName": {
-                                "type": "string",
-                                "const": "กรรณชัย"
-                            }
-                        }
+                    "email": {
+                        "type": "string",
+                        "format": "email",
+                        "const": "jidapa.o@appman.co.th"
                     },
                     "frontIdCardResult": {
                         "type": "object",
@@ -55,12 +48,20 @@
                             "response": {
                                 "type": "object",
                                 "properties": {
-                                    "result":{
+                                    "result": {
                                         "type": "object",
                                         "properties": {
                                             "name_en": {
                                                 "type": "string",
                                                 "const": "Mr. Kanchai"
+                                            },
+                                            "district": {
+                                                "type": "string",
+                                                "const": "อ.สามพราน"
+                                            },
+                                            "province": {
+                                                "type": "string",
+                                                "const": "จ.นครปฐม"
                                             },
                                             "title_en": {
                                                 "type": "string",
@@ -73,6 +74,10 @@
                                             "id_number": {
                                                 "type": "string",
                                                 "const": "1 7299 00599 68 5"
+                                            },
+                                            "address_no": {
+                                                "type": "string",
+                                                "const": "165 หมู่ที่ 3"
                                             },
                                             "address_th": {
                                                 "type": "string",
@@ -152,10 +157,12 @@
                                             }
                                         }
                                     }
-                                }
+                                },
+                                "required": [
+                                    "result"
+                                ]
                             }
                         }
-                        
                     },
                     "backIdCardResult": {
                         "type": "object",
@@ -172,7 +179,6 @@
                                             }
                                         }
                                     }
-                                    
                                 }
                             }
                         }
@@ -180,19 +186,44 @@
                     "idFaceRecognitionResult": {
                         "type": "object",
                         "properties": {
-                            "verified":{
+                            "verified": {
                                 "type": "boolean",
                                 "const": false
                             },
-                            "confirmed":{
+                            "confirmed": {
                                 "type": "boolean",
                                 "const": true
                             }
                         }
                     },
-                    "feedback":{
+                    "feedback": {
                         "type": "string",
                         "const": "ทำศัยกรรม"
+                    },
+                    "meta": {
+                        "type": "object",
+                        "properties": {
+                            "insuredLastName": {
+                                "type": "string",
+                                "const": "อ่างแก้ว"
+                            },
+                            "insuredFirstName": {
+                                "type": "string",
+                                "const": "กรรณชัย"
+                            },
+                            "insuredMiddleName": {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ],
+                                "const": null
+                            }
+                        },
+                        "required": [
+                            "insuredLastName",
+                            "insuredFirstName",
+                            "insuredMiddleName"
+                        ]
                     },
                     "kycStatus": {
                         "type": "string",
@@ -200,9 +231,21 @@
                     }
                 },
                 "required": [
+                    "status",
                     "frontIdCardConfig",
                     "backIdCardConfig",
-                    "idFaceRecognitionConfig"
+                    "idFaceRecognitionConfig",
+                    "citizenId",
+                    "firstName",
+                    "lastName",
+                    "dateOfBirth",
+                    "email",
+                    "frontIdCardResult",
+                    "backIdCardResult",
+                    "idFaceRecognitionResult",
+                    "feedback",
+                    "meta",
+                    "kycStatus"
                 ]
             }
         },
@@ -217,19 +260,23 @@
                     "type": "string",
                     "const": "inProgress"
                 }
-            }
-        },
-        "inviteType": {
-            "type": "string",
-            "const": "sms"
-        },
-        "citizenId": {
-            "type": "string",
-            "const":"1729900599685"
+            },
+            "required": [
+                "status",
+                "caseStatus"
+            ]
         },
         "proprietorType": {
             "type": "string",
             "const": "insured"
+        },
+        "inviteType": {
+            "type": "string",
+            "const": "email"
+        },
+        "citizenId": {
+            "type": "string",
+            "const": "1729900599685"
         },
         "firstName": {
             "type": "string",
@@ -241,11 +288,13 @@
         },
         "dateOfBirth": {
             "type": "string",
+            "format": "date",
             "const": "2002-12-09"
         },
-        "phoneNumber": {
+        "email": {
             "type": "string",
-            "const": "0619926554"
+            "format": "email",
+            "const": "jidapa.o@appman.co.th"
         },
         "verificationCache": {
             "type": "object",
@@ -284,7 +333,7 @@
                 },
                 "threshHold": {
                     "type": "number",
-                    "threshHold": 0.8
+                    "const": 0.8
                 },
                 "attempts": {
                     "type": "integer",
@@ -295,6 +344,7 @@
                 "required",
                 "isEditable",
                 "dependenciesRequired",
+                "threshHold",
                 "attempts"
             ]
         },
@@ -325,6 +375,7 @@
             "required": [
                 "required",
                 "dependenciesRequired",
+                "threshHold",
                 "attempts",
                 "livenessProvider"
             ]

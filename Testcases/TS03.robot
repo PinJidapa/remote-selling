@@ -14,7 +14,7 @@ Resource        ../Resourse/Env/${env}/Url.robot
 
 *** Variables ***
 ${smsInviteType}    invite?inviteType=sms&phoneNumber=0619926554
-${emailInviteType}    invite?inviteType=email&email=pinpinnpinnn3@gmail.com
+${emailInviteType}    invite?inviteType=email&email=jidapa.o@appman.co.th
 ${invalidId}    12345678-1234-1234-1234-123456789012
 
 # [TS01] Step

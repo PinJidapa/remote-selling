@@ -14,7 +14,7 @@ Resource        ../Resourse/Env/${env}/Url.robot
 
 *** Variables ***
 ${smsInviteType}    invite?inviteType=sms&phoneNumber=0619926554
-${emailInviteType}    invite?inviteType=email&email=pinpinnpinnn3@gmail.com
+${emailInviteType}    invite?inviteType=email&email=jidapa.o@appman.co.th
 
 # [TS01] Step
 # Emulate agent create ekyc case for insured and payer to do ekyc and sends link via email (post create case by valid access token)
@@ -44,7 +44,7 @@ TS02 Create Case By Email And Two Proprietor Do Ekyc
     ${insuredProprietorId} =    Get From Dictionary    ${responseDictCases["proprietors"][0]}    id
     ${payerProprietorId} =    Get From Dictionary    ${responseDictCases["proprietors"][1]}    id
     ${caseId} =    Get From Dictionary    ${responseDictCases}    id
-    Log To Console  ${caseId}
+    Log To Console  ccc:${caseId}
 
     ${insuredVerificationId} =    Get From Dictionary    ${responseDictCases["proprietors"][0]}    verificationRef
     ${payerVerificationId} =    Get From Dictionary    ${responseDictCases["proprietors"][1]}    verificationRef
@@ -54,75 +54,77 @@ TS02 Create Case By Email And Two Proprietor Do Ekyc
     ...    ${responseDictCases}
     ...    verificationResponseSchemaTS002
 
-    # Resend Link
-    # ...    ${accessToken}
-    # ...    ${baseUrl}
-    # ...    ${insuredProprietorId}
-    # ...    ${emailInviteType}
-    # ...    204
+    Resend Link
+    ...    ${accessToken}
+    ...    ${baseUrl}
+    ...    ${insuredProprietorId}
+    ...    ${emailInviteType}
+    ...    204
 
-    # ${responseDictCases}=    Get Case By Id
-    # ...    ${accessToken}
-    # ...    ${baseUrl}
-    # ...    ${caseId}
-    # ...    200
+    ${responseDictCases}=    Get Case By Id
+    ...    ${accessToken}
+    ...    ${baseUrl}
+    ...    ${caseId}
+    ...    200
 
-    # Validate Case Detail Response
-    # ...    ${responseDictCases}
-    # ...    CaseResponseAfterCreateCaseTS002
+    Validate Case Detail Response
+    ...    ${responseDictCases}
+    ...    CaseResponseAfterCreateCaseTS002
 
-    # Client Pass Front ID Card, Back ID Card, Not Pass Face Recognition
-    # ...    ${kycPrivateKey}
-    # ...    ${baseKycUrl}
-    # ...    ${insuredVerificationId}
-    # ...    /Resourse/TestData/IdCard/FrontIdCard01.jpeg 
-    # ...    /Resourse/TestData/IdCard/BackIdCard01.jpeg
-    # ...    image/jpeg
-    # ...    200
+    Client Pass Front ID Card, Back ID Card, Not Pass Face Recognition
+    ...    ${kycPrivateKey}
+    ...    ${baseKycUrl}
+    ...    ${insuredVerificationId}
+    ...    /Resourse/TestData/IdCard/FrontIdCard01.jpeg 
+    ...    /Resourse/TestData/IdCard/BackIdCard01.jpeg
+    ...    image/jpeg
+    ...    200
 
-    # Client Pass Front ID Card, Back ID Card, Not Pass Face Recognition
-    # ...    ${kycPrivateKey}
-    # ...    ${baseKycUrl}
-    # ...    ${payerVerificationId}
-    # ...    /Resourse/TestData/IdCard/FrontIdCard02.jpeg 
-    # ...    /Resourse/TestData/IdCard/BackIdCard02.jpeg
-    # ...    image/jpeg
-    # ...    200
+    Client Pass Front ID Card, Back ID Card, Not Pass Face Recognition
+    ...    ${kycPrivateKey}
+    ...    ${baseKycUrl}
+    ...    ${payerVerificationId}
+    ...    /Resourse/TestData/IdCard/FrontIdCard02.jpeg 
+    ...    /Resourse/TestData/IdCard/BackIdCard02.jpeg
+    ...    image/jpeg
+    ...    200
 
+    Sleep    2
     ${responseDictProprietor}=    Get Proprietors By ID
     ...    ${accessToken}
     ...    ${baseUrl}
     ...    ${insuredProprietorId}
     ...    200
 
-    # Validate Proprietors Response
-    # ...    ${responseDictProprietor}
-    # ...    getProprietorResponseBeforeEkycTS002
+    Validate Proprietors Response
+    ...    ${responseDictProprietor}
+    ...    AfterInsuredDoEkycTS002
 
+    Sleep    2
     ${responseDictProprietor}=    Get Proprietors By ID
     ...    ${accessToken}
     ...    ${baseUrl}
     ...    ${payerProprietorId}
     ...    200
 
-    # Validate Proprietors Response
-    # ...    ${responseDictProprietor}
-    # ...    getProprietorResponseBeforeEkycTS002
+    Validate Proprietors Response
+    ...    ${responseDictProprietor}
+    ...    AfterPayerDoEkycTS002
 
     Patch Submit Case
     ...    ${accessToken}
     ...    ${baseUrl}
     ...    ${caseId}
     ...    204   
-    
-    Patch Expired Case
+
+    Sleep    2s
+
+    ${responseDictCases}=    Get Case By Id
     ...    ${accessToken}
     ...    ${baseUrl}
     ...    ${caseId}
-    ...    204
-    Sleep    5s
-    Patch Expired Case
-    ...    ${accessToken}
-    ...    ${baseUrl}
-    ...    ${caseId}
-    ...    404
+    ...    200
+
+    Validate Case Detail Response
+    ...    ${responseDictCases}
+    ...    CaseResponseAfterSubmitCaseTS002

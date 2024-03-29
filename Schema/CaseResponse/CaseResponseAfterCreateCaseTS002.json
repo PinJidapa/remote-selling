@@ -235,11 +235,11 @@
                                     "properties": {
                                         "insuredLastName": {
                                             "type": "string",
-                                            "const": "โดิษเจริญ"
+                                            "const": "อ่างแก้ว"
                                         },
                                         "insuredFirstName": {
                                             "type": "string",
-                                            "const": "อมรรัตน์"
+                                            "const": "กรรณชัย"
                                         }
                                     },
                                     "required": [
