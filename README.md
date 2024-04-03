@@ -1,24 +1,56 @@
 # README for the robot framework template
 
+## Usage
+
+### Create a virtual environment (optional)
+
+```bash
+conda create -n robot python=3.11.0
+conda activate robot
+```
+
+### Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Run the robot
+
+```bash
+robot -d Log -r ${REPORT NAME} -o ${OUTPUT NAME} -l ${LOG NAME} --variable env:${ENV Testcases/NAME OF FILE}.robot
+```
+
 ## Development guide
 
 For example, to create a new test instance for the login page, create a new file in the Testcases folder and add the running script to robot.yaml.
+
 ```bash
     python -m robot -d Log -r ${REPORT NAME} -o ${OUTPUT NAME} -l ${LOG NAME} --variable env:${ENV Testcases/NAME OF FILE}.robot
 ```
- 
+
 ### Suggested directory structure
 
 The directory structure given by the template:
 
 ```
-├── devdata
-├── keywords
-│   └── keywords.robot
-├── libraries
-│   └── MyLibrary.py
-├── resources
-│   └── variables.py
+├── Body
+├── Data
+├── Keywords
+├── Log
+├── Page
+├── Resourse
+│   ├── Env
+│   │   └── Uat
+│   └── TestData
+│       ├── CreateCase
+│       └── IdCard
+├── Schema
+│   ├── CaseResponse
+│   ├── CreateCaseResponse
+│   └── ProprietorResponse
+├── Scripts
+└── Testcases
 ```
 
 where
