@@ -5,6 +5,7 @@ Library         Collections
 Library         OperatingSystem
 Library         ../Scripts/api.py
 Resource        ./GetTokenPage.robot
+/Resource/TestData/Ekyc
 *** Keywords *** 
 Patch Consent
     [Documentation]    Patch consent for updating consent status for PDPA compliance.
@@ -18,7 +19,7 @@ Patch Consent
     [Arguments]    ${kycPrivateKey}    ${baseKycUrl}    ${verificationId}    ${expectedStatus}
     ${headers} =    Create Dictionary
     Set To Dictionary    ${headers}    Authorization    Bearer ${kycPrivateKey}
-    ${file_path} =    Get File    ${EXECDIR}/Data/patchConsentBody.json
+    ${file_path} =    Get File    ${EXECDIR}/Resourse/TestData/Ekyc/patchConsentBody.json
     ${json_data} =    Evaluate    json.loads('''${file_path}''')
     ${patchConsent} =    PATCH    ${baseKycUrl}/verifications/${verificationId}
     ...    expected_status=${expectedStatus}
@@ -55,7 +56,7 @@ Patch Front ID Card
     [Arguments]    ${kycPrivateKey}    ${baseKycUrl}    ${verificationId}    ${expectedStatus}
     ${headers} =    Create Dictionary
     Set To Dictionary    ${headers}    Authorization    Bearer ${kycPrivateKey}
-    ${file_path} =    Get File    ${EXECDIR}/Data/patchIdCard.json
+    ${file_path} =    Get File    ${EXECDIR}/Resourse/TestData/Ekyc/patchIdCard.json
     ${json_data} =    Evaluate    json.loads('''${file_path}''')
     ${response} =    PATCH    ${baseKycUrl}/verifications/${verificationId}/frontIdCards
     ...    json=${json_data}
@@ -92,7 +93,7 @@ Patch Back ID Card
     [Arguments]    ${kycPrivateKey}    ${baseKycUrl}    ${verificationId}    ${expectedStatus}
     ${headers} =    Create Dictionary
     Set To Dictionary    ${headers}    Authorization    Bearer ${kycPrivateKey}
-    ${file_path} =    Get File    ${EXECDIR}/data/patchIdCard.json
+    ${file_path} =    Get File    ${EXECDIR}/Resourse/TestData/Ekyc/patchIdCard.json
     ${json_data} =    Evaluate    json.loads('''${file_path}''')
     ${response} =    PATCH    ${baseKycUrl}/verifications/${verificationId}/backIdCards
     ...    json=${json_data}
@@ -125,7 +126,7 @@ Get FaceTec Token Session
     ${sessionToken} =    Get From Dictionary    ${tokenResponseDictSessionToken}    sessionToken
     Set Test Variable    ${sessionToken}
 
-    ${file_path} =    Get File    ${EXECDIR}/data/livenessFail.json
+    ${file_path} =    Get File    ${EXECDIR}/Resourse/TestData/Ekyc/livenessFail.json
     ${json_data} =    Evaluate    json.loads('''${file_path}''')
     Set To Dictionary    ${json_data}    sessionId    ${sessionToken}
     ${response} =    POST     ${baseKycUrl}/verifications/${verificationId}/liveness/facetec/liveness-3d    json=${json_data}
@@ -145,7 +146,7 @@ Patch Remark
     [Arguments]    ${kycPrivateKey}    ${baseKycUrl}    ${verificationId}    ${expectedStatus}
     ${headers} =    Create Dictionary
     Set To Dictionary    ${headers}    Authorization    Bearer ${kycPrivateKey}
-    ${file_path} =    Get File    ${EXECDIR}/data/patchRemark.json
+    ${file_path} =    Get File    ${EXECDIR}/Resourse/TestData/Ekyc/patchRemark.json
     ${json_data} =    Evaluate    json.loads('''${file_path}''')
     ${response} =    PATCH    ${baseKycUrl}/verifications/${verificationId}
     ...    json=${json_data}
@@ -164,7 +165,7 @@ Patch Confirm Verification
     [Arguments]    ${kycPrivateKey}    ${baseKycUrl}    ${verificationId}    ${expectedStatus}
     ${headers} =    Create Dictionary
     Set To Dictionary    ${headers}    Authorization    Bearer ${kycPrivateKey}
-    ${file_path} =    Get File    ${EXECDIR}/data/patchConfirm.json
+    ${file_path} =    Get File    ${EXECDIR}/Resourse/TestData/Ekyc/patchConfirm.json
     ${json_data} =    Evaluate    json.loads('''${file_path}''')
     ${response} =    PATCH    ${baseKycUrl}/verifications/${verificationId}/idFaceRecognitions
     ...    json=${json_data}
