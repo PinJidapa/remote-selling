@@ -49,7 +49,7 @@ The directory structure given by the template:
 │   ├── CreateCaseResponse
 │   └── ProprietorResponse
 ├── Scripts
-└── Testcases
+└── TestCase
 ```
 
 where
@@ -61,7 +61,7 @@ where
 - `TestData` : This subdirectory contains test data used in your test cases. It might include input data, expected results, or sample data for various test scenarios.
 - `Schema` : This directory holds JSON schema definitions for different types of responses or data structures used in your application. Schemas provide a formal way to define the structure and constraints of JSON data.
 - `Scripts` : The Scripts directory typically contains additional scripts or utilities used in your automation workflow. These scripts could include setup/teardown scripts, helper scripts, or custom Python modules used in conjunction with Robot Framework.
-- `Testcases` : This directory contains the actual test case files. Test cases are written using the Robot Framework syntax and utilize keywords defined in the Keywords directory. Test cases define the sequence of steps to be executed and assertions to validate the behavior of your application under test.
+- `TestCase` : This directory contains the actual test case files. Test cases are written using the Robot Framework syntax and utilize keywords defined in the Keywords directory. Test cases define the sequence of steps to be executed and assertions to validate the behavior of your application under test.
 
 In addition to these, you can create your own directories (e.g. `bin`, `tmp`). Add these directories to the `PATH` or `PYTHONPATH` section of `robot.yaml` if necessary.
 
