@@ -18,7 +18,7 @@ pip install -r requirements.txt
 ### Run the robot
 
 ```bash
-robot -d Log -r ${REPORT NAME} -o ${OUTPUT NAME} -l ${LOG NAME} --variable env:${ENV Testcases/NAME OF FILE}.robot
+robot -d Log -r ${REPORT NAME} -o ${OUTPUT NAME} -l ${LOG NAME} --variable env:${ENV} Testcases/NAME OF FILE.robot
 ```
 
 ## Development guide
@@ -26,7 +26,7 @@ robot -d Log -r ${REPORT NAME} -o ${OUTPUT NAME} -l ${LOG NAME} --variable env:$
 For example, to create a new test instance for the login page, create a new file in the Testcases folder and add the running script to robot.yaml.
 
 ```bash
-    python -m robot -d Log -r ${REPORT NAME} -o ${OUTPUT NAME} -l ${LOG NAME} --variable env:${ENV Testcases/NAME OF FILE}.robot
+    python -m robot -d Log -r ${REPORT NAME} -o ${OUTPUT NAME} -l ${LOG NAME} --variable env:${ENV} Testcases/NAME OF FILE.robot
 ```
 
 ### Suggested directory structure
