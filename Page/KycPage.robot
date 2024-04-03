@@ -1,8 +1,5 @@
 *** Settings ***
-Library         RequestsLibrary
-Library         ../Scripts/validate.py
-Library         Collections
-Library         OperatingSystem
+Resource        ../Resource/Import.robot
 Library         ../Scripts/api.py
 Resource        ./GetTokenPage.robot
 

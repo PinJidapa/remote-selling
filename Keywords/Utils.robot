@@ -23,8 +23,7 @@ Get Child Webelements
     ...                ${element}    
     ...                find_elements   
     ...                  by=xpath    value=child::*    
-
-    [Return]      ${children}
+    Return From Keyword      ${children}
 
 Click Element Using JavaScript Text
     [Arguments]    ${text}
@@ -41,4 +40,4 @@ Check If Text is Present
     EXCEPT
         ${result}    Set Variable    False
     END
-    [Return]    ${result}
+    Return From Keyword   ${result}

@@ -1,7 +1,5 @@
 *** Settings ***
-Library         RequestsLibrary
-Library         Collections
-
+Resource        ../Resource/Import.robot
 
 *** Keywords *** 
 Get Token
