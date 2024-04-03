@@ -27,7 +27,7 @@ Create Case
     ${headers} =    Create Dictionary
     Set To Dictionary    ${headers}    Content-Type    application/json
     Set To Dictionary    ${headers}    Authorization    Bearer ${accessToken}
-    ${filePath} =    Get File    ${EXECDIR}/Body/${caseType}.json
+    ${filePath} =    Get File    ${EXECDIR}/Resourse/TestData/Body/${caseType}.json
     ${jsonData} =    Evaluate    json.loads('''${filePath}''')
     ${responseCreateCases} =    POST    ${baseUrl}/cases    json=${jsonData}
     ...    expected_status=${expectedStatus}
