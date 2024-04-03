@@ -9,8 +9,8 @@ Resource        ../Keywords/KycKeyword.robot
 Resource        ../Page/GetProprietorByIdPage.robot
 Resource        ../Page/PatchExpiredCasePage.robot
 Resource        ../Page/PatchSubmitCasePage.robot
-Resource        ../Resourse/Env/${env}/Credential.robot
-Resource        ../Resourse/Env/${env}/Url.robot
+Resource        ../Resource/Env/${env}/Credential.robot
+Resource        ../Resource/Env/${env}/Url.robot
 
 *** Variables ***
 ${smsInviteType}    invite?inviteType=sms&phoneNumber=0619926554
@@ -69,8 +69,8 @@ TS03 Negative Case
     ...    ${kycPrivateKey}
     ...    ${baseKycUrl}
     ...    ${invalidId} 
-    ...    /Resourse/TestData/IdCard/FrontIdCard01.jpeg 
-    ...    /Resourse/TestData/IdCard/BackIdCard01.jpeg
+    ...    /Resource/TestData/IdCard/FrontIdCard01.jpeg 
+    ...    /Resource/TestData/IdCard/BackIdCard01.jpeg
     ...    image/jpeg
     ...    404
 

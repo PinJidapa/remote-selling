@@ -9,8 +9,8 @@ Resource        ../Keywords/KycKeyword.robot
 Resource        ../Page/GetProprietorByIdPage.robot
 Resource        ../Page/PatchExpiredCasePage.robot
 Resource        ../Page/PatchSubmitCasePage.robot
-Resource        ../Resourse/Env/${env}/Credential.robot
-Resource        ../Resourse/Env/${env}/Url.robot
+Resource        ../Resource/Env/${env}/Credential.robot
+Resource        ../Resource/Env/${env}/Url.robot
 
 # [TS04] Step
 # Emulate agent create ekyc case for one insured to do ekyc  (post create case by valid access token)
