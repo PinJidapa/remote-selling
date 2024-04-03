@@ -34,7 +34,6 @@ For example, to create a new test instance for the login page, create a new file
 The directory structure given by the template:
 
 ```
-├── Body
 ├── Data
 ├── Keywords
 ├── Log
@@ -43,6 +42,7 @@ The directory structure given by the template:
 │   ├── Env
 │   │   └── Uat
 │   └── TestData
+│       ├── Body
 │       ├── CreateCase
 │       └── IdCard
 ├── Schema
